@@ -469,6 +469,8 @@ return matchesSearch && matchesCategory;
 
 
 
+console.log("Filtered words:", filtered.length);
+
 dictionaryGrid.innerHTML =
 
 filtered
