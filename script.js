@@ -731,10 +731,6 @@ function showQuestion(){
     const question = quizQuestions[currentQuestion];
 
 
-const question =
-quizQuestions[currentQuestion];
-
-
 const answers =
 [
 question.meaning,
