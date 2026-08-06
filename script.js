@@ -530,7 +530,269 @@ updateCountdown,
 
 
 renderDictionary();
+const dictionaryGrid = document.getElementById("dictionaryGrid");
+const searchInput = document.getElementById("searchInput");
+const categoryButtons = document.querySelectorAll(".category-btn");
 
+let currentCategory = "All";
+
+
+// ==========================
+// WORD OF THE DAY
+// ==========================
+
+function getDailyWord() {
+
+    const now = new Date();
+
+    const reset = new Date();
+
+    reset.setHours(8,0,0,0);
+
+    if (now < reset) {
+        reset.setDate(reset.getDate() - 1);
+    }
+
+    const dayNumber = Math.floor(reset.getTime() / 86400000);
+
+    return dictionary[dayNumber % dictionary.length];
+
+}
+
+
+
+function displayWordOfDay() {
+
+    const container = document.getElementById("wordOfDay");
+
+    if (!container) return;
+
+
+    const word = getDailyWord();
+
+
+    container.innerHTML = `
+
+        <div class="category">
+            ${word.category}
+        </div>
+
+        <h2>${word.word}</h2>
+
+        <p>
+            ${word.meaning}
+        </p>
+
+    `;
+
+}
+
+
+
+function updateCountdown(){
+
+    const countdown =
+    document.getElementById("countdown");
+
+
+    if(!countdown) return;
+
+
+    const now = new Date();
+
+    let next = new Date();
+
+    next.setHours(8,0,0,0);
+
+
+    if(now >= next){
+
+        next.setDate(next.getDate()+1);
+
+    }
+
+
+    const difference =
+    next - now;
+
+
+    const hours =
+    Math.floor(difference / 3600000);
+
+
+    const minutes =
+    Math.floor(
+        (difference % 3600000) / 60000
+    );
+
+
+    const seconds =
+    Math.floor(
+        (difference % 60000) / 1000
+    );
+
+
+    countdown.innerHTML =
+    `
+    Next discovery in:
+    ${hours}h ${minutes}m ${seconds}s
+    `;
+
+}
+
+
+
+// ==========================
+// DICTIONARY
+// ==========================
+
+
+function createCard(entry){
+
+const saved =
+isFavorite(entry.word);
+
+
+return `
+
+<div class="card">
+
+<div class="category">
+${entry.category}
+</div>
+
+
+<h3>
+${entry.word}
+</h3>
+
+
+<p>
+${entry.meaning}
+</p>
+
+
+<button 
+class="favorite-btn"
+onclick="toggleFavorite('${entry.word}')">
+
+${saved ? "⭐ Saved" : "☆ Favorite"}
+
+</button>
+
+
+</div>
+
+`;
+
+}
+
+
+
+function renderDictionary(){
+
+const search =
+searchInput.value
+.toLowerCase()
+.trim();
+
+
+const filtered =
+dictionary.filter(entry=>{
+
+
+const matchesSearch =
+
+entry.word
+.toLowerCase()
+.includes(search)
+
+||
+
+entry.meaning
+.toLowerCase()
+.includes(search);
+
+
+
+const matchesCategory =
+
+currentCategory === "All"
+
+||
+
+entry.category === currentCategory;
+
+
+
+return matchesSearch && matchesCategory;
+
+
+});
+
+
+
+dictionaryGrid.innerHTML =
+
+filtered
+.map(createCard)
+.join("");
+
+}
+
+
+
+
+searchInput.addEventListener(
+"input",
+renderDictionary
+);
+
+
+
+categoryButtons.forEach(button=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+categoryButtons.forEach(btn=>
+
+btn.classList.remove("active")
+
+);
+
+
+button.classList.add("active");
+
+
+currentCategory =
+button.dataset.category;
+
+
+renderDictionary();
+
+
+});
+
+
+});
+
+
+
+displayWordOfDay();
+
+updateCountdown();
+
+setInterval(
+updateCountdown,
+1000
+);
+
+
+renderDictionary();
 // ==========================
 // QUIZ SYSTEM
 // ==========================
@@ -731,6 +993,10 @@ function showQuestion(){
     const question = quizQuestions[currentQuestion];
 
 
+const question =
+quizQuestions[currentQuestion];
+
+
 const answers =
 [
 question.meaning,
@@ -883,13 +1149,14 @@ document.addEventListener(
 function(event){
 
     if(
-event.target.classList.contains("favorite-btn")
-){
+    event.target.classList.contains("favorite-btn")
+    ){
 
-renderDictionary();
+        renderDictionary();
 
-}
+    }
 
 });
+
 
 alert("Blueberology JS loaded");
