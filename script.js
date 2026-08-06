@@ -361,3 +361,18 @@ categoryButtons.forEach(button => {
 });
 
 renderDictionary();
+function showWordOfDay() {
+
+    const wordContainer = document.getElementById("wordOfDay");
+
+    const randomWord =
+        dictionary[Math.floor(Math.random() * dictionary.length)];
+
+    wordContainer.innerHTML = `
+        <div class="category">${randomWord.category}</div>
+        <h3>${randomWord.word}</h3>
+        <p>${randomWord.meaning}</p>
+    `;
+}
+
+showWordOfDay();
