@@ -967,19 +967,18 @@ next.innerHTML =
 
 function createQuiz(){
 
+    if(dictionary.length === 0){
+        quizBox.innerHTML = "No terms available.";
+        return;
+    }
 
-quizQuestions =
-dictionary
-.sort(
-()=>0.5-Math.random()
-)
-.slice(0,5);
+    quizQuestions = dictionary
+        .sort(() => 0.5 - Math.random())
+        .slice(0,5);
 
+    currentQuestion = 0;
 
-currentQuestion = 0;
-
-
-showQuestion();
+    showQuestion();
 
 }
 
@@ -988,6 +987,10 @@ showQuestion();
 
 
 function showQuestion(){
+
+    console.log("Quiz started", quizQuestions);
+
+    const question = quizQuestions[currentQuestion];
 
 
 const question =
@@ -1127,7 +1130,7 @@ createQuiz
 
 
 
-if(startQuiz)
+if(startQuiz){
 
 startQuiz.addEventListener(
 "click",
