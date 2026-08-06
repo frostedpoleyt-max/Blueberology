@@ -883,14 +883,13 @@ document.addEventListener(
 function(event){
 
     if(
-    event.target.classList.contains("favorite-btn")
-    ){
+event.target.classList.contains("favorite-btn")
+){
 
-        renderDictionary();
+renderDictionary();
 
-    }
+}
 
 });
-
 
 alert("Blueberology JS loaded");
