@@ -1127,7 +1127,7 @@ createQuiz
 
 
 
-if(startQuiz){
+if(startQuiz)
 
 startQuiz.addEventListener(
 "click",
