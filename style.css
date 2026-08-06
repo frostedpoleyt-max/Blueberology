@@ -730,5 +730,14 @@ body {
             70px 20px;
 
     }
+.word-day-section .card {
+    max-width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    border-color: rgba(57,255,136,0.4);
+}
 
+.word-day-section .card h3 {
+    font-size: 2rem;
+    margin: 15px 0;
 }
