@@ -1148,14 +1148,15 @@ document.addEventListener(
 "click",
 function(event){
 
-if(
-event.target.classList.contains("favorite-btn")
-){
+    if(
+    event.target.classList.contains("favorite-btn")
+    ){
 
-renderDictionary();
+        renderDictionary();
 
-}
+    }
+
+});
+
 
 alert("Blueberology JS loaded");
-    
-});
