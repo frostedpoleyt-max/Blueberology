@@ -1156,4 +1156,6 @@ renderDictionary();
 
 }
 
+alert("Blueberology JS loaded");
+    
 });
