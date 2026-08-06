@@ -1,171 +1,124 @@
-/* ==========================================
-   BLUEBEROLOGY - PREMIUM DARK UI
-   ========================================== */
-
-
 :root {
-    --background: #121212;
+    --bg: #101010;
     --surface: #181818;
-    --surface-light: #202020;
+    --surface2: #222;
 
-    --green: #2E7D32;
-    --green-dark: #1B5E20;
+    --green: #39ff88;
+    --forest: #2E7D32;
+    --blue: #5b8cff;
 
-    --neon: #39ff88;
-    --blueberry: #5b8cff;
+    --text: #f5f5f5;
+    --muted: #aaa;
 
-    --text: #f4f4f4;
-    --muted: #a8a8a8;
-
-    --border: rgba(57,255,136,0.18);
-
-    --shadow:
-        0 0 25px rgba(57,255,136,0.12);
-
-    --transition:
-        0.3s ease;
+    --border: rgba(57,255,136,0.25);
 }
 
 
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior:smooth;
 }
 
 
 body {
 
     background:
-        radial-gradient(
-            circle at top,
-            rgba(46,125,50,0.12),
-            transparent 35%
-        ),
-        var(--background);
+    radial-gradient(circle at top,
+    rgba(46,125,50,.18),
+    transparent 40%),
+    var(--bg);
 
-    color: var(--text);
+    color:var(--text);
 
     font-family:
-        "Inter",
-        "Segoe UI",
-        Arial,
-        sans-serif;
+    "Segoe UI",
+    Arial,
+    sans-serif;
 
-    line-height: 1.6;
+    line-height:1.6;
 }
 
 
 
-/* ==========================================
-   NAVIGATION
-   ========================================== */
+/* NAVIGATION */
 
 
 .navbar {
 
-    position: fixed;
-    top: 0;
-    width: 100%;
+    position:fixed;
+
+    top:0;
+
+    width:100%;
+
+    z-index:1000;
 
     background:
-        rgba(18,18,18,0.82);
+    rgba(10,10,10,.85);
 
-    backdrop-filter: blur(14px);
+    backdrop-filter:blur(15px);
 
     border-bottom:
-        1px solid var(--border);
+    1px solid var(--border);
 
-    z-index: 1000;
 }
-
 
 
 .nav-container {
 
-    max-width: 1200px;
+    max-width:1200px;
 
-    margin: auto;
+    margin:auto;
 
-    padding:
-        20px 30px;
+    padding:20px 30px;
 
-    display:
-        flex;
+    display:flex;
 
-    justify-content:
-        space-between;
+    justify-content:space-between;
 
-    align-items:
-        center;
+    align-items:center;
 
 }
-
 
 
 .logo {
 
-    color: var(--neon);
+    color:var(--green);
 
-    font-size:
-        1.6rem;
+    font-size:1.7rem;
 
-    font-weight:
-        800;
+    font-weight:900;
 
-    text-decoration:
-        none;
+    text-decoration:none;
 
-    letter-spacing:
-        2px;
+    letter-spacing:2px;
 
     text-shadow:
-        0 0 15px rgba(57,255,136,0.7);
+    0 0 20px var(--green);
 
 }
 
 
+nav a {
 
-.nav-links {
+    color:white;
 
-    display:
-        flex;
+    text-decoration:none;
 
-    gap:
-        30px;
-
-    list-style:
-        none;
+    margin-left:25px;
 
 }
 
 
+nav a:hover {
 
-.nav-links a {
-
-    color:
-        var(--text);
-
-    text-decoration:
-        none;
-
-    transition:
-        var(--transition);
-
-}
-
-
-
-.nav-links a:hover {
-
-    color:
-        var(--neon);
+    color:var(--green);
 
 }
 
@@ -173,149 +126,62 @@ body {
 
 
 
-/* ==========================================
-   HERO
-   ========================================== */
+/* HERO / WORD OF DAY */
 
 
 .hero {
 
-    min-height:
-        100vh;
+    min-height:85vh;
 
-    display:
-        flex;
+    padding-top:120px;
 
-    justify-content:
-        center;
+    display:flex;
 
-    align-items:
-        center;
+    justify-content:center;
 
-    text-align:
-        center;
+    align-items:center;
 
-    padding:
-        100px 25px 50px;
+    flex-direction:column;
+
+    text-align:center;
 
 }
 
 
+.daily-label {
 
-.hero-content {
+    color:var(--green);
 
-    max-width:
-        850px;
+    letter-spacing:3px;
 
-}
-
-
-
-.hero h1 {
-
-    font-size:
-        clamp(3rem,7vw,5.5rem);
-
-    line-height:
-        1.1;
-
-    margin-bottom:
-        25px;
+    font-weight:bold;
 
 }
 
 
+#countdown {
 
-.hero h1 span {
+    margin-top:25px;
 
-    color:
-        var(--neon);
+    color:var(--muted);
 
-    text-shadow:
-        0 0 25px rgba(57,255,136,0.5);
-
-}
-
-
-
-.hero p {
-
-    color:
-        var(--muted);
-
-    font-size:
-        1.25rem;
-
-    margin-bottom:
-        40px;
-
-}
-
-
-
-.cta-button {
-
-    display:
-        inline-block;
-
-    padding:
-        15px 35px;
-
-    border-radius:
-        50px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--green),
-            var(--neon)
-        );
-
-    color:
-        #000;
-
-    font-weight:
-        700;
-
-    text-decoration:
-        none;
-
-    transition:
-        var(--transition);
-
-}
-
-
-
-.cta-button:hover {
-
-    transform:
-        translateY(-4px);
-
-    box-shadow:
-        0 0 30px rgba(57,255,136,0.5);
+    font-size:1.2rem;
 
 }
 
 
 
 
-
-/* ==========================================
-   SECTIONS
-   ========================================== */
+/* SECTIONS */
 
 
 .section {
 
-    max-width:
-        1200px;
+    max-width:1200px;
 
-    margin:
-        auto;
+    margin:auto;
 
-    padding:
-        100px 30px;
+    padding:90px 30px;
 
 }
 
@@ -323,44 +189,33 @@ body {
 
 .section-header {
 
-    text-align:
-        center;
+    text-align:center;
 
-    margin-bottom:
-        50px;
+    margin-bottom:40px;
 
 }
-
 
 
 .section-header h2 {
 
-    font-size:
-        2.8rem;
+    color:var(--green);
 
-    color:
-        var(--neon);
+    font-size:2.5rem;
 
 }
-
 
 
 .line {
 
-    height:
-        3px;
+    height:3px;
 
-    width:
-        80px;
+    width:80px;
 
-    background:
-        var(--green);
+    background:var(--green);
 
-    margin:
-        15px auto;
+    margin:15px auto;
 
-    box-shadow:
-        0 0 15px var(--green);
+    box-shadow:0 0 15px var(--green);
 
 }
 
@@ -368,127 +223,164 @@ body {
 
 
 
-/* ==========================================
-   MANIFESTO
-   ========================================== */
+/* CARDS */
 
 
-.manifesto-content {
+.feature-card,
+.card {
 
     background:
-        var(--surface);
-
-    padding:
-        45px;
+    linear-gradient(
+    145deg,
+    #1d1d1d,
+    #111
+    );
 
     border:
-        1px solid var(--border);
 
-    border-radius:
-        20px;
+    1px solid var(--border);
+
+    border-radius:20px;
+
+    padding:35px;
 
     box-shadow:
-        var(--shadow);
+    0 0 25px rgba(57,255,136,.1);
 
 }
 
 
 
-.manifesto-content p {
+.feature-card {
 
-    margin-bottom:
-        25px;
+    max-width:650px;
 
-    color:
-        #ddd;
+    margin:auto;
 
-}
-
-
-
-.manifesto-content ul {
-
-    margin:
-        25px 0;
-
-    padding-left:
-        25px;
-
-}
-
-
-
-.manifesto-content li {
-
-    margin:
-        12px 0;
-
-    color:
-        var(--neon);
+    text-align:center;
 
 }
 
 
 
 
+/* BUTTON */
 
-/* ==========================================
-   DICTIONARY CONTROLS
-   ========================================== */
+
+.cta-button {
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:14px 35px;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--forest),
+    var(--green)
+    );
+
+    color:#000;
+
+    border:none;
+
+    border-radius:50px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    text-decoration:none;
+
+}
+
+
+.cta-button:hover {
+
+    transform:scale(1.05);
+
+    box-shadow:
+    0 0 30px var(--green);
+
+}
+
+
+
+
+
+/* RANK */
+
+
+.profile-card h3 {
+
+    color:var(--green);
+
+    font-size:2rem;
+
+}
+
+
+.progress-container {
+
+    height:18px;
+
+    background:#333;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    margin:20px 0;
+
+}
+
+
+#rankProgress {
+
+    height:100%;
+
+    width:0%;
+
+    background:
+    linear-gradient(
+    90deg,
+    var(--forest),
+    var(--green)
+    );
+
+}
+
+
+
+
+
+/* DICTIONARY */
 
 
 .dictionary-controls {
 
-    display:
-        flex;
+    display:flex;
 
-    flex-direction:
-        column;
+    flex-direction:column;
 
-    gap:
-        25px;
+    gap:25px;
 
 }
-
 
 
 #searchInput {
 
-    width:
-        100%;
+    padding:18px;
 
-    padding:
-        18px 22px;
+    background:#181818;
 
-    background:
-        var(--surface);
+    border:1px solid var(--border);
 
-    color:
-        white;
+    color:white;
 
-    border:
-        1px solid var(--border);
-
-    border-radius:
-        12px;
-
-    font-size:
-        1rem;
-
-    outline:
-        none;
-
-}
-
-
-
-#searchInput:focus {
-
-    border-color:
-        var(--neon);
-
-    box-shadow:
-        0 0 20px rgba(57,255,136,0.2);
+    border-radius:15px;
 
 }
 
@@ -496,107 +388,56 @@ body {
 
 .category-buttons {
 
-    display:
-        flex;
+    display:flex;
 
-    flex-wrap:
-        wrap;
+    flex-wrap:wrap;
 
-    justify-content:
-        center;
+    gap:10px;
 
-    gap:
-        12px;
+    justify-content:center;
 
 }
-
 
 
 .category-btn {
 
-    background:
-        var(--surface);
+    padding:10px 20px;
 
-    color:
-        white;
+    border-radius:30px;
 
-    border:
-        1px solid var(--border);
+    background:#181818;
 
-    padding:
-        10px 20px;
+    color:white;
 
-    border-radius:
-        30px;
+    border:1px solid var(--border);
 
-    cursor:
-        pointer;
-
-    transition:
-        var(--transition);
+    cursor:pointer;
 
 }
 
 
+.category-btn.active,
+.category-btn:hover {
 
-.category-btn:hover,
-.category-btn.active {
+    background:var(--green);
 
-    background:
-        var(--green);
-
-    color:
-        black;
+    color:black;
 
 }
 
 
-
-
-
-/* ==========================================
-   DICTIONARY CARDS
-   ========================================== */
 
 
 .dictionary-grid {
 
-    margin-top:
-        45px;
-
-    display:
-        grid;
+    display:grid;
 
     grid-template-columns:
-        repeat(auto-fit,minmax(260px,1fr));
+    repeat(auto-fit,minmax(260px,1fr));
 
-    gap:
-        25px;
+    gap:25px;
 
-}
-
-
-
-.card {
-
-    background:
-        linear-gradient(
-            145deg,
-            #1c1c1c,
-            #101010
-        );
-
-    border:
-        1px solid var(--border);
-
-    padding:
-        25px;
-
-    border-radius:
-        18px;
-
-    transition:
-        var(--transition);
+    margin-top:40px;
 
 }
 
@@ -605,56 +446,83 @@ body {
 .card:hover {
 
     transform:
-        translateY(-8px)
-        scale(1.02);
+    translateY(-8px);
 
-    border-color:
-        var(--neon);
+    border-color:var(--green);
+
+}
+
+
+
+
+
+/* RANDOM RESULT */
+
+
+#randomResult {
+
+    margin-top:30px;
+
+}
+
+
+
+
+/* QUIZ */
+
+
+#quizBox {
+
+    min-height:150px;
+
+}
+
+
+
+
+
+/* MAP */
+
+
+.lore-map {
+
+    display:grid;
+
+    grid-template-columns:
+    repeat(auto-fit,minmax(180px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+.map-node {
+
+    background:#181818;
+
+    border:1px solid var(--border);
+
+    padding:35px;
+
+    text-align:center;
+
+    border-radius:20px;
+
+    color:var(--green);
+
+    transition:.3s;
+
+}
+
+
+
+.map-node:hover {
+
+    transform:scale(1.05);
 
     box-shadow:
-        0 0 25px rgba(57,255,136,0.2);
-
-}
-
-
-
-.card h3 {
-
-    color:
-        var(--neon);
-
-    margin-bottom:
-        12px;
-
-}
-
-
-
-.card .category {
-
-    color:
-        var(--blueberry);
-
-    font-size:
-        .85rem;
-
-    margin-bottom:
-        12px;
-
-    text-transform:
-        uppercase;
-
-    letter-spacing:
-        1px;
-
-}
-
-
-
-.card p {
-
-    color:
-        #ccc;
+    0 0 25px rgba(57,255,136,.3);
 
 }
 
@@ -662,24 +530,16 @@ body {
 
 
 
-/* ==========================================
-   FOOTER
-   ========================================== */
+/* FOOTER */
 
 
 .footer {
 
-    text-align:
-        center;
+    text-align:center;
 
-    padding:
-        40px;
+    padding:40px;
 
-    color:
-        var(--muted);
-
-    border-top:
-        1px solid var(--border);
+    color:var(--muted);
 
 }
 
@@ -687,57 +547,26 @@ body {
 
 
 
-/* ==========================================
-   RESPONSIVE
-   ========================================== */
+@media(max-width:700px){
 
+.nav-container {
 
-@media(max-width:768px){
+    flex-direction:column;
 
-    .nav-container {
+    gap:15px;
 
-        flex-direction:
-            column;
-
-        gap:
-            15px;
-
-    }
-
-
-    .nav-links {
-
-        gap:
-            15px;
-
-        font-size:
-            .9rem;
-
-    }
-
-
-    .manifesto-content {
-
-        padding:
-            25px;
-
-    }
-
-
-    .section {
-
-        padding:
-            70px 20px;
-
-    }
-.word-day-section .card {
-    max-width: 500px;
-    margin: 0 auto;
-    text-align: center;
-    border-color: rgba(57,255,136,0.4);
 }
 
-.word-day-section .card h3 {
-    font-size: 2rem;
-    margin: 15px 0;
+nav a {
+
+    margin:0 8px;
+
+}
+
+.section {
+
+    padding:60px 20px;
+
+}
+
 }
