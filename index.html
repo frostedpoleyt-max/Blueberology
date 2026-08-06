@@ -1,187 +1,320 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blueberology | The Digital Encyclopedia</title>
-    <meta name="description" content="Blueberology — a sacred digital archive documenting the language, philosophy, and lifestyle of the Blueberry.">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="stylesheet" href="style.css">
+<title>Blueberology | Digital Archive</title>
+
+<meta name="description" content="Explore the world, language, and lore of Blueberology.">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
 
 <body>
 
-    <!-- Navigation -->
-    <header class="navbar">
-        <nav class="nav-container">
-            <a href="#" class="logo">Blueberology</a>
+<header class="navbar">
 
-            <ul class="nav-links">
-                <li><a href="#manifesto">Manifesto</a></li>
-                <li><a href="#dictionary">The Dictionary</a></li>
-                <li><a href="#categories">The Categories</a></li>
-            </ul>
+    <div class="nav-container">
+
+        <a class="logo" href="#">
+            Blueberology
+        </a>
+
+        <nav>
+            <a href="#word-day">Daily Word</a>
+            <a href="#dictionary">Dictionary</a>
+            <a href="#quiz">Quiz</a>
+            <a href="#map">Lore Map</a>
         </nav>
-    </header>
 
-
-    <!-- Hero Section -->
-    <main>
-
-        <section class="hero">
-            <div class="hero-content">
-
-                <h1>
-                    Welcome to <span>Blueberology</span>
-                </h1>
-
-                <p>
-                    An underground digital encyclopedia documenting the language,
-                    rituals, mythology, and lifestyle surrounding The Blueberry.
-                    A living archive of terminology, tradition, and culture.
-                </p>
-
-                <a href="#dictionary" class="cta-button">
-                    Enter The Dictionary
-                </a>
-
-            </div>
-        </section>
-
-
-
-        <!-- Manifesto -->
-        <section id="manifesto" class="section manifesto">
-
-            <div class="section-header">
-                <h2>The Manifesto</h2>
-                <div class="line"></div>
-            </div>
-
-
-            <div class="manifesto-content">
-
-                <p>
-                    Blueberology is more than vocabulary. It is a philosophy built
-                    around observation, precision, and understanding the hidden
-                    language of everyday moments.
-                </p>
-
-                <p>
-                    The Blueberry represents a character, a companion, and a symbol
-                    within this digital mythology. Every movement, event, mistake,
-                    victory, and interaction has a name.
-                </p>
-
-                <p>
-                    The rules of Blueberology are simple:
-                </p>
-
-                <ul>
-                    <li>Respect the Blueberry.</li>
-                    <li>Understand the signs.</li>
-                    <li>Master the terminology.</li>
-                    <li>Preserve the lore.</li>
-                    <li>Recognize every event, from ignition to ash.</li>
-                </ul>
-
-                <p>
-                    This archive exists to preserve the language and expand the
-                    encyclopedia of Blueberology.
-                </p>
-
-            </div>
-
-        </section>
-
-
-
-
-        <!-- Dictionary -->
-        <section id="dictionary" class="section dictionary-section">
-
-            <div class="section-header">
-                <h2>The Dictionary</h2>
-                <div class="line"></div>
-            </div>
-
-
-            <!-- Search -->
-            <div class="dictionary-controls">
-
-                <input 
-                    type="text" 
-                    id="searchInput" 
-                    placeholder="Search Blueberology terms..."
-                    aria-label="Search dictionary"
-                >
-
-
-                <div id="categories" class="category-buttons">
-
-                    <button class="category-btn active" data-category="All">
-                        All
-                    </button>
-
-                    <button class="category-btn" data-category="The Basics / Assembly">
-                        The Basics
-                    </button>
-
-                    <button class="category-btn" data-category="Light-Up & Ignition">
-                        Light-Up
-                    </button>
-
-                    <button class="category-btn" data-category="Burn Issues & Events">
-                        Burn Issues
-                    </button>
-
-                    <button class="category-btn" data-category="Social Dynamics & Lore">
-                        Social Dynamics
-                    </button>
-
-                </div>
-
-            </div>
-
-
-
-            <!-- Cards Render Here -->
-            <div id="dictionaryGrid" class="dictionary-grid">
-
-            </div>
-
-
-        </section>
-
-
-    </main>
-
-
-<section class="section word-day-section">
-
-    <div class="section-header">
-        <h2>Word of the Day</h2>
-        <div class="line"></div>
     </div>
 
-    <div id="wordOfDay" class="card">
-        Loading today's word...
+</header>
+
+
+<main>
+
+
+<!-- WORD OF THE DAY -->
+
+<section id="word-day" class="hero">
+
+    <p class="daily-label">
+        TODAY'S BLUEBEROLOGY DISCOVERY
+    </p>
+
+    <div id="wordOfDay" class="feature-card">
+        Loading...
+    </div>
+
+    <div id="countdown">
+        Next discovery loading...
     </div>
 
 </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-
-        <p>
-            © Blueberology Digital Archive — Preserving the Language of The Blueberry
-        </p>
-
-    </footer>
 
 
+<!-- RANDOM GENERATOR -->
 
-    <script src="script.js"></script>
+<section class="section">
+
+<div class="section-header">
+
+<h2>Random Lore Generator</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<div class="feature-card">
+
+<p>
+Discover a random piece of Blueberology knowledge.
+</p>
+
+<button id="randomButton" class="cta-button">
+Reveal Random Term
+</button>
+
+
+<div id="randomResult">
+
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- PROFILE -->
+
+<section class="section">
+
+
+<div class="section-header">
+
+<h2>Your Blueberology Rank</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<div class="feature-card profile-card">
+
+<h3 id="rankTitle">
+Blueberry Seed
+</h3>
+
+<p>
+Correct Quiz Answers:
+<span id="correctCount">0</span>
+</p>
+
+
+<div class="progress-container">
+
+<div id="rankProgress"></div>
+
+</div>
+
+
+<p id="nextRank">
+Next Rank: Berry Beginner
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+<!-- DICTIONARY -->
+
+<section id="dictionary" class="section">
+
+
+<div class="section-header">
+
+<h2>The Dictionary</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<div class="dictionary-controls">
+
+
+<input 
+id="searchInput"
+placeholder="Search Blueberology terms..."
+>
+
+
+<div class="category-buttons">
+
+
+<button class="category-btn active" data-category="All">
+All
+</button>
+
+
+<button class="category-btn" data-category="The Basics / Assembly">
+Basics
+</button>
+
+
+<button class="category-btn" data-category="Light-Up & Ignition">
+Light-Up
+</button>
+
+
+<button class="category-btn" data-category="Burn Issues & Events">
+Burn Issues
+</button>
+
+
+<button class="category-btn" data-category="Social Dynamics & Lore">
+Social
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+<div id="dictionaryGrid" class="dictionary-grid">
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- QUIZ -->
+
+<section id="quiz" class="section">
+
+
+<div class="section-header">
+
+<h2>Blueberology Quiz</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+
+<div class="feature-card">
+
+
+<div id="quizBox">
+
+<button id="startQuiz" class="cta-button">
+Start Quiz
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<!-- MAP -->
+
+<section id="map" class="section">
+
+
+<div class="section-header">
+
+<h2>The Blueberology Universe</h2>
+
+<div class="line"></div>
+
+</div>
+
+
+<div class="lore-map">
+
+
+<div class="map-node">
+Blueberry
+</div>
+
+
+<div class="map-node">
+Cherrymatics
+</div>
+
+
+<div class="map-node">
+Assembly
+</div>
+
+
+<div class="map-node">
+Social Lore
+</div>
+
+
+<div class="map-node">
+Inhale Events
+</div>
+
+
+</div>
+
+
+</section>
+
+
+
+
+</main>
+
+
+
+
+<footer class="footer">
+
+<p>
+Blueberology Digital Archive
+</p>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
 
 </body>
 </html>
