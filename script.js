@@ -289,90 +289,868 @@ const categoryButtons = document.querySelectorAll(".category-btn");
 
 let currentCategory = "All";
 
-function createCard(entry) {
-    return `
-        <div class="card">
-            <div class="category">${entry.category}</div>
-            <h3>${entry.word}</h3>
-            <p>${entry.meaning}</p>
-        </div>
-    `;
-}
 
-function renderDictionary() {
+// ==========================
+// WORD OF THE DAY
+// ==========================
 
-    const search = searchInput.value.toLowerCase().trim();
+function getDailyWord() {
 
-    const filtered = dictionary.filter(entry => {
+    const now = new Date();
 
-        const matchesSearch =
-            entry.word.toLowerCase().includes(search) ||
-            entry.meaning.toLowerCase().includes(search);
+    const reset = new Date();
 
-        const matchesCategory =
-            currentCategory === "All" ||
-            entry.category === currentCategory;
+    reset.setHours(8,0,0,0);
 
-        return matchesSearch && matchesCategory;
-
-    });
-
-    if (filtered.length === 0) {
-
-        dictionaryGrid.innerHTML = `
-            <div style="
-                grid-column:1/-1;
-                text-align:center;
-                padding:60px;
-                color:#999;
-                font-size:1.2rem;
-            ">
-                No Blueberology terms found.
-            </div>
-        `;
-
-        return;
+    if (now < reset) {
+        reset.setDate(reset.getDate() - 1);
     }
 
-    dictionaryGrid.innerHTML = filtered
-        .map(createCard)
-        .join("");
+    const dayNumber = Math.floor(reset.getTime() / 86400000);
+
+    return dictionary[dayNumber % dictionary.length];
 
 }
 
-searchInput.addEventListener("input", renderDictionary);
 
-categoryButtons.forEach(button => {
 
-    button.addEventListener("click", () => {
+function displayWordOfDay() {
 
-        categoryButtons.forEach(btn =>
-            btn.classList.remove("active")
-        );
+    const container = document.getElementById("wordOfDay");
 
-        button.classList.add("active");
+    if (!container) return;
 
-        currentCategory = button.dataset.category;
 
-        renderDictionary();
+    const word = getDailyWord();
 
-    });
+
+    container.innerHTML = `
+
+        <div class="category">
+            ${word.category}
+        </div>
+
+        <h2>${word.word}</h2>
+
+        <p>
+            ${word.meaning}
+        </p>
+
+    `;
+
+}
+
+
+
+function updateCountdown(){
+
+    const countdown =
+    document.getElementById("countdown");
+
+
+    if(!countdown) return;
+
+
+    const now = new Date();
+
+    let next = new Date();
+
+    next.setHours(8,0,0,0);
+
+
+    if(now >= next){
+
+        next.setDate(next.getDate()+1);
+
+    }
+
+
+    const difference =
+    next - now;
+
+
+    const hours =
+    Math.floor(difference / 3600000);
+
+
+    const minutes =
+    Math.floor(
+        (difference % 3600000) / 60000
+    );
+
+
+    const seconds =
+    Math.floor(
+        (difference % 60000) / 1000
+    );
+
+
+    countdown.innerHTML =
+    `
+    Next discovery in:
+    ${hours}h ${minutes}m ${seconds}s
+    `;
+
+}
+
+
+
+// ==========================
+// DICTIONARY
+// ==========================
+
+
+function createCard(entry){
+
+return `
+
+<div class="card">
+
+<div class="category">
+${entry.category}
+</div>
+
+<h3>
+${entry.word}
+</h3>
+
+<p>
+${entry.meaning}
+</p>
+
+</div>
+
+`;
+
+}
+
+
+
+function renderDictionary(){
+
+const search =
+searchInput.value
+.toLowerCase()
+.trim();
+
+
+const filtered =
+dictionary.filter(entry=>{
+
+
+const matchesSearch =
+
+entry.word
+.toLowerCase()
+.includes(search)
+
+||
+
+entry.meaning
+.toLowerCase()
+.includes(search);
+
+
+
+const matchesCategory =
+
+currentCategory === "All"
+
+||
+
+entry.category === currentCategory;
+
+
+
+return matchesSearch && matchesCategory;
+
 
 });
 
-renderDictionary();
-function showWordOfDay() {
 
-    const wordContainer = document.getElementById("wordOfDay");
 
-    const randomWord =
-        dictionary[Math.floor(Math.random() * dictionary.length)];
+dictionaryGrid.innerHTML =
 
-    wordContainer.innerHTML = `
-        <div class="category">${randomWord.category}</div>
-        <h3>${randomWord.word}</h3>
-        <p>${randomWord.meaning}</p>
-    `;
+filtered
+.map(createCard)
+.join("");
+
 }
 
-showWordOfDay();
+
+
+
+searchInput.addEventListener(
+"input",
+renderDictionary
+);
+
+
+
+categoryButtons.forEach(button=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+categoryButtons.forEach(btn=>
+
+btn.classList.remove("active")
+
+);
+
+
+button.classList.add("active");
+
+
+currentCategory =
+button.dataset.category;
+
+
+renderDictionary();
+
+
+});
+
+
+});
+
+
+
+displayWordOfDay();
+
+updateCountdown();
+
+setInterval(
+updateCountdown,
+1000
+);
+
+
+renderDictionary();
+const dictionaryGrid = document.getElementById("dictionaryGrid");
+const searchInput = document.getElementById("searchInput");
+const categoryButtons = document.querySelectorAll(".category-btn");
+
+let currentCategory = "All";
+
+
+// ==========================
+// WORD OF THE DAY
+// ==========================
+
+function getDailyWord() {
+
+    const now = new Date();
+
+    const reset = new Date();
+
+    reset.setHours(8,0,0,0);
+
+    if (now < reset) {
+        reset.setDate(reset.getDate() - 1);
+    }
+
+    const dayNumber = Math.floor(reset.getTime() / 86400000);
+
+    return dictionary[dayNumber % dictionary.length];
+
+}
+
+
+
+function displayWordOfDay() {
+
+    const container = document.getElementById("wordOfDay");
+
+    if (!container) return;
+
+
+    const word = getDailyWord();
+
+
+    container.innerHTML = `
+
+        <div class="category">
+            ${word.category}
+        </div>
+
+        <h2>${word.word}</h2>
+
+        <p>
+            ${word.meaning}
+        </p>
+
+    `;
+
+}
+
+
+
+function updateCountdown(){
+
+    const countdown =
+    document.getElementById("countdown");
+
+
+    if(!countdown) return;
+
+
+    const now = new Date();
+
+    let next = new Date();
+
+    next.setHours(8,0,0,0);
+
+
+    if(now >= next){
+
+        next.setDate(next.getDate()+1);
+
+    }
+
+
+    const difference =
+    next - now;
+
+
+    const hours =
+    Math.floor(difference / 3600000);
+
+
+    const minutes =
+    Math.floor(
+        (difference % 3600000) / 60000
+    );
+
+
+    const seconds =
+    Math.floor(
+        (difference % 60000) / 1000
+    );
+
+
+    countdown.innerHTML =
+    `
+    Next discovery in:
+    ${hours}h ${minutes}m ${seconds}s
+    `;
+
+}
+
+
+
+// ==========================
+// DICTIONARY
+// ==========================
+
+
+function createCard(entry){
+
+const saved =
+isFavorite(entry.word);
+
+
+return `
+
+<div class="card">
+
+<div class="category">
+${entry.category}
+</div>
+
+
+<h3>
+${entry.word}
+</h3>
+
+
+<p>
+${entry.meaning}
+</p>
+
+
+<button 
+class="favorite-btn"
+onclick="toggleFavorite('${entry.word}')">
+
+${saved ? "⭐ Saved" : "☆ Favorite"}
+
+</button>
+
+
+</div>
+
+`;
+
+}
+
+
+
+function renderDictionary(){
+
+const search =
+searchInput.value
+.toLowerCase()
+.trim();
+
+
+const filtered =
+dictionary.filter(entry=>{
+
+
+const matchesSearch =
+
+entry.word
+.toLowerCase()
+.includes(search)
+
+||
+
+entry.meaning
+.toLowerCase()
+.includes(search);
+
+
+
+const matchesCategory =
+
+currentCategory === "All"
+
+||
+
+entry.category === currentCategory;
+
+
+
+return matchesSearch && matchesCategory;
+
+
+});
+
+
+
+dictionaryGrid.innerHTML =
+
+filtered
+.map(createCard)
+.join("");
+
+}
+
+
+
+
+searchInput.addEventListener(
+"input",
+renderDictionary
+);
+
+
+
+categoryButtons.forEach(button=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+categoryButtons.forEach(btn=>
+
+btn.classList.remove("active")
+
+);
+
+
+button.classList.add("active");
+
+
+currentCategory =
+button.dataset.category;
+
+
+renderDictionary();
+
+
+});
+
+
+});
+
+
+
+displayWordOfDay();
+
+updateCountdown();
+
+setInterval(
+updateCountdown,
+1000
+);
+
+
+renderDictionary();
+// ==========================
+// QUIZ SYSTEM
+// ==========================
+
+
+const startQuiz =
+document.getElementById("startQuiz");
+
+const quizBox =
+document.getElementById("quizBox");
+
+
+let quizScore =
+Number(
+localStorage.getItem("blueberologyScore")
+)
+||
+0;
+
+
+let currentQuestion = 0;
+
+let quizQuestions = [];
+
+
+
+
+
+function getRank(score){
+
+
+if(score >= 500){
+
+return {
+title:"👑 Grand Blueberologist",
+next:"Maximum Rank",
+progress:100
+};
+
+}
+
+
+if(score >= 200){
+
+return {
+title:"📖 Lore Master",
+next:"500 correct answers",
+progress:(score/500)*100
+};
+
+}
+
+
+if(score >= 100){
+
+return {
+title:"💨 Cloud Scholar",
+next:"200 correct answers",
+progress:(score/200)*100
+};
+
+}
+
+
+if(score >= 50){
+
+return {
+title:"🔥 Cherry Keeper",
+next:"100 correct answers",
+progress:(score/100)*100
+};
+
+}
+
+
+if(score >= 25){
+
+return {
+title:"🌿 Blueberry Apprentice",
+next:"50 correct answers",
+progress:(score/50)*100
+};
+
+}
+
+
+if(score >= 10){
+
+return {
+title:"🍃 Berry Beginner",
+next:"25 correct answers",
+progress:(score/25)*100
+};
+
+}
+
+
+return {
+title:"🌱 Blueberry Seed",
+next:"10 correct answers",
+progress:(score/10)*100
+};
+
+
+}
+
+
+
+
+
+function updateRank(){
+
+
+const rank =
+getRank(quizScore);
+
+
+const title =
+document.getElementById("rankTitle");
+
+
+const count =
+document.getElementById("correctCount");
+
+
+const bar =
+document.getElementById("rankProgress");
+
+
+const next =
+document.getElementById("nextRank");
+
+
+
+if(title){
+
+title.innerHTML =
+rank.title;
+
+}
+
+
+if(count){
+
+count.innerHTML =
+quizScore;
+
+}
+
+
+if(bar){
+
+bar.style.width =
+rank.progress + "%";
+
+}
+
+
+if(next){
+
+next.innerHTML =
+"Next Rank: " + rank.next;
+
+}
+
+
+}
+
+
+
+
+
+function createQuiz(){
+
+
+quizQuestions =
+dictionary
+.sort(
+()=>0.5-Math.random()
+)
+.slice(0,5);
+
+
+currentQuestion = 0;
+
+
+showQuestion();
+
+}
+
+
+
+
+
+function showQuestion(){
+
+
+const question =
+quizQuestions[currentQuestion];
+
+
+const answers =
+[
+question.meaning,
+dictionary[
+Math.floor(Math.random()*dictionary.length)
+].meaning,
+dictionary[
+Math.floor(Math.random()*dictionary.length)
+].meaning
+]
+.sort(
+()=>0.5-Math.random()
+);
+
+
+
+quizBox.innerHTML = `
+
+
+<h3>
+What does "${question.word}" mean?
+</h3>
+
+
+<div class="answers">
+
+${answers.map(answer=>`
+
+<button class="quiz-answer">
+
+${answer}
+
+</button>
+
+`).join("")}
+
+
+</div>
+
+
+`;
+
+
+
+document
+.querySelectorAll(".quiz-answer")
+.forEach(button=>{
+
+
+button.addEventListener(
+"click",
+()=>{
+
+
+if(button.innerHTML.trim()
+===
+question.meaning){
+
+quizScore++;
+
+localStorage.setItem(
+"blueberologyScore",
+quizScore
+);
+
+}
+
+
+currentQuestion++;
+
+
+if(currentQuestion < quizQuestions.length){
+
+showQuestion();
+
+}
+
+else{
+
+finishQuiz();
+
+}
+
+
+});
+
+});
+
+
+}
+
+
+
+
+
+function finishQuiz(){
+
+
+quizBox.innerHTML = `
+
+<h3>
+Quiz Complete
+</h3>
+
+<p>
+Total correct answers:
+${quizScore}
+</p>
+
+<button id="startQuiz" class="cta-button">
+Play Again
+</button>
+
+`;
+
+
+updateRank();
+
+
+document
+.getElementById("startQuiz")
+.addEventListener(
+"click",
+createQuiz
+);
+
+
+}
+
+
+
+
+
+if(startQuiz){
+
+startQuiz.addEventListener(
+"click",
+createQuiz
+);
+
+}
+
+
+updateRank();
+
+// Refresh cards after changing favorites
+
+document.addEventListener(
+"click",
+function(event){
+
+if(
+event.target.classList.contains("favorite-btn")
+){
+
+renderDictionary();
+
+}
+
+});
