@@ -1,3 +1,4 @@
+alert("JS STARTED");
 
 const dictionary = [
 {
