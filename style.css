@@ -807,7 +807,44 @@ MODAL
 
 }
 
+/* ==========================
+XP + QUIZ SPACING FIX
+========================== */
 
+#blueberology-xp,
+#quiz-section{
+
+    padding-top:30px;
+    padding-bottom:30px;
+
+}
+
+
+.profile-card{
+
+    margin-bottom:20px;
+
+}
+
+
+#quizBox{
+
+    margin-top:0;
+
+}
+
+
+@media(max-width:700px){
+
+    #blueberology-xp,
+    #quiz-section{
+
+        padding-top:20px;
+        padding-bottom:20px;
+
+    }
+
+}
 
 /* ==========================
 MOBILE
