@@ -476,9 +476,43 @@ item => item.word === word
 if(!entry) return;
 
 
-alert(
-entry.word + "\n\n" + entry.meaning
-);
+const modal =
+document.getElementById("termModal");
+
+const details =
+document.getElementById("termDetails");
+
+
+details.innerHTML = `
+
+<div class="category">
+${entry.category}
+</div>
+
+<h2>
+${entry.word}
+</h2>
+
+<div class="term-image">
+Image coming soon
+</div>
+
+<p>
+${entry.meaning}
+</p>
+
+<h3>
+Blueberology Notes
+</h3>
+
+<p>
+More lore and explanation will be added here.
+</p>
+
+`;
+
+
+modal.style.display = "flex";
 
 }
 
