@@ -693,7 +693,7 @@ function openTerm(index){
     dictionary[index];
 
 
-    if(!entry) return;
+    if(!entry || !termDetails || !modal) return;
 
 
 
