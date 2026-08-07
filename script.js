@@ -495,7 +495,12 @@ ${entry.word}
 </h2>
 
 <div class="term-image">
-Image coming soon
+
+<img 
+src="${entry.image || ''}" 
+alt="${entry.word}"
+>
+
 </div>
 
 <p>
