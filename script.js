@@ -949,6 +949,5 @@ updateCountdown,
 1000
 );
 
-alert(dictionary.length);
 
 renderDictionary();
