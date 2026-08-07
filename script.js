@@ -365,12 +365,11 @@ function createCategoryButtons(){
 
 function getDailyWord(){
 
+    const now = new Date();
+
     const reset = new Date();
 
     reset.setHours(8,0,0,0);
-
-
-    const now = new Date();
 
 
     if(now < reset){
@@ -403,50 +402,75 @@ function displayWordOfDay(){
     if(!wordContainer) return;
 
 
-    const word =
-    getDailyWord();
-
+    const word = getDailyWord();
 
 
     wordContainer.innerHTML = `
 
 
-    <div class="category">
+    <div class="daily-card">
 
-    ${word.category}
+
+        <div class="daily-header">
+
+            <span>📖 Daily Discovery</span>
+
+        </div>
+
+
+
+        <div class="category">
+
+            ${word.category}
+
+        </div>
+
+
+
+        <div class="rarity ${getRarityClass(word.rarity)}">
+
+            ${word.rarity}
+
+        </div>
+
+
+
+        <h2>
+
+            ${word.word}
+
+        </h2>
+
+
+
+        ${
+            word.image
+
+            ?
+
+            `<img class="daily-image" src="${word.image}" alt="${word.word}">`
+
+            :
+
+            ""
+
+        }
+
+
+
+        <p>
+
+            ${word.meaning}
+
+        </p>
+
 
     </div>
-
-
-
-    <div class="rarity ${getRarityClass(word.rarity)}">
-
-    ${word.rarity}
-
-    </div>
-
-
-
-    <h2>
-
-    ${word.word}
-
-    </h2>
-
-
-
-    <p>
-
-    ${word.meaning}
-
-    </p>
 
 
     `;
 
-
 }
-
 
 
 
