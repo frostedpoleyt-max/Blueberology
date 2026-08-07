@@ -1,4 +1,4 @@
-alert("JS STARTED");
+alert("JS IS WORKING");
 
 const dictionary = [
 {
