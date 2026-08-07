@@ -271,7 +271,6 @@ BUTTONS
 ========================== */
 
 
-button,
 .cta-button{
 
 
@@ -1054,5 +1053,90 @@ DAILY WORD CARD
 
     }
 
+
+}
+
+/* ==========================
+DICTIONARY BUTTON FIX
+========================== */
+
+
+.card button{
+
+    margin-top:15px;
+
+    width:100%;
+
+    padding:10px 18px;
+
+    border-radius:14px;
+
+    background:rgba(57,255,136,.12);
+
+    border:1px solid var(--border);
+
+    color:var(--green);
+
+    font-weight:800;
+
+    font-size:.9rem;
+
+    letter-spacing:.5px;
+
+    transition:.25s;
+
+}
+
+
+
+.card button:hover{
+
+    transform:none;
+
+    background:rgba(57,255,136,.25);
+
+    border-color:var(--green);
+
+    box-shadow:0 0 15px rgba(57,255,136,.25);
+
+}
+
+
+
+.card{
+
+    display:flex;
+
+    flex-direction:column;
+
+    min-height:320px;
+
+}
+
+
+
+.card p{
+
+    flex-grow:1;
+
+    margin-top:10px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.card .category{
+
+    margin-bottom:12px;
+
+}
+
+
+
+.card .rarity{
+
+    margin-bottom:5px;
 
 }
