@@ -529,16 +529,8 @@ updateCountdown();
 setInterval(
 updateCountdown,
 1000
+    
 );
-
-
-
-const dictionaryGrid = document.getElementById("dictionaryGrid");
-const searchInput = document.getElementById("searchInput");
-const categoryButtons = document.querySelectorAll(".category-btn");
-
-let currentCategory = "All";
-
 
 
 // ==========================
