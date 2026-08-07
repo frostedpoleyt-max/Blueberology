@@ -1,4 +1,3 @@
-alert("JS IS WORKING");
 
 const dictionary = [
 {
@@ -83,8 +82,16 @@ meaning: "The lighter (Snapping fingers means snaps)"
 },
 {
 word: "Blueberry",
-category: "Light-Up & Ignition",
-meaning: "The j (addressed as a person)"
+category: "Smoking Items",
+type: "Smoking Item",
+meaning: "The j (addressed as a person)",
+description: "A central Blueberology term referring to the finished smoking item as if it has its own personality.",
+image: "blueberry.jpg",
+related: [
+"Cherry",
+"Snaps",
+"Raspberry"
+]
 },
 {
 word: "Raspberry",
