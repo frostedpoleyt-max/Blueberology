@@ -923,3 +923,136 @@ MOBILE
 
 
 }
+
+/* ==========================
+DAILY WORD CARD
+========================== */
+
+
+#wordOfDay{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+
+.daily-card{
+
+    width:100%;
+
+    max-width:600px;
+
+    padding:35px;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+        145deg,
+        #172019,
+        #0c100e
+    );
+
+    border:
+
+    1px solid var(--border);
+
+    border-radius:24px;
+
+    box-shadow:
+
+    var(--glow);
+
+}
+
+
+
+.daily-header{
+
+    color:var(--green);
+
+    font-weight:900;
+
+    font-size:1.2rem;
+
+    margin-bottom:20px;
+
+}
+
+
+
+.daily-card h2{
+
+    margin:20px 0;
+
+    color:var(--green);
+
+    font-size:2.2rem;
+
+}
+
+
+
+.daily-card p{
+
+    color:var(--muted);
+
+    line-height:1.6;
+
+    font-size:1.1rem;
+
+}
+
+
+
+.daily-image{
+
+    width:100%;
+
+    max-height:250px;
+
+    object-fit:contain;
+
+    border-radius:18px;
+
+    margin:20px 0;
+
+}
+
+
+
+#countdown{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:var(--muted);
+
+    font-weight:bold;
+
+}
+
+
+
+@media(max-width:700px){
+
+
+    .daily-card{
+
+        padding:25px;
+
+    }
+
+
+    .daily-card h2{
+
+        font-size:1.7rem;
+
+    }
+
+
+}
