@@ -1,10 +1,12 @@
 :root {
+
     --bg:#080b0a;
     --surface:#111714;
     --surface2:#18221d;
 
     --green:#39ff88;
     --green2:#00c853;
+
     --blue:#5b8cff;
     --gold:#ffc107;
     --red:#ff5252;
@@ -16,28 +18,42 @@
 
     --glow:
     0 0 25px rgba(57,255,136,.25);
+
 }
 
 
+
+/* ==========================
+RESET
+========================== */
+
+
 *{
+
     margin:0;
     padding:0;
     box-sizing:border-box;
+
 }
 
 
 html{
+
     scroll-behavior:smooth;
+
 }
+
 
 
 body{
 
+    min-height:100vh;
+
     background:
     radial-gradient(
-    circle at top,
-    rgba(57,255,136,.12),
-    transparent 45%
+        circle at top,
+        rgba(57,255,136,.14),
+        transparent 45%
     ),
     var(--bg);
 
@@ -48,17 +64,51 @@ body{
     Arial,
     sans-serif;
 
+    line-height:1.6;
+
 }
 
 
 
-/* NAV */
+/* scrollbar */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+
+::-webkit-scrollbar-track{
+
+    background:#050706;
+
+}
+
+
+::-webkit-scrollbar-thumb{
+
+    background:var(--green2);
+
+    border-radius:20px;
+
+}
+
+
+
+/* ==========================
+NAV
+========================== */
+
 
 .navbar{
 
     position:fixed;
+
     top:0;
+
     width:100%;
+
     z-index:1000;
 
     background:
@@ -72,18 +122,23 @@ body{
 }
 
 
+
 .nav-container{
 
     max-width:1200px;
+
     margin:auto;
 
-    padding:20px 30px;
+    padding:18px 30px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
 }
+
 
 
 .logo{
@@ -91,6 +146,7 @@ body{
     color:var(--green);
 
     font-size:1.8rem;
+
     font-weight:900;
 
     letter-spacing:3px;
@@ -105,6 +161,7 @@ body{
 nav a{
 
     color:white;
+
     text-decoration:none;
 
     margin-left:25px;
@@ -122,7 +179,9 @@ nav a:hover{
 
 
 
-/* SECTIONS */
+/* ==========================
+SECTIONS
+========================== */
 
 
 .section{
@@ -136,6 +195,7 @@ nav a:hover{
 }
 
 
+
 .section-header{
 
     text-align:center;
@@ -143,6 +203,7 @@ nav a:hover{
     margin-bottom:40px;
 
 }
+
 
 
 .section-header h2{
@@ -155,38 +216,64 @@ nav a:hover{
 
 
 
-/* CARDS */
+.line{
 
+    width:90px;
 
-.card,
-.feature-card,
-.profile-card,
-.quiz-container{
+    height:3px;
 
-    background:
-    linear-gradient(
-    145deg,
-    #172019,
-    #0c100e
-    );
+    margin:15px auto;
 
-    border:
-    1px solid var(--border);
+    background:var(--green);
 
-    border-radius:24px;
-
-    box-shadow:
-    var(--glow);
+    box-shadow:0 0 20px var(--green);
 
 }
 
 
 
-/* BUTTONS */
+/* ==========================
+GLOBAL PANELS
+========================== */
+
+
+.card,
+.feature-card,
+.profile-card,
+.quiz-container,
+#quizBox{
+
+
+    background:
+    linear-gradient(
+        145deg,
+        #172019,
+        #0c100e
+    );
+
+
+    border:
+
+    1px solid var(--border);
+
+
+    border-radius:24px;
+
+
+    box-shadow:var(--glow);
+
+}
+
+
+
+/* ==========================
+BUTTONS
+========================== */
 
 
 button,
 .cta-button{
+
 
     cursor:pointer;
 
@@ -200,9 +287,9 @@ button,
 
     background:
     linear-gradient(
-    135deg,
-    var(--green2),
-    var(--green)
+        135deg,
+        var(--green2),
+        var(--green)
     );
 
     color:#000;
@@ -212,12 +299,15 @@ button,
 }
 
 
+
 button:hover,
 .cta-button:hover{
 
+
     transform:
     translateY(-3px)
-    scale(1.04);
+    scale(1.03);
+
 
     box-shadow:
     0 0 30px var(--green);
@@ -226,10 +316,13 @@ button:hover,
 
 
 
-/* PROFILE */
+/* ==========================
+PROFILE / XP
+========================== */
 
 
 .profile-card{
+
 
     padding:40px;
 
@@ -247,7 +340,41 @@ button:hover,
 
 
 
+.profile-card:before{
+
+
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+
+    height:250px;
+
+    background:
+
+    radial-gradient(
+        circle,
+        rgba(57,255,136,.35),
+        transparent 70%
+    );
+
+
+    top:-120px;
+
+    left:50%;
+
+    transform:translateX(-50%);
+
+
+}
+
+
+
 #rankTitle{
+
+
+    position:relative;
 
     font-size:2.2rem;
 
@@ -262,6 +389,7 @@ button:hover,
 
 #correctCount{
 
+
     font-size:3rem;
 
     font-weight:900;
@@ -271,6 +399,7 @@ button:hover,
 
 
 .progress-container{
+
 
     height:28px;
 
@@ -290,25 +419,38 @@ button:hover,
 
 #rankProgress{
 
+
     height:100%;
 
     border-radius:50px;
 
     background:
+
     linear-gradient(
-    90deg,
-    #00c853,
-    #39ff88,
-    white
+        90deg,
+        #00c853,
+        #39ff88,
+        white
     );
 
-    transition:.8s;
+
+    transition:.8s ease;
 
 }
 
 
 
-/* QUIZ */
+#nextRank{
+
+    color:var(--muted);
+
+}
+
+
+
+/* ==========================
+QUIZ
+========================== */
 
 
 #quizBox{
@@ -322,6 +464,17 @@ button:hover,
     text-align:center;
 
 }
+
+
+
+#quizBox h2{
+
+    color:var(--green);
+
+    margin:25px 0;
+
+}
+
 
 
 .answers{
@@ -338,17 +491,24 @@ button:hover,
 
 .quiz-answer{
 
+
+    width:100%;
+
     background:
+
     linear-gradient(
-    145deg,
-    #202820,
-    #101410
+        145deg,
+        #202820,
+        #101410
     );
+
 
     color:white;
 
     border:
+
     1px solid var(--border);
+
 
     padding:20px;
 
@@ -356,29 +516,68 @@ button:hover,
 
     text-align:left;
 
+
 }
 
 
 
-/* DICTIONARY */
+.quiz-answer:hover{
+
+    border-color:var(--green);
+
+    transform:translateX(6px);
+
+}
+
+
+
+.quiz-answer.correct{
+
+    background:#087f23;
+
+    border-color:#39ff88;
+
+}
+
+
+
+.quiz-answer.wrong{
+
+    background:#8b0000;
+
+    border-color:#ff5252;
+
+}
+
+
+
+/* ==========================
+DICTIONARY
+========================== */
 
 
 .dictionary-grid{
 
+
     display:grid;
 
+
     grid-template-columns:
-    repeat(auto-fit,minmax(260px,1fr));
+
+    repeat(
+        auto-fit,
+        minmax(260px,1fr)
+    );
+
 
     gap:25px;
-
-    margin-top:40px;
 
 }
 
 
 
 .card{
+
 
     padding:30px;
 
@@ -392,7 +591,8 @@ button:hover,
 
 .card:hover{
 
-    transform:translateY(-10px);
+
+    transform:translateY(-8px);
 
     border-color:var(--green);
 
@@ -400,17 +600,16 @@ button:hover,
 
 
 
-.card h3{
+.card p{
 
-    margin:15px 0;
-
-    font-size:1.4rem;
+    color:#d0d0d0;
 
 }
 
 
 
 .category{
+
 
     color:var(--green);
 
@@ -422,10 +621,24 @@ button:hover,
 
 
 
-/* RARITY */
+.card h3{
+
+
+    margin:15px 0;
+
+    font-size:1.4rem;
+
+}
+
+
+
+/* ==========================
+RARITY
+========================== */
 
 
 .rarity{
+
 
     display:inline-block;
 
@@ -440,6 +653,7 @@ button:hover,
     text-transform:uppercase;
 
 }
+
 
 
 .common{
@@ -460,31 +674,38 @@ button:hover,
 
     background:#2962ff;
 
-    box-shadow:
-    0 0 15px #2962ff;
+    box-shadow:0 0 15px #2962ff;
 
 }
 
 
 .legendary{
 
+
     background:
+
     linear-gradient(
-    135deg,
-    #ffd600,
-    #ff6d00
+        135deg,
+        #ffd600,
+        #ff6d00
     );
 
+
     color:black;
+
+    box-shadow:0 0 25px gold;
 
 }
 
 
 
-/* MODAL */
+/* ==========================
+MODAL
+========================== */
 
 
 .term-modal{
+
 
     display:none;
 
@@ -493,15 +714,19 @@ button:hover,
     inset:0;
 
     background:
+
     rgba(0,0,0,.85);
+
 
     justify-content:center;
 
     align-items:center;
 
-    z-index:9999;
 
     padding:20px;
+
+
+    z-index:9999;
 
 }
 
@@ -509,39 +734,41 @@ button:hover,
 
 .term-content{
 
+
     background:#101510;
 
     border:
+
     1px solid var(--green);
+
 
     border-radius:25px;
 
+
     padding:35px;
+
+
+    width:100%;
 
     max-width:550px;
 
-    width:100%;
 
     max-height:90vh;
 
     overflow-y:auto;
 
+
 }
 
 
 
-/* IMAGE FIX */
-
-
 .term-image{
+
 
     width:100%;
 
-    max-width:400px;
+    height:250px;
 
-    height:240px;
-
-    margin:20px auto;
 
     display:flex;
 
@@ -549,11 +776,17 @@ button:hover,
 
     align-items:center;
 
+
     overflow:hidden;
+
+
+    background:#151b17;
+
 
     border-radius:20px;
 
-    background:#151b17;
+
+    margin:20px 0;
 
 }
 
@@ -561,74 +794,95 @@ button:hover,
 
 .term-image img{
 
+
     width:100%;
 
     height:100%;
 
-    object-fit:cover;
+
+    object-fit:contain;
+
 
     border-radius:20px;
-
-    display:block;
 
 }
 
 
 
-/* MOBILE */
+/* ==========================
+MOBILE
+========================== */
 
 
 @media(max-width:700px){
 
 
-.nav-container{
+    .nav-container{
 
-    flex-direction:column;
+        flex-direction:column;
 
-    gap:15px;
+        gap:15px;
 
-}
-
-
-nav a{
-
-    margin:0 8px;
-
-}
+    }
 
 
-.section{
 
-    padding:70px 20px;
+    nav a{
 
-}
+        margin:0 10px;
 
+        font-size:.9rem;
 
-#rankTitle{
-
-    font-size:1.6rem;
-
-}
+    }
 
 
-#quizBox{
 
-    padding:25px;
+    .section{
 
-}
+        padding:80px 20px;
 
-
-.term-content{
-
-    padding:25px;
-
-}
+    }
 
 
-.term-image{
 
-    height:200px;
+    .section-header h2{
 
-}
+        font-size:2rem;
+
+    }
+
+
+
+    #rankTitle{
+
+        font-size:1.6rem;
+
+    }
+
+
+
+    #correctCount{
+
+        font-size:2.3rem;
+
+    }
+
+
+
+    #quizBox{
+
+        padding:25px;
+
+    }
+
+
+
+    .term-content{
+
+        padding:25px;
+
+    }
+
+
 
 }
