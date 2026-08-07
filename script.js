@@ -1,4 +1,4 @@
-const dictionary = [
+ const dictionary = [
 
 {
     word: "Gangrene",
@@ -755,50 +755,64 @@ let quizQuestions = [];
 
 function getRank(score){
 
-    if(score >= 500){
+    if(score >= 1000){
         return {
-            title:"👑 Grand Blueberologist",
+            title:"🌌 Supreme Blueberologist",
             next:"Maximum Rank",
             progress:100
         };
     }
 
-    if(score >= 200){
+
+    if(score >= 500){
+        return {
+            title:"👑 Grand Blueberologist",
+            next:"1000 XP",
+            progress:(score/1000)*100
+        };
+    }
+
+
+    if(score >= 250){
         return {
             title:"📖 Lore Master",
-            next:"500 correct answers",
+            next:"500 XP",
             progress:(score/500)*100
         };
     }
 
+
     if(score >= 100){
         return {
             title:"💨 Cloud Scholar",
-            next:"200 correct answers",
-            progress:(score/200)*100
+            next:"250 XP",
+            progress:(score/250)*100
         };
     }
+
 
     if(score >= 50){
         return {
             title:"🔥 Cherry Keeper",
-            next:"100 correct answers",
+            next:"100 XP",
             progress:(score/100)*100
         };
     }
 
+
     if(score >= 25){
         return {
             title:"🌿 Blueberry Apprentice",
-            next:"50 correct answers",
+            next:"50 XP",
             progress:(score/50)*100
         };
     }
 
+
     if(score >= 10){
         return {
             title:"🍃 Berry Beginner",
-            next:"25 correct answers",
+            next:"25 XP",
             progress:(score/25)*100
         };
     }
@@ -806,7 +820,7 @@ function getRank(score){
 
     return {
         title:"🌱 Blueberry Seed",
-        next:"10 correct answers",
+        next:"10 XP",
         progress:(score/10)*100
     };
 
