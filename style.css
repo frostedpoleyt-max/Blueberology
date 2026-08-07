@@ -1162,3 +1162,118 @@ body{
     }
 
 }
+
+/* ==========================
+BLUEBEROLOGY TRAINING BOX
+========================== */
+
+
+.training-box{
+
+    max-width:800px;
+
+    margin:auto;
+
+    padding:40px;
+
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #172019,
+    #0c100e
+    );
+
+
+    border:
+
+    1px solid var(--border);
+
+
+    border-radius:30px;
+
+
+    box-shadow:
+
+    0 0 35px rgba(57,255,136,.25);
+
+}
+
+
+
+/* RANK INSIDE TRAINING BOX */
+
+
+.training-box .profile-card{
+
+    max-width:none;
+
+    padding:20px;
+
+    margin:0;
+
+    background:transparent;
+
+    border:none;
+
+    box-shadow:none;
+
+}
+
+
+
+/* SEPARATE QUIZ WITH CLEAN DIVIDER */
+
+
+.training-box #quizBox{
+
+    max-width:none;
+
+    margin-top:35px;
+
+    padding:35px 20px 10px;
+
+
+    border-top:
+
+    1px solid rgba(57,255,136,.25);
+
+
+    text-align:center;
+
+}
+
+
+
+.training-box #quizBox h3{
+
+    color:var(--green);
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* MOBILE */
+
+
+@media(max-width:700px){
+
+    .training-box{
+
+        padding:25px 15px;
+
+        border-radius:22px;
+
+    }
+
+
+    .training-box #quizBox{
+
+        padding-top:30px;
+
+    }
+
+}
