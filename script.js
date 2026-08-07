@@ -821,60 +821,39 @@ modal.style.display="none";
 // START ARCHIVE
 // ==========================
 
-
 createCategoryButtons();
 
 displayWordOfDay();
 
 updateCountdown();
 
-setInterval(
-updateCountdown,
-1000
-);
-
+setInterval(updateCountdown,1000);
 
 renderDictionary();
+
 
 // ==========================
 // BLUEBEROLOGY XP SYSTEM
 // ==========================
 
-
-const startQuiz =
-document.getElementById("startQuiz");
-
-
-const quizBox =
-document.getElementById("quizBox");
-
+const startQuiz = document.getElementById("startQuiz");
+const quizBox = document.getElementById("quizBox");
 
 
 let blueberologyXP =
-Number(
-localStorage.getItem("blueberologyXP")
-)
-||
-0;
-
+Number(localStorage.getItem("blueberologyXP")) || 0;
 
 
 let currentQuestion = 0;
-
 let quizQuestions = [];
-
 let roundScore = 0;
-
 let answering = false;
 
 
 
-
-
 // ==========================
-// RANKS
+// RANK SYSTEM
 // ==========================
-
 
 const ranks = [
 
@@ -922,70 +901,47 @@ xp:1000
 
 
 
-
-
 function getRankData(xp){
 
-
-let current =
-ranks[0];
-
-
-let next =
-ranks[1];
-
+let current = ranks[0];
+let next = null;
 
 
 for(let i=0;i<ranks.length;i++){
 
-
 if(xp >= ranks[i].xp){
 
-current =
-ranks[i];
-
-next =
-ranks[i+1] || null;
+current = ranks[i];
+next = ranks[i+1] || null;
 
 }
 
-
 }
-
 
 
 let progress = 100;
 
 
-
 if(next){
 
 progress =
-(
-(xp-current.xp)
-/
-(next.xp-current.xp)
-)
-*
-100;
+((xp-current.xp) /
+(next.xp-current.xp))
+*100;
+
+
+progress = Math.min(progress,100);
 
 }
-
 
 
 return {
-
 current,
 next,
 progress
-
 };
 
-
 }
-
-
-
 
 
 
@@ -993,77 +949,43 @@ progress
 
 function updateRank(){
 
-
 const data =
-getRankData(
-blueberologyXP
-);
+getRankData(blueberologyXP);
 
 
 
 const title =
-document.getElementById(
-"rankTitle"
-);
-
-
+document.getElementById("rankTitle");
 
 const count =
-document.getElementById(
-"correctCount"
-);
-
-
+document.getElementById("correctCount");
 
 const bar =
-document.getElementById(
-"rankProgress"
-);
-
-
+document.getElementById("rankProgress");
 
 const next =
-document.getElementById(
-"nextRank"
-);
+document.getElementById("nextRank");
 
 
 
-if(title){
-
-title.innerHTML =
-data.current.name;
-
-}
+if(title)
+title.innerHTML=data.current.name;
 
 
-
-if(count){
-
-count.innerHTML =
-blueberologyXP + " XP";
-
-}
+if(count)
+count.innerHTML=blueberologyXP+" XP";
 
 
-
-if(bar){
-
-bar.style.width =
-data.progress + "%";
-
-}
-
+if(bar)
+bar.style.width=data.progress+"%";
 
 
 if(next){
 
 next.innerHTML =
-
 data.next
 
 ?
-
 `Next Rank: ${data.next.name} (${data.next.xp} XP)`
 
 :
@@ -1072,72 +994,56 @@ data.next
 
 }
 
-
 }
 
 
 
 
 
-
-
 // ==========================
-// XP REWARDS
+// XP REWARD
 // ==========================
 
 
 function getXPReward(rarity){
 
-
-switch(rarity){
-
-
-case "Legendary":
+if(rarity==="Legendary")
 return 25;
 
-
-case "Rare":
+if(rarity==="Rare")
 return 10;
 
-
-case "Uncommon":
+if(rarity==="Uncommon")
 return 5;
 
-
-default:
 return 2;
 
-
 }
-
-
-}
-
-
-
 
 
 
 
 // ==========================
-// START QUIZ
+// QUIZ START
 // ==========================
 
 
 function createQuiz(){
 
 
+if(!quizBox)
+return;
+
+
+
 quizQuestions =
 [...dictionary]
-.sort(
-()=>Math.random()-0.5
-)
+.sort(()=>Math.random()-0.5)
 .slice(0,5);
 
 
 
 currentQuestion=0;
-
 roundScore=0;
 
 showQuestion();
@@ -1149,19 +1055,24 @@ showQuestion();
 
 
 
-
-
-
 // ==========================
-// SHOW QUESTION
+// QUESTIONS
 // ==========================
 
 
 function showQuestion(){
 
 
-answering=false;
+if(!quizQuestions[currentQuestion]){
 
+finishQuiz();
+return;
+
+}
+
+
+
+answering=false;
 
 
 const question =
@@ -1170,81 +1081,56 @@ quizQuestions[currentQuestion];
 
 
 const wrongAnswers =
-
 [...dictionary]
 
-.filter(
-item =>
-item.word !== question.word
-)
+.filter(item=>item.word !== question.word)
 
-.sort(
-()=>Math.random()-0.5
-)
+.sort(()=>Math.random()-0.5)
 
 .slice(0,2);
 
 
 
-const answers = [
-
+const answers =
+[
 question,
-
 ...wrongAnswers
-
 ]
-
-.sort(
-()=>Math.random()-0.5
-);
+.sort(()=>Math.random()-0.5);
 
 
 
 
 
-quizBox.innerHTML = `
-
+quizBox.innerHTML=`
 
 <h3>
-
 Question ${currentQuestion+1}/5
-
 </h3>
 
 
 <h2>
-
 What does "${question.word}" mean?
-
 </h2>
-
 
 
 <div class="answers">
 
-
 ${answers.map(answer=>`
-
 
 <button 
 class="quiz-answer"
 data-word="${answer.word}">
 
-
 ${answer.meaning}
-
 
 </button>
 
-
 `).join("")}
-
 
 </div>
 
-
 `;
-
 
 
 
@@ -1255,9 +1141,7 @@ document
 .forEach(button=>{
 
 
-button.addEventListener(
-"click",
-()=>{
+button.onclick=function(){
 
 
 if(answering)
@@ -1267,51 +1151,35 @@ return;
 answering=true;
 
 
-
 const chosen =
 dictionary.find(
-item =>
-item.word === button.dataset.word
+item=>item.word===button.dataset.word
 );
 
 
 
-if(chosen.word === question.word){
-
+if(chosen.word===question.word){
 
 
 const xp =
-getXPReward(
-question.rarity
-);
-
+getXPReward(question.rarity);
 
 
 blueberologyXP += xp;
 
-
 roundScore++;
 
 
-
 localStorage.setItem(
-
 "blueberologyXP",
-
 blueberologyXP
-
 );
 
 
-
-button.classList.add(
-"correct"
-);
-
+button.classList.add("correct");
 
 
 button.innerHTML +=
-
 `
 <br>
 +${xp} XP
@@ -1320,17 +1188,9 @@ button.innerHTML +=
 
 
 }
-
-
-
 else{
 
-
-button.classList.add(
-"wrong"
-);
-
-
+button.classList.add("wrong");
 
 }
 
@@ -1339,12 +1199,8 @@ button.classList.add(
 document
 .querySelectorAll(".quiz-answer")
 .forEach(btn=>{
-
 btn.disabled=true;
-
 });
-
-
 
 
 
@@ -1354,41 +1210,30 @@ setTimeout(()=>{
 currentQuestion++;
 
 
-
-if(
-currentQuestion <
-quizQuestions.length
-){
-
+if(currentQuestion < quizQuestions.length){
 
 showQuestion();
-
 
 }
 
 else{
 
-
 finishQuiz();
 
-
 }
-
 
 
 },800);
 
 
 
-});
+};
 
 
 });
 
 
 }
-
-
 
 
 
@@ -1402,33 +1247,23 @@ finishQuiz();
 function finishQuiz(){
 
 
-quizBox.innerHTML = `
-
+quizBox.innerHTML=`
 
 <h2>
-
 Archive Complete
-
 </h2>
 
 
-
 <h3>
-
 Round Score:
 ${roundScore}/5
-
 </h3>
 
 
-
 <p>
-
 Total XP:
 ${blueberologyXP}
-
 </p>
-
 
 
 <button 
@@ -1438,7 +1273,6 @@ class="cta-button">
 Run Again
 
 </button>
-
 
 `;
 
@@ -1450,15 +1284,10 @@ updateRank();
 
 document
 .getElementById("restartQuiz")
-.addEventListener(
-"click",
-createQuiz
-);
+.onclick=createQuiz;
 
 
 }
-
-
 
 
 
@@ -1466,15 +1295,9 @@ createQuiz
 
 if(startQuiz){
 
-
-startQuiz.addEventListener(
-"click",
-createQuiz
-);
-
+startQuiz.onclick=createQuiz;
 
 }
-
 
 
 
