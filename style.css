@@ -1140,3 +1140,25 @@ DICTIONARY BUTTON FIX
     margin-bottom:5px;
 
 }
+
+/* ==========================
+FIX HEADER COVERING CONTENT
+========================== */
+
+body{
+    padding-top:90px;
+}
+
+
+#wordOfDay{
+    scroll-margin-top:110px;
+}
+
+
+@media(max-width:700px){
+
+    body{
+        padding-top:120px;
+    }
+
+}
