@@ -518,20 +518,6 @@ renderDictionary();
 });
 
 
-});
-
-
-
-displayWordOfDay();
-
-updateCountdown();
-
-setInterval(
-updateCountdown,
-1000
-    
-);
-
 
 // ==========================
 // QUIZ SYSTEM
