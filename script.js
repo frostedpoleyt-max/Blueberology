@@ -3,8 +3,9 @@ const dictionary = [
 
 {
 word: "Gangrene",
-category: "The Basics / Materials",
-meaning: "Bad weed"
+category: "The Basics / Assembly",
+meaning: "Bad weed",
+image: "images/gangrene.jpg"
 },
 
 {
