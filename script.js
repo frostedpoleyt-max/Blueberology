@@ -377,7 +377,7 @@ function getRarityClass(rarity){
 
     return rarity
         .toLowerCase()
-        .replace(" ", "-");
+        .replace(/\s+/g, "-");
 
 }
 
