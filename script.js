@@ -442,7 +442,7 @@ function createCard(entry){
 
 return `
 
-<div class="card">
+<div class="card" onclick="openTerm('${entry.word}')">
 
 <div class="category">
 ${entry.category}
@@ -456,12 +456,31 @@ ${entry.word}
 ${entry.meaning}
 </p>
 
+<button>
+View Details
+</button>
+
 </div>
 
 `;
 
 }
 
+
+function openTerm(word){
+
+const entry = dictionary.find(
+item => item.word === word
+);
+
+if(!entry) return;
+
+
+alert(
+entry.word + "\n\n" + entry.meaning
+);
+
+}
 
 
 function renderDictionary(){
