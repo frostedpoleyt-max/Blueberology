@@ -1,294 +1,324 @@
 
 const dictionary = [
+
 {
 word: "Gangrene",
-category: "The Basics / Assembly",
+category: "The Basics / Materials",
 meaning: "Bad weed"
 },
-{
-word: "Laundry powder",
-category: "The Basics / Assembly",
-meaning: "Finely ground powder at the bottom of the grinder"
-},
-{
-word: "Canopy",
-category: "The Basics / Assembly",
-meaning: "Papers"
-},
-{
-word: "Carti",
-category: "The Basics / Assembly",
-meaning: "Cardboard filter"
-},
-{
-word: "Breezy Backdoor",
-category: "The Basics / Assembly",
-meaning: "Loose carti"
-},
-{
-word: "Set the Canopy",
-category: "The Basics / Assembly",
-meaning: "Licking/sealing the j"
-},
-{
-word: "Flooded Engine",
-category: "The Basics / Assembly",
-meaning: "Too wet from setting the canopy"
-},
-{
-word: "Keyhole",
-category: "The Basics / Assembly",
-meaning: "Twisty tip at the end"
-},
-{
-word: "Juno",
-category: "The Basics / Assembly",
-meaning: "Rolling the j"
-},
-{
-word: "Drying",
-category: "The Basics / Assembly",
-meaning: "Grinding"
-},
-{
-word: "Dryer",
-category: "The Basics / Assembly",
-meaning: "Grinder"
-},
+
 {
 word: "Laundry",
-category: "The Basics / Assembly",
+category: "The Basics / Materials",
 meaning: "Weed"
 },
+
 {
-word: "Doobie",
-category: "The Basics / Assembly",
-meaning: "Baby one"
+word: "Drying",
+category: "The Basics / Materials",
+meaning: "Grinding"
 },
+
 {
-word: "Fart",
-category: "The Basics / Assembly",
-meaning: "Weed vape"
+word: "Dryer",
+category: "The Basics / Materials",
+meaning: "Grinder"
 },
+
 {
-word: "Wort",
-category: "The Basics / Assembly",
-meaning: "Water"
+word: "Laundry powder",
+category: "The Basics / Materials",
+meaning: "Finely ground powder at the bottom of the grinder"
 },
+
 {
-word: "Snaps",
-category: "Light-Up & Ignition",
-meaning: "The lighter (Snapping fingers means snaps)"
+word: "Canopy",
+category: "The Basics / Materials",
+meaning: "Papers"
 },
+
+{
+word: "Carti",
+category: "The Basics / Materials",
+meaning: "Cardboard filter"
+},
+
+{
+word: "Breezy Backdoor",
+category: "The Basics / Materials",
+meaning: "Loose carti"
+},
+
+{
+word: "Juno",
+category: "Rolling / Assembly",
+meaning: "Rolling the j"
+},
+
+{
+word: "Keyhole",
+category: "Rolling / Assembly",
+meaning: "Twisty tip at the end"
+},
+
+{
+word: "Set the Canopy",
+category: "Rolling / Assembly",
+meaning: "Licking/sealing the j"
+},
+
+{
+word: "Flooded Engine",
+category: "Rolling / Assembly",
+meaning: "Too wet from setting the canopy"
+},
+
 {
 word: "Blueberry",
-category: "Smoking Items",
-type: "Smoking Item",
-meaning: "The j (addressed as a person)",
-description: "A central Blueberology term referring to the finished smoking item as if it has its own personality.",
-image: "blueberry.jpg",
-related: [
-"Cherry",
-"Snaps",
-"Raspberry"
-]
+category: "Blueberry Family",
+meaning: "The j (addressed as a person)"
 },
+
 {
 word: "Raspberry",
-category: "Light-Up & Ignition",
+category: "Blueberry Family",
 meaning: "A blunt"
 },
+
+{
+word: "Snaps",
+category: "Blueberry Family",
+meaning: "The lighter"
+},
+
 {
 word: "Cherry",
 category: "Light-Up & Ignition",
 meaning: "The red burning tip"
 },
-{
-word: "Low Battery",
-category: "Light-Up & Ignition",
-meaning: "Can't see the cherry but it's still burning"
-},
+
 {
 word: "Welding",
 category: "Light-Up & Ignition",
 meaning: "Heating the canopy once you set it"
 },
+
+{
+word: "Low Battery",
+category: "Light-Up & Ignition",
+meaning: "Can't see the cherry but it's still burning"
+},
+
 {
 word: "Bluetooth",
 category: "Light-Up & Ignition",
-meaning: "Being such a cherrymancer that you can snap the blueberry without touching the snaps to it"
+meaning: "Being skilled enough to snap the blueberry without touching the snaps to it"
 },
+
 {
 word: "Afterburner",
 category: "Light-Up & Ignition",
-meaning: "The entire tip of the blueb is red and nothing but cherry"
+meaning: "The entire tip is red and nothing but cherry"
 },
+
 {
 word: "Tightrope",
-category: "Ideal Smoke Flow",
+category: "Smoke Flow",
 meaning: "Burning perfectly even"
 },
+
 {
 word: "Puffington Express",
-category: "Ideal Smoke Flow",
+category: "Smoke Flow",
 meaning: "Lots of smoke produced per puff"
 },
+
 {
 word: "Fog Machine",
-category: "Ideal Smoke Flow",
+category: "Smoke Flow",
 meaning: "Ridiculous exhale cloud"
 },
+
 {
 word: "LP",
-category: "Ideal Smoke Flow",
+category: "Smoke Flow",
 meaning: "Last puff"
 },
+
 {
 word: "Volcano Mode",
-category: "Burn Issues & Events",
+category: "Burn Events",
 meaning: "Burning super fast"
 },
-{
-word: "Campfire Story",
-category: "Burn Issues & Events",
-meaning: "Someone with the blueb is holding it and talking but not smoking it"
-},
+
 {
 word: "Tundra / Tunny / Albino",
-category: "Burn Issues & Events",
+category: "Burn Events",
 meaning: "The j has gone out"
 },
+
 {
 word: "Taniwha",
-category: "Burn Issues & Events",
+category: "Burn Events",
 meaning: "Stomping the j out"
 },
+
+{
+word: "Campfire Story",
+category: "Burn Events",
+meaning: "Someone holding the blueberry and talking instead of smoking"
+},
+
 {
 word: "Cherrymatics",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "Any event involving the cherry"
 },
+
 {
 word: "Cherrymancer",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "Someone skilled at reviving the cherry"
 },
+
 {
 word: "Frostbite",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "Ash on the end"
 },
+
 {
 word: "Avalanche",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "Ash falls everywhere"
 },
+
 {
 word: "Smurfing It",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "Ashing the frostbite/cherry"
 },
+
 {
 word: "Crimson Curse",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "Cherry touched you"
 },
+
 {
 word: "Crimson Curse Mark",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "Burn mark on skin"
 },
+
 {
 word: "The crimson deceiver",
-category: "Ash & Fire Events (Cherrymatics)",
-meaning: "Thinking you lost the cherry in a Smurf but it faked you out with being a low battery"
+category: "Cherrymatics",
+meaning: "Thinking you lost the cherry but it was actually a low battery"
 },
 
 {
 word: "Frostbite factory",
-category: "Ash & Fire Events (Cherrymatics)",
-meaning: "When Blueberry has a lot of frostbite on it and it hasn't fallen off yet"
+category: "Cherrymatics",
+meaning: "When the blueberry has lots of frostbite built up"
 },
+
 {
 word: "The crimson cherry",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "Scooby Snack but cherry"
 },
+
 {
 word: "Frohawk",
-category: "Ash & Fire Events (Cherrymatics)",
+category: "Cherrymatics",
 meaning: "When it's cannoning and there is frostbite on it"
 },
+
 {
 word: "Scooby Snack",
 category: "Inhale Events",
 meaning: "Inhaling a nug"
 },
+
 {
 word: "Stinging Rodger / Stinnie Roni",
 category: "Inhale Events",
 meaning: "Throat burn"
 },
+
 {
 word: "Phantom Pull",
 category: "Inhale Events",
 meaning: "Pretending to inhale / pulling when it's not lit"
 },
+
 {
 word: "Cloud Farming",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Hogging the j"
 },
+
 {
 word: "Freeloader",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Only shows up when Blueberry's around"
 },
+
 {
 word: "Tourist",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Can't inhale properly / coughing"
 },
+
 {
 word: "Dusting",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Non-verbal"
 },
+
 {
 word: "Couch Lock Protocol (CLP)",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Glued to your seat"
 },
+
 {
 word: "El wiro",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Police"
 },
+
 {
 word: "Obsidian obelisk",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Using a bong"
 },
+
 {
 word: "Demetrius lime trinket (DLT)",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Cigarette"
 },
+
 {
 word: "Hashbrown",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Weed brownies"
 },
+
 {
 word: "Trailblazer",
-category: "Social Dynamics & Lore",
+category: "Social / Lore",
 meaning: "Someone who you know blazes a lot"
 },
+
 {
 word: "TBF",
-category: "Social Dynamics & Lore",
-meaning: "Two Fat Buns (blazer food place)"
+category: "Social / Lore",
+meaning: "Two Fat Buns"
 }
+
 ];
 
 const dictionaryGrid = document.getElementById("dictionaryGrid");
