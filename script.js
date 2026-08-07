@@ -603,9 +603,11 @@ function renderDictionary(){
 
 
     const search =
-    searchInput.value
-    .toLowerCase()
-    .trim();
+searchInput
+?
+searchInput.value.toLowerCase().trim()
+:
+"";
 
 
 
