@@ -836,6 +836,7 @@ renderDictionary();
 // BLUEBEROLOGY XP SYSTEM
 // ==========================
 
+
 const startQuiz = document.getElementById("startQuiz");
 const quizBox = document.getElementById("quizBox");
 
@@ -852,7 +853,21 @@ let answering = false;
 
 
 // ==========================
-// RANK SYSTEM
+// SHUFFLE
+// ==========================
+
+function shuffle(array){
+
+return array.sort(
+()=>Math.random()-0.5
+);
+
+}
+
+
+
+// ==========================
+// RANKS
 // ==========================
 
 const ranks = [
@@ -901,13 +916,18 @@ xp:1000
 
 
 
+
+
 function getRankData(xp){
+
 
 let current = ranks[0];
 let next = null;
 
 
+
 for(let i=0;i<ranks.length;i++){
+
 
 if(xp >= ranks[i].xp){
 
@@ -919,35 +939,46 @@ next = ranks[i+1] || null;
 }
 
 
+
 let progress = 100;
+
 
 
 if(next){
 
-progress =
-((xp-current.xp) /
-(next.xp-current.xp))
-*100;
-
-
-progress = Math.min(progress,100);
+progress = Math.min(
+100,
+(
+(xp-current.xp)
+/
+(next.xp-current.xp)
+)
+*100
+);
 
 }
+
 
 
 return {
+
 current,
 next,
 progress
+
 };
 
+
 }
+
+
 
 
 
 
 
 function updateRank(){
+
 
 const data =
 getRankData(blueberologyXP);
@@ -957,11 +988,14 @@ getRankData(blueberologyXP);
 const title =
 document.getElementById("rankTitle");
 
+
 const count =
 document.getElementById("correctCount");
 
+
 const bar =
 document.getElementById("rankProgress");
+
 
 const next =
 document.getElementById("nextRank");
@@ -969,23 +1003,28 @@ document.getElementById("nextRank");
 
 
 if(title)
-title.innerHTML=data.current.name;
+title.innerHTML = data.current.name;
+
 
 
 if(count)
-count.innerHTML=blueberologyXP+" XP";
+count.innerHTML = blueberologyXP + " XP";
+
 
 
 if(bar)
-bar.style.width=data.progress+"%";
+bar.style.width = data.progress + "%";
+
 
 
 if(next){
 
 next.innerHTML =
+
 data.next
 
 ?
+
 `Next Rank: ${data.next.name} (${data.next.xp} XP)`
 
 :
@@ -994,37 +1033,55 @@ data.next
 
 }
 
+
 }
 
 
 
 
 
+
+
 // ==========================
-// XP REWARD
+// XP REWARDS
 // ==========================
 
 
 function getXPReward(rarity){
 
-if(rarity==="Legendary")
+
+switch(rarity){
+
+
+case "Legendary":
 return 25;
 
-if(rarity==="Rare")
+
+case "Rare":
 return 10;
 
-if(rarity==="Uncommon")
+
+case "Uncommon":
 return 5;
 
+
+default:
 return 2;
+
+
+}
+
 
 }
 
 
 
 
+
+
+
 // ==========================
-// QUIZ START
+// START QUIZ
 // ==========================
 
 
@@ -1036,15 +1093,15 @@ return;
 
 
 
-quizQuestions =
+quizQuestions = shuffle(
 [...dictionary]
-.sort(()=>Math.random()-0.5)
-.slice(0,5);
+).slice(0,5);
 
 
 
-currentQuestion=0;
-roundScore=0;
+currentQuestion = 0;
+roundScore = 0;
+
 
 showQuestion();
 
@@ -1055,8 +1112,11 @@ showQuestion();
 
 
 
+
+
+
 // ==========================
-// QUESTIONS
+// SHOW QUESTION
 // ==========================
 
 
@@ -1072,7 +1132,8 @@ return;
 
 
 
-answering=false;
+answering = false;
+
 
 
 const question =
@@ -1080,29 +1141,34 @@ quizQuestions[currentQuestion];
 
 
 
-const wrongAnswers =
+const wrongAnswers = shuffle(
+
 [...dictionary]
 
-.filter(item=>item.word !== question.word)
+.filter(
+item =>
+item.word !== question.word
+)
 
-.sort(()=>Math.random()-0.5)
-
-.slice(0,2);
+).slice(0,2);
 
 
 
-const answers =
-[
+
+const answers = shuffle([
+
 question,
+
 ...wrongAnswers
-]
-.sort(()=>Math.random()-0.5);
+
+]);
 
 
 
 
 
-quizBox.innerHTML=`
+quizBox.innerHTML = `
+
 
 <h3>
 Question ${currentQuestion+1}/5
@@ -1116,9 +1182,11 @@ What does "${question.word}" mean?
 
 <div class="answers">
 
+
 ${answers.map(answer=>`
 
-<button 
+
+<button
 class="quiz-answer"
 data-word="${answer.word}">
 
@@ -1126,11 +1194,16 @@ ${answer.meaning}
 
 </button>
 
+
 `).join("")}
+
 
 </div>
 
+
 `;
+
+
 
 
 
@@ -1141,33 +1214,38 @@ document
 .forEach(button=>{
 
 
-button.onclick=function(){
+button.onclick = function(){
+
 
 
 if(answering)
 return;
 
 
-answering=true;
+answering = true;
+
 
 
 const chosen =
 dictionary.find(
-item=>item.word===button.dataset.word
+item =>
+item.word === button.dataset.word
 );
 
 
 
-if(chosen.word===question.word){
+if(chosen.word === question.word){
 
 
 const xp =
 getXPReward(question.rarity);
 
 
+
 blueberologyXP += xp;
 
 roundScore++;
+
 
 
 localStorage.setItem(
@@ -1176,7 +1254,11 @@ blueberologyXP
 );
 
 
-button.classList.add("correct");
+
+button.classList.add(
+"correct"
+);
+
 
 
 button.innerHTML +=
@@ -1188,9 +1270,32 @@ button.innerHTML +=
 
 
 }
+
 else{
 
-button.classList.add("wrong");
+
+button.classList.add(
+"wrong"
+);
+
+
+
+document
+.querySelectorAll(".quiz-answer")
+.forEach(btn=>{
+
+
+if(btn.dataset.word === question.word){
+
+btn.classList.add(
+"correct"
+);
+
+}
+
+
+});
+
 
 }
 
@@ -1199,8 +1304,11 @@ button.classList.add("wrong");
 document
 .querySelectorAll(".quiz-answer")
 .forEach(btn=>{
+
 btn.disabled=true;
+
 });
+
 
 
 
@@ -1208,6 +1316,7 @@ setTimeout(()=>{
 
 
 currentQuestion++;
+
 
 
 if(currentQuestion < quizQuestions.length){
@@ -1221,6 +1330,7 @@ else{
 finishQuiz();
 
 }
+
 
 
 },800);
@@ -1239,6 +1349,8 @@ finishQuiz();
 
 
 
+
+
 // ==========================
 // FINISH QUIZ
 // ==========================
@@ -1247,7 +1359,13 @@ finishQuiz();
 function finishQuiz(){
 
 
-quizBox.innerHTML=`
+if(!quizBox)
+return;
+
+
+
+quizBox.innerHTML = `
+
 
 <h2>
 Archive Complete
@@ -1266,13 +1384,14 @@ ${blueberologyXP}
 </p>
 
 
-<button 
+<button
 id="restartQuiz"
 class="cta-button">
 
 Run Again
 
 </button>
+
 
 `;
 
@@ -1282,9 +1401,16 @@ updateRank();
 
 
 
-document
-.getElementById("restartQuiz")
-.onclick=createQuiz;
+const restart =
+document.getElementById("restartQuiz");
+
+
+
+if(restart){
+
+restart.onclick = createQuiz;
+
+}
 
 
 }
@@ -1293,9 +1419,11 @@ document
 
 
 
+
+
 if(startQuiz){
 
-startQuiz.onclick=createQuiz;
+startQuiz.onclick = createQuiz;
 
 }
 
