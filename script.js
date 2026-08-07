@@ -5,7 +5,7 @@ const dictionary = [
 word: "Gangrene",
 category: "The Basics / Assembly",
 meaning: "Bad weed",
-image: "images/gangrene.jpg"
+image: "images/gangrene.jpg.png"
 },
 
 {
