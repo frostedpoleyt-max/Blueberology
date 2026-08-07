@@ -553,6 +553,10 @@ details.innerHTML = `
 ${entry.category}
 </div>
 
+<div class="rarity ${getRarityClass(entry.rarity)}">
+${entry.rarity}
+</div>
+
 <h2>
 ${entry.word}
 </h2>
