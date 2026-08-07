@@ -736,186 +736,133 @@ renderDictionary();
 // QUIZ SYSTEM
 // ==========================
 
+const startQuiz = document.getElementById("startQuiz");
+const quizBox = document.getElementById("quizBox");
 
-const startQuiz =
-document.getElementById("startQuiz");
+let quizScore = Number(
+    localStorage.getItem("blueberologyScore")
+) || 0;
 
-const quizBox =
-document.getElementById("quizBox");
-
-
-let quizScore =
-Number(
-localStorage.getItem("blueberologyScore")
-)
-||
-0;
-
-
+let currentQuizScore = 0;
 let currentQuestion = 0;
-
 let quizQuestions = [];
 
 
 
-
+// ==========================
+// RANK SYSTEM
+// ==========================
 
 function getRank(score){
 
+    if(score >= 500){
+        return {
+            title:"👑 Grand Blueberologist",
+            next:"Maximum Rank",
+            progress:100
+        };
+    }
 
-if(score >= 500){
+    if(score >= 200){
+        return {
+            title:"📖 Lore Master",
+            next:"500 correct answers",
+            progress:(score/500)*100
+        };
+    }
 
-return {
-title:"👑 Grand Blueberologist",
-next:"Maximum Rank",
-progress:100
-};
+    if(score >= 100){
+        return {
+            title:"💨 Cloud Scholar",
+            next:"200 correct answers",
+            progress:(score/200)*100
+        };
+    }
 
-}
+    if(score >= 50){
+        return {
+            title:"🔥 Cherry Keeper",
+            next:"100 correct answers",
+            progress:(score/100)*100
+        };
+    }
 
+    if(score >= 25){
+        return {
+            title:"🌿 Blueberry Apprentice",
+            next:"50 correct answers",
+            progress:(score/50)*100
+        };
+    }
 
-if(score >= 200){
-
-return {
-title:"📖 Lore Master",
-next:"500 correct answers",
-progress:(score/500)*100
-};
-
-}
-
-
-if(score >= 100){
-
-return {
-title:"💨 Cloud Scholar",
-next:"200 correct answers",
-progress:(score/200)*100
-};
-
-}
-
-
-if(score >= 50){
-
-return {
-title:"🔥 Cherry Keeper",
-next:"100 correct answers",
-progress:(score/100)*100
-};
-
-}
-
-
-if(score >= 25){
-
-return {
-title:"🌿 Blueberry Apprentice",
-next:"50 correct answers",
-progress:(score/50)*100
-};
-
-}
+    if(score >= 10){
+        return {
+            title:"🍃 Berry Beginner",
+            next:"25 correct answers",
+            progress:(score/25)*100
+        };
+    }
 
 
-if(score >= 10){
-
-return {
-title:"🍃 Berry Beginner",
-next:"25 correct answers",
-progress:(score/25)*100
-};
+    return {
+        title:"🌱 Blueberry Seed",
+        next:"10 correct answers",
+        progress:(score/10)*100
+    };
 
 }
-
-
-return {
-title:"🌱 Blueberry Seed",
-next:"10 correct answers",
-progress:(score/10)*100
-};
-
-
-}
-
-
 
 
 
 function updateRank(){
 
+    const rank = getRank(quizScore);
 
-const rank =
-getRank(quizScore);
-
-
-const title =
-document.getElementById("rankTitle");
-
-
-const count =
-document.getElementById("correctCount");
+    const title = document.getElementById("rankTitle");
+    const count = document.getElementById("correctCount");
+    const bar = document.getElementById("rankProgress");
+    const next = document.getElementById("nextRank");
 
 
-const bar =
-document.getElementById("rankProgress");
+    if(title)
+        title.innerHTML = rank.title;
 
 
-const next =
-document.getElementById("nextRank");
+    if(count)
+        count.innerHTML = quizScore;
 
 
-
-if(title){
-
-title.innerHTML =
-rank.title;
-
-}
+    if(bar)
+        bar.style.width = rank.progress + "%";
 
 
-if(count){
-
-count.innerHTML =
-quizScore;
-
-}
-
-
-if(bar){
-
-bar.style.width =
-rank.progress + "%";
-
-}
-
-
-if(next){
-
-next.innerHTML =
-"Next Rank: " + rank.next;
-
-}
-
+    if(next)
+        next.innerHTML = "Next Rank: " + rank.next;
 
 }
 
 
 
 
+// ==========================
+// START QUIZ
+// ==========================
 
 function createQuiz(){
 
-    if(dictionary.length === 0){
-        quizBox.innerHTML = "No terms available.";
+    if(dictionary.length < 3){
+        quizBox.innerHTML = "Not enough terms available.";
         return;
     }
 
-    quizQuestions = dictionary
+
+    quizQuestions = [...dictionary]
         .sort(() => 0.5 - Math.random())
         .slice(0,5);
 
+
     currentQuestion = 0;
+    currentQuizScore = 0;
 
     showQuestion();
 
@@ -924,127 +871,163 @@ function createQuiz(){
 
 
 
+// ==========================
+// QUESTIONS
+// ==========================
 
 function showQuestion(){
-
-    console.log("Quiz started", quizQuestions);
 
     const question = quizQuestions[currentQuestion];
 
 
-
-const answers =
-[
-question.meaning,
-dictionary[
-Math.floor(Math.random()*dictionary.length)
-].meaning,
-dictionary[
-Math.floor(Math.random()*dictionary.length)
-].meaning
-]
-.sort(
-()=>0.5-Math.random()
-);
+    let wrongAnswers = [...dictionary]
+        .filter(item => item.word !== question.word)
+        .sort(() => 0.5 - Math.random())
+        .slice(0,2);
 
 
-
-quizBox.innerHTML = `
-
-
-<h3>
-What does "${question.word}" mean?
-</h3>
+    let answers = [
+        question,
+        ...wrongAnswers
+    ];
 
 
-<div class="answers">
-
-${answers.map(answer=>`
-
-<button class="quiz-answer">
-
-${answer}
-
-</button>
-
-`).join("")}
-
-
-</div>
-
-
-`;
+    answers.sort(() => 0.5 - Math.random());
 
 
 
-document
-.querySelectorAll(".quiz-answer")
-.forEach(button=>{
+    quizBox.innerHTML = `
+
+    <h3>
+    Question ${currentQuestion + 1}/5
+    </h3>
+
+    <h2>
+    What does "${question.word}" mean?
+    </h2>
 
 
-button.addEventListener(
-"click",
-()=>{
+    <div class="answers">
+
+    ${answers.map(answer => `
+
+        <button class="quiz-answer"
+        data-answer="${answer.meaning}">
+
+        ${answer.meaning}
+
+        </button>
+
+    `).join("")}
 
 
-if(button.innerHTML.trim()
-===
-question.meaning){
+    </div>
 
-quizScore++;
+    `;
 
-localStorage.setItem(
-"blueberologyScore",
-quizScore
-);
+
+
+    document
+    .querySelectorAll(".quiz-answer")
+    .forEach(button=>{
+
+
+        button.addEventListener(
+        "click",
+        ()=>{
+
+
+            const selected =
+            button.dataset.answer;
+
+
+            if(selected === question.meaning){
+
+                currentQuizScore++;
+
+                quizScore++;
+
+                localStorage.setItem(
+                    "blueberologyScore",
+                    quizScore
+                );
+
+
+                button.style.background = "#4CAF50";
+
+            }
+
+            else{
+
+                button.style.background = "#d9534f";
+
+            }
+
+
+
+            setTimeout(()=>{
+
+                currentQuestion++;
+
+
+                if(currentQuestion < quizQuestions.length){
+
+                    showQuestion();
+
+                }
+
+                else{
+
+                    finishQuiz();
+
+                }
+
+
+            },600);
+
+
+
+        });
+
+
+    });
+
 
 }
 
 
-currentQuestion++;
 
 
-if(currentQuestion < quizQuestions.length){
-
-showQuestion();
-
-}
-
-else{
-
-finishQuiz();
-
-}
-
-
-});
-
-});
-
-
-}
-
-
-
-
+// ==========================
+// FINISH QUIZ
+// ==========================
 
 function finishQuiz(){
 
 
 quizBox.innerHTML = `
 
-<h3>
+<h2>
 Quiz Complete
-</h3>
+</h2>
+
 
 <p>
-Total correct answers:
+Score this round:
+${currentQuizScore}/5
+</p>
+
+
+<p>
+Total Blueberology XP:
 ${quizScore}
 </p>
 
-<button id="startQuiz" class="cta-button">
+
+<button id="restartQuiz" class="cta-button">
 Play Again
 </button>
+
 
 `;
 
@@ -1053,7 +1036,7 @@ updateRank();
 
 
 document
-.getElementById("startQuiz")
+.getElementById("restartQuiz")
 .addEventListener(
 "click",
 createQuiz
@@ -1061,7 +1044,6 @@ createQuiz
 
 
 }
-
 
 
 
