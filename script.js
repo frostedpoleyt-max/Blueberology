@@ -516,6 +516,17 @@ modal.style.display = "flex";
 
 }
 
+document
+.getElementById("closeTerm")
+.addEventListener(
+"click",
+()=>{
+
+document
+.getElementById("termModal")
+.style.display="none";
+
+});
 
 function renderDictionary(){
 
