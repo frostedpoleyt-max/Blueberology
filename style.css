@@ -1374,3 +1374,107 @@ object-fit:cover;
 border-radius:15px;
 
 }
+
+
+/* ==========================
+   DICTIONARY CARD UPGRADES
+========================== */
+
+
+.card {
+
+    cursor:pointer;
+
+    transition:
+    transform .25s ease,
+    box-shadow .25s ease,
+    border-color .25s ease;
+
+    animation:
+    cardIn .4s ease;
+
+}
+
+
+
+.card:hover {
+
+    transform:
+    translateY(-10px)
+    scale(1.02);
+
+    border-color:var(--green);
+
+    box-shadow:
+    0 0 35px rgba(57,255,136,.25);
+
+}
+
+
+
+/* DETAILS BUTTON */
+
+.card button {
+
+    margin-top:20px;
+
+    padding:10px 25px;
+
+    border-radius:30px;
+
+    border:none;
+
+    background:
+    linear-gradient(
+    135deg,
+    var(--forest),
+    var(--green)
+    );
+
+    color:#000;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+
+
+.card button:hover {
+
+    transform:scale(1.08);
+
+    box-shadow:
+    0 0 20px var(--green);
+
+}
+
+
+
+/* CARD LOAD ANIMATION */
+
+@keyframes cardIn {
+
+    from {
+
+        opacity:0;
+
+        transform:
+        translateY(25px);
+
+    }
+
+
+    to {
+
+        opacity:1;
+
+        transform:
+        translateY(0);
+
+    }
+
+}
