@@ -508,6 +508,10 @@ return `
 ${entry.category}
 </div>
 
+<div class="rarity ${getRarityClass(entry.rarity)}">
+${entry.rarity}
+</div>
+
 <h3>
 ${entry.word}
 </h3>
