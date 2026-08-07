@@ -5,322 +5,381 @@ const dictionary = [
 word: "Gangrene",
 category: "The Basics / Assembly",
 meaning: "Bad weed",
-image: "gangrene.jpg.png"
+image: "gangrene.jpg.png",
+rarity: "Rare"
 },
 
 {
 word: "Laundry",
 category: "The Basics / Materials",
-meaning: "Weed"
+meaning: "Weed",
+rarity: "Common"
 },
 
 {
 word: "Drying",
 category: "The Basics / Materials",
-meaning: "Grinding"
+meaning: "Grinding",
+rarity: "Common"
 },
 
 {
 word: "Dryer",
 category: "The Basics / Materials",
-meaning: "Grinder"
+meaning: "Grinder",
+rarity: "Common"
 },
 
 {
 word: "Laundry powder",
 category: "The Basics / Materials",
-meaning: "Finely ground powder at the bottom of the grinder"
+meaning: "Finely ground powder at the bottom of the grinder",
+rarity: "Uncommon"
 },
 
 {
 word: "Canopy",
 category: "The Basics / Materials",
-meaning: "Papers"
+meaning: "Papers",
+rarity: "Common"
 },
 
 {
 word: "Carti",
 category: "The Basics / Materials",
-meaning: "Cardboard filter"
+meaning: "Cardboard filter",
+rarity: "Common"
 },
 
 {
 word: "Breezy Backdoor",
 category: "The Basics / Materials",
-meaning: "Loose carti"
+meaning: "Loose carti",
+rarity: "Rare"
 },
 
 {
 word: "Juno",
 category: "Rolling / Assembly",
-meaning: "Rolling the j"
+meaning: "Rolling the j",
+rarity: "Uncommon"
 },
 
 {
 word: "Keyhole",
 category: "Rolling / Assembly",
-meaning: "Twisty tip at the end"
+meaning: "Twisty tip at the end",
+rarity: "Uncommon"
 },
 
 {
 word: "Set the Canopy",
 category: "Rolling / Assembly",
-meaning: "Licking/sealing the j"
+meaning: "Licking/sealing the j",
+rarity: "Common"
 },
 
 {
 word: "Flooded Engine",
 category: "Rolling / Assembly",
-meaning: "Too wet from setting the canopy"
+meaning: "Too wet from setting the canopy",
+rarity: "Rare"
 },
 
 {
 word: "Blueberry",
 category: "Blueberry Family",
-meaning: "The j (addressed as a person)"
+meaning: "The j (addressed as a person)",
+rarity: "Common"
 },
 
 {
 word: "Raspberry",
 category: "Blueberry Family",
-meaning: "A blunt"
+meaning: "A blunt",
+rarity: "Common"
 },
 
 {
 word: "Snaps",
 category: "Blueberry Family",
-meaning: "The lighter"
+meaning: "The lighter",
+rarity: "Common"
 },
 
 {
 word: "Cherry",
 category: "Light-Up & Ignition",
-meaning: "The red burning tip"
-},
-
-{
-word: "Welding",
-category: "Light-Up & Ignition",
-meaning: "Heating the canopy once you set it"
+meaning: "The red burning tip",
+rarity: "Common"
 },
 
 {
 word: "Low Battery",
 category: "Light-Up & Ignition",
-meaning: "Can't see the cherry but it's still burning"
+meaning: "Can't see the cherry but it's still burning",
+rarity: "Rare"
 },
 
 {
 word: "Bluetooth",
 category: "Light-Up & Ignition",
-meaning: "Being skilled enough to snap the blueberry without touching the snaps to it"
+meaning: "Being skilled enough to snap the blueberry without touching the snaps to it",
+rarity: "Rare"
 },
 
 {
 word: "Afterburner",
 category: "Light-Up & Ignition",
-meaning: "The entire tip is red and nothing but cherry"
+meaning: "The entire tip is red and nothing but cherry",
+rarity: "Uncommon"
 },
-
+    
 {
 word: "Tightrope",
 category: "Smoke Flow",
-meaning: "Burning perfectly even"
+meaning: "Burning perfectly even",
+rarity: "Uncommon"
 },
 
 {
 word: "Puffington Express",
 category: "Smoke Flow",
-meaning: "Lots of smoke produced per puff"
+meaning: "Lots of smoke produced per puff",
+rarity: "Uncommon"
 },
 
 {
 word: "Fog Machine",
 category: "Smoke Flow",
-meaning: "Ridiculous exhale cloud"
+meaning: "Ridiculous exhale cloud",
+rarity: "Rare"
 },
 
 {
 word: "LP",
 category: "Smoke Flow",
-meaning: "Last puff"
+meaning: "Last puff",
+rarity: "Common"
 },
 
 {
 word: "Volcano Mode",
 category: "Burn Events",
-meaning: "Burning super fast"
+meaning: "Burning super fast",
+rarity: "Rare"
 },
 
 {
 word: "Tundra / Tunny / Albino",
 category: "Burn Events",
-meaning: "The j has gone out"
+meaning: "The j has gone out",
+rarity: "Common"
 },
 
 {
 word: "Taniwha",
 category: "Burn Events",
-meaning: "Stomping the j out"
+meaning: "Stomping the j out",
+rarity: "Rare"
 },
 
 {
 word: "Campfire Story",
 category: "Burn Events",
-meaning: "Someone holding the blueberry and talking instead of smoking"
+meaning: "Someone holding the blueberry and talking instead of smoking",
+rarity: "Common"
 },
 
 {
 word: "Cherrymatics",
 category: "Cherrymatics",
-meaning: "Any event involving the cherry"
+meaning: "Any event involving the cherry",
+rarity: "Uncommon"
 },
 
 {
 word: "Cherrymancer",
 category: "Cherrymatics",
-meaning: "Someone skilled at reviving the cherry"
+meaning: "Someone skilled at reviving the cherry",
+rarity: "Rare"
 },
 
 {
 word: "Frostbite",
 category: "Cherrymatics",
-meaning: "Ash on the end"
+meaning: "Ash on the end",
+rarity: "Common"
 },
 
 {
 word: "Avalanche",
 category: "Cherrymatics",
-meaning: "Ash falls everywhere"
+meaning: "Ash falls everywhere",
+rarity: "Uncommon"
 },
 
 {
 word: "Smurfing It",
 category: "Cherrymatics",
-meaning: "Ashing the frostbite/cherry"
+meaning: "Ashing the frostbite/cherry",
+rarity: "Uncommon"
 },
 
 {
 word: "Crimson Curse",
 category: "Cherrymatics",
-meaning: "Cherry touched you"
+meaning: "Cherry touched you",
+rarity: "Legendary"
 },
 
 {
 word: "Crimson Curse Mark",
 category: "Cherrymatics",
-meaning: "Burn mark on skin"
+meaning: "Burn mark on skin",
+rarity: "Legendary"
 },
 
 {
 word: "The crimson deceiver",
 category: "Cherrymatics",
-meaning: "Thinking you lost the cherry but it was actually a low battery"
+meaning: "Thinking you lost the cherry but it was actually a low battery",
+rarity: "Legendary"
 },
 
 {
 word: "Frostbite factory",
 category: "Cherrymatics",
-meaning: "When the blueberry has lots of frostbite built up"
+meaning: "When the blueberry has lots of frostbite built up",
+rarity: "Rare"
 },
 
 {
 word: "The crimson cherry",
 category: "Cherrymatics",
-meaning: "Scooby Snack but cherry"
+meaning: "Scooby Snack but cherry",
+rarity: "Legendary"
 },
 
 {
 word: "Frohawk",
 category: "Cherrymatics",
-meaning: "When it's cannoning and there is frostbite on it"
+meaning: "When it's cannoning and there is frostbite on it",
+rarity: "Rare"
 },
 
 {
 word: "Scooby Snack",
 category: "Inhale Events",
-meaning: "Inhaling a nug"
+meaning: "Inhaling a nug",
+rarity: "Rare"
 },
 
 {
 word: "Stinging Rodger / Stinnie Roni",
 category: "Inhale Events",
-meaning: "Throat burn"
+meaning: "Throat burn",
+rarity: "Uncommon"
 },
 
 {
 word: "Phantom Pull",
 category: "Inhale Events",
-meaning: "Pretending to inhale / pulling when it's not lit"
+meaning: "Pretending to inhale / pulling when it's not lit",
+rarity: "Rare"
 },
 
 {
 word: "Cloud Farming",
 category: "Social / Lore",
-meaning: "Hogging the j"
+meaning: "Hogging the j",
+rarity: "Common"
 },
 
 {
 word: "Freeloader",
 category: "Social / Lore",
-meaning: "Only shows up when Blueberry's around"
+meaning: "Only shows up when Blueberry's around",
+rarity: "Common"
 },
 
 {
 word: "Tourist",
 category: "Social / Lore",
-meaning: "Can't inhale properly / coughing"
+meaning: "Can't inhale properly / coughing",
+rarity: "Common"
 },
 
 {
 word: "Dusting",
 category: "Social / Lore",
-meaning: "Non-verbal"
+meaning: "Non-verbal",
+rarity: "Uncommon"
 },
 
 {
 word: "Couch Lock Protocol (CLP)",
 category: "Social / Lore",
-meaning: "Glued to your seat"
+meaning: "Glued to your seat",
+rarity: "Rare"
 },
 
 {
 word: "El wiro",
 category: "Social / Lore",
-meaning: "Police"
+meaning: "Police",
+rarity: "Rare"
 },
 
 {
 word: "Obsidian obelisk",
 category: "Social / Lore",
-meaning: "Using a bong"
+meaning: "Using a bong",
+rarity: "Rare"
 },
 
 {
 word: "Demetrius lime trinket (DLT)",
 category: "Social / Lore",
-meaning: "Cigarette"
+meaning: "Cigarette",
+rarity: "Uncommon"
 },
 
 {
 word: "Hashbrown",
 category: "Social / Lore",
-meaning: "Weed brownies"
+meaning: "Weed brownies",
+rarity: "Uncommon"
 },
 
 {
 word: "Trailblazer",
 category: "Social / Lore",
-meaning: "Someone who you know blazes a lot"
+meaning: "Someone who you know blazes a lot",
+rarity: "Uncommon"
 },
 
 {
 word: "TBF",
 category: "Social / Lore",
-meaning: "Two Fat Buns"
+meaning: "Two Fat Buns",
+rarity: "Common"
 }
 
 ];
+
+
+// ==========================
+// RARITY SYSTEM
+// ==========================
+
+function getRarityClass(rarity){
+
+    return rarity
+        .toLowerCase()
+        .replace(" ", "-");
+
+}
 
 const dictionaryGrid = document.getElementById("dictionaryGrid");
 const searchInput = document.getElementById("searchInput");
