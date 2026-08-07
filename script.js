@@ -943,19 +943,54 @@ function showQuestion(){
 
             if(selected === question.meaning){
 
-                currentQuizScore++;
-
-                quizScore++;
-
-                localStorage.setItem(
-                    "blueberologyScore",
-                    quizScore
-                );
+    currentQuizScore++;
 
 
-                button.style.background = "#4CAF50";
+    // ==========================
+    // RARITY XP SYSTEM
+    // ==========================
 
-            }
+    let xpGain = 1;
+
+
+    if(question.rarity === "Uncommon"){
+        xpGain = 3;
+    }
+
+
+    if(question.rarity === "Rare"){
+        xpGain = 5;
+    }
+
+
+    if(question.rarity === "Legendary"){
+        xpGain = 10;
+    }
+
+
+
+    quizScore += xpGain;
+
+
+
+    localStorage.setItem(
+        "blueberologyScore",
+        quizScore
+    );
+
+
+
+    button.style.background = "#4CAF50";
+
+
+    button.innerHTML += `
+    
+    <br>
+    +${xpGain} XP
+    
+    `;
+
+}
 
             else{
 
