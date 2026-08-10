@@ -304,18 +304,6 @@ const startQuiz =
 const quizBox =
     document.getElementById("quizBox");
 
-const rankUpPopup =
-    document.getElementById("rankUpPopup");
-
-const closeRankUp =
-    document.getElementById("closeRankUp");
-
-const rankUpRank =
-    document.getElementById("rankUpRank");
-
-const rankUpMessage =
-    document.getElementById("rankUpMessage");
-
 
 let currentCategory = "All";
 
