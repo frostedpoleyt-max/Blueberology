@@ -1325,6 +1325,8 @@ RANK UP POPUP
 
 .rank-up-content{
 
+    position:relative;
+    
     width:min(500px,90%);
 
     padding:45px 30px;
