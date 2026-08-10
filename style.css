@@ -1694,3 +1694,109 @@ MOBILE RANK POPUP
     }
 
 }
+
+    /* ==========================================================
+   MULTI-PAGE APP NAVIGATION
+   ========================================================== */
+.app-page {
+    display: none;
+    min-height: calc(100vh - 90px);
+}
+.app-page.active-page {
+    display: block;
+}
+/* ==========================================================
+   NAVIGATION BUTTONS
+   ========================================================== */
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+.nav-link {
+    border: none;
+    background: transparent;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 12px;
+    font-family: inherit;
+    font-size: .95rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: .25s;
+}
+.nav-link:hover {
+    color: var(--green);
+    background:
+        rgba(57,255,136,.08);
+}
+.nav-link.active {
+    color: #000;
+    background:
+        linear-gradient(
+            135deg,
+            var(--green2),
+            var(--green)
+        );
+    box-shadow:
+        0 0 18px
+        rgba(57,255,136,.25);
+}
+/* ==========================================================
+   HOME PAGE
+   ========================================================== */
+.home-card {
+    max-width: 800px;
+    margin: 60px auto;
+    padding: 50px;
+    text-align: center;
+}
+.home-card h2 {
+    color: var(--green);
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+}
+.home-card p {
+    color: var(--muted);
+    max-width: 600px;
+    margin:
+        0 auto 35px;
+    font-size: 1.1rem;
+}
+.home-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+.home-buttons .cta-button {
+    min-width: 180px;
+}
+/* ==========================================================
+   MOBILE NAVIGATION
+   ========================================================== */
+@media(max-width:700px) {
+    .main-nav {
+        width: 100%;
+        justify-content: center;
+        gap: 4px;
+    }
+    .nav-link {
+        padding: 8px 9px;
+        font-size: .78rem;
+    }
+    .home-card {
+        padding: 30px 20px;
+        margin-top: 30px;
+    }
+    .home-card h2 {
+        font-size: 1.9rem;
+    }
+    .home-buttons {
+        flex-direction: column;
+    }
+    .home-buttons .cta-button {
+        width: 100%;
+    }
+}
