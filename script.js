@@ -1991,3 +1991,104 @@ updateCollection();
 renderAchievements();
 
 checkAchievements();
+
+// ==========================================================
+// BLUEBEROLOGY PAGE NAVIGATION
+// ==========================================================
+
+function showPage(pageName) {
+
+    const pages =
+        document.querySelectorAll(".app-page");
+
+    const navLinks =
+        document.querySelectorAll(".nav-link");
+
+
+    // Hide every page
+
+    pages.forEach(page => {
+
+        page.classList.remove("active-page");
+
+    });
+
+
+    // Remove active state from navigation
+
+    navLinks.forEach(link => {
+
+        link.classList.remove("active");
+
+    });
+
+
+    // Show requested page
+
+    const selectedPage =
+        document.getElementById(
+            "page-" + pageName
+        );
+
+
+    if (selectedPage) {
+
+        selectedPage.classList.add(
+            "active-page"
+        );
+
+    }
+
+
+    // Highlight navigation button
+
+    navLinks.forEach(link => {
+
+        if (
+            link.dataset.page === pageName
+        ) {
+
+            link.classList.add("active");
+
+        }
+
+    });
+
+
+    // Scroll to top
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+// ==========================================================
+// NAVIGATION BUTTONS
+// ==========================================================
+
+document
+    .querySelectorAll(".nav-link")
+    .forEach(button => {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                showPage(
+                    this.dataset.page
+                );
+
+            }
+        );
+
+    });
+
+
+// ==========================================================
+// START ON HOME PAGE
+// ==========================================================
+
+showPage("home");
