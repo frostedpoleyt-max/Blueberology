@@ -719,7 +719,7 @@ function openTerm(index){
 
     if(!entry || !termDetails || !modal) return;
 
-
+discoverTerm(entry.word);
 
     termDetails.innerHTML = `
 
