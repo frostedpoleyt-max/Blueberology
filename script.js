@@ -9,250 +9,424 @@
 
 const dictionary = [
 
+    // ==========================================================
+    // THE BASICS
+    // ==========================================================
+
     {
         word: "Gangrene",
-        category: "The Basics / Assembly",
+        category: "The Basics",
+        subcategory: "Quality",
         meaning: "Bad weed",
         image: "gangrene.jpg.png",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["weed", "bad", "quality"]
     },
 
     {
         word: "Laundry",
-        category: "The Basics / Materials",
+        category: "The Basics",
+        subcategory: "Materials",
         meaning: "Weed",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["weed", "material"]
     },
 
     {
         word: "Drying",
-        category: "The Basics / Materials",
+        category: "The Basics",
+        subcategory: "Materials",
         meaning: "Grinding",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["grinding", "preparation"]
     },
 
     {
         word: "Dryer",
-        category: "The Basics / Materials",
+        category: "The Basics",
+        subcategory: "Equipment",
         meaning: "Grinder",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["grinder", "equipment"]
     },
 
     {
         word: "Laundry powder",
-        category: "The Basics / Materials",
+        category: "The Basics",
+        subcategory: "Materials",
         meaning: "Finely ground powder at the bottom of the grinder",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["grinder", "powder", "material"]
     },
 
     {
         word: "Canopy",
-        category: "The Basics / Materials",
+        category: "The Basics",
+        subcategory: "Materials",
         meaning: "Papers",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["papers", "material"]
     },
 
     {
         word: "Carti",
-        category: "The Basics / Materials",
+        category: "The Basics",
+        subcategory: "Materials",
         meaning: "Cardboard filter",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["filter", "cardboard", "material"]
     },
 
     {
         word: "Breezy Backdoor",
-        category: "The Basics / Materials",
+        category: "The Basics",
+        subcategory: "Materials",
         meaning: "Loose carti",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["filter", "carti"]
     },
+
+
+    // ==========================================================
+    // ROLLING & ASSEMBLY
+    // ==========================================================
 
     {
         word: "Juno",
-        category: "Rolling / Assembly",
+        category: "Rolling & Assembly",
+        subcategory: "Rolling",
         meaning: "Rolling the j",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["rolling", "assembly"]
     },
 
     {
         word: "Keyhole",
-        category: "Rolling / Assembly",
+        category: "Rolling & Assembly",
+        subcategory: "Rolling",
         meaning: "Twisty tip at the end",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["tip", "rolling", "assembly"]
     },
 
     {
         word: "Set the Canopy",
-        category: "Rolling / Assembly",
+        category: "Rolling & Assembly",
+        subcategory: "Sealing",
         meaning: "Licking/sealing the j",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["sealing", "rolling", "assembly"]
     },
 
     {
         word: "Flooded Engine",
-        category: "Rolling / Assembly",
+        category: "Rolling & Assembly",
+        subcategory: "Sealing",
         meaning: "Too wet from setting the canopy",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["wet", "sealing", "rolling"]
     },
+
+
+    // ==========================================================
+    // BLUEBERRY FAMILY
+    // ==========================================================
 
     {
         word: "Blueberry",
         category: "Blueberry Family",
+        subcategory: "Characters",
         meaning: "The j (addressed as a person)",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["j", "personification"]
     },
 
     {
         word: "Raspberry",
         category: "Blueberry Family",
+        subcategory: "Characters",
         meaning: "A blunt",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["blunt", "family"]
     },
 
     {
         word: "Snaps",
         category: "Blueberry Family",
+        subcategory: "Characters",
         meaning: "The lighter",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["lighter", "family"]
     },
+
+
+    // ==========================================================
+    // LIGHT-UP & IGNITION
+    // ==========================================================
 
     {
         word: "Cherry",
         category: "Light-Up & Ignition",
+        subcategory: "Cherry",
         meaning: "The red burning tip",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["cherry", "burning", "ignition"]
     },
 
     {
         word: "Low Battery",
         category: "Light-Up & Ignition",
+        subcategory: "Cherry",
         meaning: "Can't see the cherry but it's still burning",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["cherry", "burning"]
     },
 
     {
         word: "Bluetooth",
         category: "Light-Up & Ignition",
+        subcategory: "Technique",
         meaning: "Being skilled enough to snap the blueberry without touching the snaps to it",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["lighter", "technique", "skill"]
     },
 
     {
         word: "Afterburner",
         category: "Light-Up & Ignition",
+        subcategory: "Cherry",
         meaning: "The entire tip is red and nothing but cherry",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["cherry", "burning"]
     },
+
+
+    // ==========================================================
+    // SMOKE FLOW
+    // ==========================================================
 
     {
         word: "Tightrope",
         category: "Smoke Flow",
+        subcategory: "Burn",
         meaning: "Burning perfectly even",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["burn", "even", "smoke"]
     },
 
     {
         word: "Puffington Express",
         category: "Smoke Flow",
+        subcategory: "Smoke",
         meaning: "Lots of smoke produced per puff",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["smoke", "puff"]
     },
 
     {
         word: "Fog Machine",
         category: "Smoke Flow",
+        subcategory: "Smoke",
         meaning: "Ridiculous exhale cloud",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["smoke", "exhale"]
     },
 
     {
         word: "LP",
         category: "Smoke Flow",
+        subcategory: "Puffs",
         meaning: "Last puff",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["puff", "last puff"]
     },
+
+
+    // ==========================================================
+    // BURN EVENTS
+    // ==========================================================
 
     {
         word: "Volcano Mode",
         category: "Burn Events",
+        subcategory: "Burn Rate",
         meaning: "Burning super fast",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["burn", "fast", "burn rate"]
     },
 
     {
-        word: "Tundra / Tunny / Albino",
+        word: "Tundra",
         category: "Burn Events",
+        subcategory: "Extinguishing",
         meaning: "The j has gone out",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: ["Tunny", "Albino"],
+        examples: [],
+        tags: ["out", "extinguished"]
     },
 
     {
         word: "Taniwha",
         category: "Burn Events",
+        subcategory: "Extinguishing",
         meaning: "Stomping the j out",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["out", "extinguished", "stomping"]
     },
 
     {
         word: "Campfire Story",
         category: "Burn Events",
+        subcategory: "Social",
         meaning: "Someone holding the blueberry and talking instead of smoking",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["social", "talking", "holding"]
     },
+
+
+    // ==========================================================
+    // CHERRYMATICS
+    // ==========================================================
 
     {
         word: "Cherrymatics",
         category: "Cherrymatics",
+        subcategory: "General",
         meaning: "Any event involving the cherry",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["cherry", "events"]
     },
 
     {
         word: "Cherrymancer",
         category: "Cherrymatics",
+        subcategory: "Skill",
         meaning: "Someone skilled at reviving the cherry",
-        rarity: "Rare"
+        rarity: "Rare",
+        aliases: [],
+        examples: [],
+        tags: ["cherry", "skill", "reviving"]
     },
 
     {
         word: "Frostbite",
         category: "Cherrymatics",
+        subcategory: "Ash",
         meaning: "Ash on the end",
-        rarity: "Common"
+        rarity: "Common",
+        aliases: [],
+        examples: [],
+        tags: ["ash", "cherry"]
     },
 
     {
         word: "Avalanche",
         category: "Cherrymatics",
+        subcategory: "Ash",
         meaning: "Ash falls everywhere",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["ash", "falling"]
     },
 
     {
         word: "Smurfing It",
         category: "Cherrymatics",
+        subcategory: "Ash",
         meaning: "Ashing the frostbite/cherry",
-        rarity: "Uncommon"
+        rarity: "Uncommon",
+        aliases: [],
+        examples: [],
+        tags: ["ash", "cherry", "frostbite"]
     },
 
     {
         word: "Crimson Curse",
         category: "Cherrymatics",
+        subcategory: "Burns",
         meaning: "Cherry touched you",
-        rarity: "Legendary"
+        rarity: "Legendary",
+        aliases: [],
+        examples: [],
+        tags: ["cherry", "burn", "curse"]
     },
 
     {
         word: "Crimson Curse Mark",
         category: "Cherrymatics",
+        subcategory: "Burns",
         meaning: "Burn mark on skin",
-        rarity: "Legendary"
+        rarity: "Legendary",
+        aliases: [],
+        examples: [],
+        tags: ["cherry", "burn", "mark"]
     },
 
     {
-        word: "The crimson deceiver",
+        word: "The Crimson Deceiver",
         category: "Cherrymatics",
+        subcategory: "Cherry",
         meaning: "Thinking you lost the cherry but it was actually a low battery",
-        rarity: "Legendary"
+        rarity: "Legendary",
+        aliases: [],
+        examples: [],
+        tags: ["cherry", "low battery", "deception"]
     }
 
 ];
