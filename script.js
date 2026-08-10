@@ -1109,6 +1109,27 @@ if (closeRankUp && rankUpPopup) {
 
 }
 
+// ==========================
+// RANK UP CLOSE BUTTON
+// ==========================
+
+const rankUpPopup =
+    document.getElementById("rankUpPopup");
+
+const closeRankUp =
+    document.getElementById("closeRankUp");
+
+
+if(closeRankUp){
+
+    closeRankUp.addEventListener("click", () => {
+
+        rankUpPopup.classList.remove("show");
+
+    });
+
+}
+
 function updateRank(){
 
 
