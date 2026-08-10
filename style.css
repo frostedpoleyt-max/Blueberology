@@ -1800,3 +1800,143 @@ MOBILE RANK POPUP
         width: 100%;
     }
 }
+
+    /* ==========================================================
+BLUEBEROLOGY HERO WORDMARK
+========================================================== */
+
+.hero-header {
+position: relative;
+text-align: center;
+padding: 45px 20px 25px;
+overflow: hidden;
+}
+
+/* Main Blueberology title */
+
+.hero-wordmark {
+position: relative;
+display: inline-block;
+padding: 10px 30px;
+}
+
+.hero-wordmark h1 {
+position: relative;
+z-index: 2;
+margin: 0;
+font-size: clamp(3.5rem, 10vw, 8rem);
+font-weight: 900;
+letter-spacing: -0.06em;
+line-height: 0.9;
+
+color: #7dbb42;
+text-shadow:
+    0 3px 0 #31551f,
+    0 8px 20px rgba(0, 0, 0, 0.35);
+-webkit-text-stroke: 2px #263d19;
+
+}
+
+/* Subtitle */
+
+.hero-subtitle {
+margin: 18px 0 28px;
+color: #9db88b;
+font-size: 0.9rem;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+}
+
+/* Botanical overlays */
+
+.leaf {
+position: absolute;
+z-index: 3;
+pointer-events: none;
+
+font-size: clamp(2rem, 5vw, 4.5rem);
+filter:
+    drop-shadow(0 4px 5px rgba(0,0,0,.35));
+opacity: .9;
+
+}
+
+/* Individual leaf positions */
+
+.leaf-1 {
+top: -10px;
+left: 8%;
+transform: rotate(-28deg);
+}
+
+.leaf-2 {
+top: 35%;
+left: 22%;
+transform: rotate(18deg) scale(.75);
+}
+
+.leaf-3 {
+top: -20px;
+right: 12%;
+transform: rotate(25deg) scale(.9);
+}
+
+.leaf-4 {
+bottom: -15px;
+right: 27%;
+transform: rotate(-18deg) scale(.7);
+}
+
+.leaf-5 {
+bottom: 5px;
+left: 34%;
+transform: rotate(35deg) scale(.55);
+}
+
+/* Navigation */
+
+.hero-header .main-nav {
+position: relative;
+z-index: 10;
+
+display: flex;
+justify-content: center;
+align-items: center;
+flex-wrap: wrap;
+gap: 10px;
+
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+.hero-header {
+    padding-top: 30px;
+}
+.hero-wordmark {
+    padding: 10px;
+}
+.hero-wordmark h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+}
+.leaf {
+    font-size: 2rem;
+}
+.leaf-1 {
+    left: 0;
+}
+.leaf-2 {
+    left: 15%;
+}
+.leaf-3 {
+    right: 0;
+}
+.leaf-4 {
+    right: 12%;
+}
+.leaf-5 {
+    left: 35%;
+}
+
+}
