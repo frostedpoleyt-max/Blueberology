@@ -1110,6 +1110,201 @@ if (closeRankUp && rankUpPopup) {
 }
 
 // ==========================
+// ACHIEVEMENT SYSTEM
+// ==========================
+
+const achievements = [
+
+    {
+        id:"first_quiz",
+        icon:"🫐",
+        name:"First Berry",
+        description:"Answer your first quiz question correctly.",
+        condition:()=>correctAnswers >= 1
+    },
+
+    {
+        id:"five_correct",
+        icon:"🔥",
+        name:"Hot Start",
+        description:"Answer 5 questions correctly.",
+        condition:()=>correctAnswers >= 5
+    },
+
+    {
+        id:"perfect_quiz",
+        icon:"💨",
+        name:"Puffington",
+        description:"Get a perfect 5/5 quiz.",
+        condition:()=>perfectQuizzes >= 1
+    },
+
+    {
+        id:"ten_terms",
+        icon:"📚",
+        name:"Berry Collector",
+        description:"Discover 10 dictionary terms.",
+        condition:()=>getDiscoveredTerms().length >= 10
+    },
+
+    {
+        id:"twenty_terms",
+        icon:"📖",
+        name:"Archive Hunter",
+        description:"Discover 20 dictionary terms.",
+        condition:()=>getDiscoveredTerms().length >= 20
+    },
+
+    {
+        id:"cherrymancer",
+        icon:"🔮",
+        name:"Cherrymancer",
+        description:"Reach 750 XP.",
+        condition:()=>blueberologyXP >= 750
+    },
+
+    {
+        id:"mythic",
+        icon:"💎",
+        name:"Mythic",
+        description:"Reach 4,000 XP.",
+        condition:()=>blueberologyXP >= 4000
+    },
+
+    {
+        id:"demigod",
+        icon:"🐉",
+        name:"Demigod",
+        description:"Reach 10,000 XP.",
+        condition:()=>blueberologyXP >= 10000
+    }
+
+];
+
+
+let correctAnswers =
+Number(localStorage.getItem("blueberologyCorrect")) || 0;
+
+
+let perfectQuizzes =
+Number(localStorage.getItem("blueberologyPerfect")) || 0;
+
+
+function getUnlockedAchievements(){
+
+    return JSON.parse(
+        localStorage.getItem("blueberologyAchievements")
+    ) || [];
+
+}
+
+
+function saveUnlockedAchievements(list){
+
+    localStorage.setItem(
+        "blueberologyAchievements",
+        JSON.stringify(list)
+    );
+
+}
+
+
+function checkAchievements(){
+
+    const unlocked =
+    getUnlockedAchievements();
+
+    let changed = false;
+
+
+    achievements.forEach(achievement=>{
+
+        if(
+            achievement.condition()
+            &&
+            !unlocked.includes(achievement.id)
+        ){
+
+            unlocked.push(achievement.id);
+
+            changed = true;
+
+        }
+
+    });
+
+
+    if(changed){
+
+        saveUnlockedAchievements(unlocked);
+
+    }
+
+
+    renderAchievements();
+
+}
+
+
+function renderAchievements(){
+
+    const grid =
+    document.getElementById("achievementGrid");
+
+    if(!grid) return;
+
+
+    const unlocked =
+    getUnlockedAchievements();
+
+
+    grid.innerHTML =
+    achievements.map(achievement=>{
+
+        const isUnlocked =
+        unlocked.includes(achievement.id);
+
+
+        return `
+
+        <div class="achievement-card
+        ${isUnlocked ? "unlocked" : ""}">
+
+            <div class="achievement-icon">
+
+                ${achievement.icon}
+
+            </div>
+
+            <h3>
+
+                ${achievement.name}
+
+            </h3>
+
+            <p>
+
+                ${achievement.description}
+
+            </p>
+
+            <span class="achievement-status">
+
+                ${isUnlocked
+                    ? "Unlocked"
+                    : "Locked"}
+
+            </span>
+
+        </div>
+
+        `;
+
+    }).join("");
+
+}
+
+// ==========================
 // RANK UP CLOSE BUTTON
 // ==========================
 
