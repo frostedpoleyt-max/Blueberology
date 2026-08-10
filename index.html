@@ -25,32 +25,64 @@
 <body>
 
 
-<!-- ==========================
-NAVIGATION
-========================== -->
+<!-- ==========================================================
+     NAVIGATION
+     ========================================================== -->
 
 <header class="navbar">
 
     <div class="nav-container">
 
-        <a class="logo" href="#">
-            Blueberology
+        <a
+            class="logo"
+            href="#"
+            onclick="showPage('home'); return false;"
+        >
+            🫐 Blueberology
         </a>
 
 
-        <nav>
+        <nav class="main-nav">
 
-            <a href="#word-day">
-                Daily Word
-            </a>
+            <button
+                type="button"
+                class="nav-link active"
+                data-page="home"
+            >
+                Home
+            </button>
 
-            <a href="#dictionary">
+            <button
+                type="button"
+                class="nav-link"
+                data-page="daily"
+            >
+                Daily Discovery
+            </button>
+
+            <button
+                type="button"
+                class="nav-link"
+                data-page="dictionary"
+            >
                 Dictionary
-            </a>
+            </button>
 
-            <a href="#quiz">
-                Quiz
-            </a>
+            <button
+                type="button"
+                class="nav-link"
+                data-page="training"
+            >
+                Training
+            </button>
+
+            <button
+                type="button"
+                class="nav-link"
+                data-page="ranks"
+            >
+                Ranks
+            </button>
 
         </nav>
 
