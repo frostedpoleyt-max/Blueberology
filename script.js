@@ -905,45 +905,80 @@ return array;
 
 const ranks = [
 
-{
-name:"🌱 Blueberry Seed",
-xp:0
-},
+    {
+        name:"🌱 Blueberry Seed",
+        xp:0
+    },
 
-{
-name:"🍃 Berry Beginner",
-xp:10
-},
+    {
+        name:"🍃 Berry Beginner",
+        xp:10
+    },
 
-{
-name:"🌿 Blueberry Apprentice",
-xp:25
-},
+    {
+        name:"🌿 Blueberry Apprentice",
+        xp:25
+    },
 
-{
-name:"🔥 Cherry Keeper",
-xp:50
-},
+    {
+        name:"🫐 Berry Scholar",
+        xp:50
+    },
 
-{
-name:"💨 Cloud Scholar",
-xp:100
-},
+    {
+        name:"🔥 Cherry Keeper",
+        xp:100
+    },
 
-{
-name:"📖 Lore Master",
-xp:250
-},
+    {
+        name:"💨 Cloud Scholar",
+        xp:175
+    },
 
-{
-name:"👑 Grand Blueberologist",
-xp:500
-},
+    {
+        name:"🔥 Crimson Guardian",
+        xp:300
+    },
 
-{
-name:"🌌 Supreme Blueberologist",
-xp:1000
-}
+    {
+        name:"🧪 Blaze Alchemist",
+        xp:500
+    },
+
+    {
+        name:"🔮 Cherrymancer",
+        xp:750
+    },
+
+    {
+        name:"👑 Grand Blueberologist",
+        xp:1000
+    },
+
+    {
+        name:"🫐 Blueberry Master",
+        xp:1500
+    },
+
+    {
+        name:"🌌 Supreme Blueberologist",
+        xp:2500
+    },
+
+    {
+        name:"💎 Mythic Cherrymancer",
+        xp:4000
+    },
+
+    {
+        name:"🌠 Cosmic Blaze Sage",
+        xp:6000
+    },
+
+    {
+        name:"🐉 Demigod of Blueberology",
+        xp:10000
+    }
 
 ];
 
