@@ -1096,6 +1096,18 @@ function showRankUp(rank){
 
 }
 
+const rankUpPopup = document.getElementById("rankUpPopup");
+const closeRankUp = document.getElementById("closeRankUp");
+
+if (closeRankUp && rankUpPopup) {
+
+    closeRankUp.addEventListener("click", () => {
+
+        rankUpPopup.classList.remove("show");
+
+    });
+
+}
 
 function updateRank(){
 
