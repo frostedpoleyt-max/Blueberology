@@ -3,14 +3,21 @@
 
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
 
-<title>Blueberology | Digital Archive</title>
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-<meta name="description" content="Explore the world, language, and lore of Blueberology.">
+    <title>Blueberology | Digital Archive</title>
 
-<link rel="stylesheet" href="style.css">
+    <meta
+        name="description"
+        content="Explore the world, language, and lore of Blueberology."
+    >
+
+    <link rel="stylesheet" href="style.css">
 
 </head>
 
@@ -18,33 +25,36 @@
 <body>
 
 
+<!-- ==========================
+NAVIGATION
+========================== -->
+
 <header class="navbar">
 
-<div class="nav-container">
+    <div class="nav-container">
 
-<a class="logo" href="#">
-Blueberology
-</a>
-
-
-<nav>
-
-<a href="#word-day">
-Daily Word
-</a>
-
-<a href="#dictionary">
-Dictionary
-</a>
-
-<a href="#quiz">
-Quiz
-</a>
-
-</nav>
+        <a class="logo" href="#">
+            Blueberology
+        </a>
 
 
-</div>
+        <nav>
+
+            <a href="#word-day">
+                Daily Word
+            </a>
+
+            <a href="#dictionary">
+                Dictionary
+            </a>
+
+            <a href="#quiz">
+                Quiz
+            </a>
+
+        </nav>
+
+    </div>
 
 </header>
 
@@ -53,107 +63,129 @@ Quiz
 <main>
 
 
-<!-- DAILY WORD -->
+<!-- ==========================
+DAILY WORD
+========================== -->
 
 <section id="word-day" class="hero">
 
-
-<p class="daily-label">
-TODAY'S BLUEBEROLOGY DISCOVERY
-</p>
-
-
-<div id="wordOfDay" class="feature-card">
-
-Loading...
-
-</div>
+    <p class="daily-label">
+        TODAY'S BLUEBEROLOGY DISCOVERY
+    </p>
 
 
-<div id="countdown">
+    <div
+        id="wordOfDay"
+        class="feature-card"
+    >
+        Loading...
+    </div>
 
-Next discovery loading...
 
-</div>
-
+    <div id="countdown">
+        Next discovery loading...
+    </div>
 
 </section>
 
 
 
+<!-- ==========================
+BLUEBEROLOGY TRAINING
+========================== -->
+
+<section class="section" id="training">
+
+    <div class="section-header">
+
+        <h2>
+            Blueberology Training
+        </h2>
+
+        <div class="line"></div>
+
+    </div>
 
 
-<!-- BLUEBEROLOGY TRAINING -->
+    <!-- RANK -->
 
-<section class="section">
+    <div class="feature-card profile-card">
 
-
-<div class="section-header">
-
-<h2>
-Blueberology Training
-</h2>
-
-<div class="line"></div>
-
-</div>
+        <h3 id="rankTitle">
+            🌱 Blueberry Seed
+        </h3>
 
 
-
-<div class="feature-card training-box">
-
-
-<!-- RANK AREA -->
-
-<div class="profile-card">
+        <p>
+            Blueberology XP:
+            <span id="correctCount">0</span>
+        </p>
 
 
-<h3 id="rankTitle">
+        <div class="progress-container">
 
-Blueberry Seed
+            <div id="rankProgress"></div>
 
-</h3>
-
-
-
-<p>
-
-Blueberology XP:
-<span id="correctCount">0</span>
-
-</p>
+        </div>
 
 
-
-<div class="progress-container">
-
-<div id="rankProgress"></div>
-
-</div>
+        <p id="nextRank">
+            Next Rank: 🍃 Berry Beginner
+        </p>
 
 
+        <p>
+            🔥 Streak:
+            <span id="quizStreak">0</span>
+        </p>
 
-<p id="nextRank">
 
-Next Rank: Berry Beginner
+        <p>
+            🏆 Best Streak:
+            <span id="bestStreak">0</span>
+        </p>
 
-</p>
+    </div>
 
-    <p>
-🔥 Streak: <span id="quizStreak">0</span>
-</p>
 
-<p>
-🏆 Best Streak: <span id="bestStreak">0</span>
-</p>
+    <!-- QUIZ -->
 
-</div>
+    <div
+        id="quiz"
+        class="feature-card quiz-card"
+    >
+
+        <div id="quizBox">
+
+            <h3>
+                Ready to test your knowledge?
+            </h3>
+
+
+            <button
+                id="startQuiz"
+                class="cta-button"
+                type="button"
+            >
+                Begin Archive Quiz
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
 
 <!-- ==========================
 ACHIEVEMENTS
 ========================== -->
 
-<section class="section" id="achievements">
+<section
+    class="section"
+    id="achievements"
+>
 
     <div class="section-header">
 
@@ -169,16 +201,24 @@ ACHIEVEMENTS
 
     </div>
 
-    <div id="achievementGrid" class="achievement-grid"></div>
+
+    <div
+        id="achievementGrid"
+        class="achievement-grid"
+    ></div>
 
 </section>
 
 
+
 <!-- ==========================
-DISCOVERY
+ARCHIVE COLLECTION
 ========================== -->
 
-<section class="section" id="collection">
+<section
+    class="section"
+    id="collection"
+>
 
     <div class="section-header">
 
@@ -194,6 +234,7 @@ DISCOVERY
 
     </div>
 
+
     <div class="collection-progress-container">
 
         <div id="collectionProgressBar"></div>
@@ -202,190 +243,170 @@ DISCOVERY
 
 </section>
 
-<!-- QUIZ AREA -->
 
 
-<div id="quizBox">
+<!-- ==========================
+DICTIONARY
+========================== -->
 
-
-<h3>
-Ready to test your knowledge?
-</h3>
-
-
-<button id="startQuiz" class="cta-button">
-
-Begin Archive Quiz
-
-</button>
-
-
-</div>
-
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-<!-- DICTIONARY -->
-
-<section id="dictionary" class="section">
-
-
-<div class="section-header">
-
-<h2>
-Blueberology Dictionary
-</h2>
-
-<div class="line"></div>
-
-</div>
-
-
-
-<div class="dictionary-controls">
-
-
-<input 
-id="searchInput"
-placeholder="Search Blueberology terms..."
+<section
+    id="dictionary"
+    class="section"
 >
 
+    <div class="section-header">
+
+        <h2>
+            Blueberology Dictionary
+        </h2>
+
+        <div class="line"></div>
+
+    </div>
 
 
-<div class="category-buttons">
+    <div class="dictionary-controls">
 
 
-<button class="category-btn active" data-category="All">
-All
-</button>
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search Blueberology terms..."
+            autocomplete="off"
+        >
 
 
-<button class="category-btn" data-category="The Basics / Assembly">
-Basics
-</button>
+        <div class="category-buttons">
+
+            <button
+                class="category-btn active"
+                data-category="All"
+                type="button"
+            >
+                All
+            </button>
 
 
-<button class="category-btn" data-category="Light-Up & Ignition">
-Light-Up
-</button>
+            <button
+                class="category-btn"
+                data-category="The Basics / Assembly"
+                type="button"
+            >
+                Basics
+            </button>
 
 
-<button class="category-btn" data-category="Burn Events">
-Burn Events
-</button>
+            <button
+                class="category-btn"
+                data-category="The Basics / Materials"
+                type="button"
+            >
+                Materials
+            </button>
 
 
-<button class="category-btn" data-category="Social / Lore">
-Social
-</button>
+            <button
+                class="category-btn"
+                data-category="Rolling / Assembly"
+                type="button"
+            >
+                Rolling
+            </button>
 
 
-</div>
+            <button
+                class="category-btn"
+                data-category="Blueberry Family"
+                type="button"
+            >
+                Blueberry Family
+            </button>
 
 
-</div>
+            <button
+                class="category-btn"
+                data-category="Light-Up & Ignition"
+                type="button"
+            >
+                Light-Up
+            </button>
 
 
+            <button
+                class="category-btn"
+                data-category="Smoke Flow"
+                type="button"
+            >
+                Smoke Flow
+            </button>
 
-<div id="dictionaryGrid" class="dictionary-grid">
 
-</div>
+            <button
+                class="category-btn"
+                data-category="Burn Events"
+                type="button"
+            >
+                Burn Events
+            </button>
 
+
+            <button
+                class="category-btn"
+                data-category="Cherrymatics"
+                type="button"
+            >
+                Cherrymatics
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div
+        id="dictionaryGrid"
+        class="dictionary-grid"
+    ></div>
 
 </section>
 
 
 
+<!-- ==========================
+TERM MODAL
+========================== -->
+
+<div
+    id="termModal"
+    class="term-modal"
+>
+
+    <div class="term-content">
+
+        <button
+            id="closeTerm"
+            type="button"
+            aria-label="Close term"
+        >
+            ✕
+        </button>
 
 
+        <div id="termDetails"></div>
 
-<!-- TERM MODAL -->
-
-
-<div id="termModal" class="term-modal">
-
-
-<div class="term-content">
-
-
-<button id="closeTerm">
-✕
-</button>
-
-
-<div id="termDetails">
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<!-- QUIZ -->
-
-
-<section id="quiz" class="section">
-
-
-<div class="section-header">
-
-<h2>
-Blueberology Quiz
-</h2>
-
-<div class="line"></div>
-
+    </div>
 
 </div>
-
-
-
-
-<div class="feature-card quiz-card">
-
-
-<div id="quizBox">
-
-
-<button id="startQuiz" class="cta-button">
-
-Start Quiz
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-</section>
-
-
 
 
 
 </main>
+
+
+
+<!-- ==========================
+FOOTER
+========================== -->
 
 <footer class="footer">
 
@@ -396,36 +417,56 @@ Start Quiz
 </footer>
 
 
-<!-- RANK UP POPUP -->
 
-<div id="rankUpPopup" class="rank-up-popup">
+<!-- ==========================
+RANK UP POPUP
+========================== -->
+
+<div
+    id="rankUpPopup"
+    class="rank-up-popup"
+>
 
     <div class="rank-up-content">
 
-        <button id="closeRankUp" class="rank-up-close" type="button">
+
+        <button
+            id="closeRankUp"
+            class="rank-up-close"
+            type="button"
+            aria-label="Close rank up"
+        >
             ×
         </button>
+
 
         <div class="rank-up-label">
             RANK UP!
         </div>
 
+
         <div id="rankUpRank">
             🌱 Blueberry Seed
         </div>
+
 
         <p id="rankUpMessage">
             You've reached a new level of Blueberology!
         </p>
 
+
     </div>
 
 </div>
 
-</div>
 
+
+<!-- ==========================
+JAVASCRIPT
+========================== -->
 
 <script src="script.js"></script>
+
 
 </body>
 
