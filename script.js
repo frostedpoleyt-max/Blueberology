@@ -568,7 +568,7 @@ function updateRank() {
 }
 
 
-/// ==========================================================
+// ==========================================================
 // RANK-UP POPUP
 // ==========================================================
 
@@ -585,123 +585,72 @@ const rankUpMessage =
     document.getElementById("rankUpMessage");
 
 
-// ----------------------------------------------------------
-// SHOW RANK-UP POPUP
-// ----------------------------------------------------------
-
 function showRankUp(rank) {
 
-    if (!rankUpPopup) {
-        return;
-    }
-
+    if (!rankUpPopup) return;
 
     if (rankUpRank) {
-
-        rankUpRank.textContent =
-            rank.name;
-
+        rankUpRank.textContent = rank.name;
     }
-
 
     if (rankUpMessage) {
-
         rankUpMessage.textContent =
             `You've reached ${rank.xp} XP!`;
-
     }
 
-
-    // Remove any old inline hiding
-    rankUpPopup.style.display = "";
-
-    // Show popup
     rankUpPopup.classList.add("show");
 
 }
 
 
-// ----------------------------------------------------------
-// CLOSE RANK-UP POPUP
-// ----------------------------------------------------------
-
-function closeRankUpPopup() {
-
-    if (!rankUpPopup) {
-        return;
-    }
-
-
-    // Remove the show class
-    rankUpPopup.classList.remove("show");
-
-    // Force it completely invisible
-    rankUpPopup.style.display = "none";
-
-}
-
-
-// ----------------------------------------------------------
 // CLOSE BUTTON
-// ----------------------------------------------------------
 
 if (closeRankUp) {
 
-    closeRankUp.addEventListener(
-        "click",
-        function(event) {
+    closeRankUp.onclick = function(event) {
 
-            event.preventDefault();
-            event.stopPropagation();
+        event.preventDefault();
+        event.stopPropagation();
 
-            closeRankUpPopup();
+        rankUpPopup.classList.remove("show");
 
-        }
-    );
+    };
 
 }
 
 
-// ----------------------------------------------------------
-// CLICK DARK BACKGROUND TO CLOSE
-// ----------------------------------------------------------
+// CLICK OUTSIDE POPUP
 
 if (rankUpPopup) {
 
-    rankUpPopup.addEventListener(
-        "click",
-        function(event) {
+    rankUpPopup.onclick = function(event) {
 
-            if (
-                event.target === rankUpPopup
-            ) {
+        if (event.target === rankUpPopup) {
 
-                closeRankUpPopup();
-
-            }
+            rankUpPopup.classList.remove("show");
 
         }
-    );
+
+    };
 
 }
 
 
-// ----------------------------------------------------------
-// ESCAPE KEY TO CLOSE
-// ----------------------------------------------------------
+// ESC KEY
 
-document.addEventListener(
-    "keydown",
-    function(event) {
+document.addEventListener("keydown", function(event) {
 
-        if (event.key === "Escape") {
+    if (event.key === "Escape") {
 
-            closeRankUpPopup();
+        if (rankUpPopup) {
+
+            rankUpPopup.classList.remove("show");
 
         }
 
     }
-);
+
+});
 
 // ==========================================================
 // CATEGORY BUTTONS
