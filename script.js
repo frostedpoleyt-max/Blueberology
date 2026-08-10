@@ -1,5 +1,10 @@
 // ==========================================================
-// BLUEBEROLOGY DICTIONARY
+// BLUEBEROLOGY — COMPLETE SCRIPT
+// ==========================================================
+
+
+// ==========================================================
+// DICTIONARY
 // ==========================================================
 
 const dictionary = [
@@ -254,146 +259,32 @@ const dictionary = [
 
 
 // ==========================================================
-// RARITY
-// ==========================================================
-
-function getRarityClass(rarity) {
-
-    if (!rarity) {
-        return "common";
-    }
-
-    return rarity
-        .toLowerCase()
-        .replace(/\s+/g, "-");
-
-}
-
-
-// ==========================================================
-// DOM REFERENCES
-// ==========================================================
-
-const dictionaryGrid =
-    document.getElementById("dictionaryGrid");
-
-const searchInput =
-    document.getElementById("searchInput");
-
-const categoryContainer =
-    document.querySelector(".category-buttons");
-
-const wordContainer =
-    document.getElementById("wordOfDay");
-
-const countdown =
-    document.getElementById("countdown");
-
-const modal =
-    document.getElementById("termModal");
-
-const termDetails =
-    document.getElementById("termDetails");
-
-const closeTerm =
-    document.getElementById("closeTerm");
-
-const startQuiz =
-    document.getElementById("startQuiz");
-
-const quizBox =
-    document.getElementById("quizBox");
-
-
-let currentCategory = "All";
-
-
-// ==========================================================
 // RANKS
 // ==========================================================
 
 const ranks = [
 
-    {
-        name: "🌱 Blueberry Seed",
-        xp: 0
-    },
-
-    {
-        name: "🍃 Berry Beginner",
-        xp: 10
-    },
-
-    {
-        name: "🌿 Blueberry Apprentice",
-        xp: 25
-    },
-
-    {
-        name: "🫐 Berry Scholar",
-        xp: 50
-    },
-
-    {
-        name: "🔥 Crimson Guardian",
-        xp: 100
-    },
-
-    {
-        name: "💨 Cloud Scholar",
-        xp: 175
-    },
-
-    {
-        name: "🔥 Cherry Keeper",
-        xp: 300
-    },
-
-    {
-        name: "🧪 Blaze Alchemist",
-        xp: 500
-    },
-
-    {
-        name: "🔮 Cherrymancer",
-        xp: 750
-    },
-
-    {
-        name: "👑 Grand Blueberologist",
-        xp: 1000
-    },
-
-    {
-        name: "🫐 Blueberry Master",
-        xp: 1500
-    },
-
-    {
-        name: "🌌 Supreme Blueberologist",
-        xp: 2500
-    },
-
-    {
-        name: "💎 Mythic Cherrymancer",
-        xp: 4000
-    },
-
-    {
-        name: "🌠 Cosmic Blaze Sage",
-        xp: 6000
-    },
-
-    {
-        name: "🐉 Demigod of Blueberology",
-        xp: 10000
-    }
+    { name: "🌱 Blueberry Seed", xp: 0 },
+    { name: "🍃 Berry Beginner", xp: 10 },
+    { name: "🌿 Blueberry Apprentice", xp: 25 },
+    { name: "🫐 Berry Scholar", xp: 50 },
+    { name: "🔥 Crimson Guardian", xp: 100 },
+    { name: "💨 Cloud Scholar", xp: 175 },
+    { name: "🔥 Cherry Keeper", xp: 300 },
+    { name: "🧪 Blaze Alchemist", xp: 500 },
+    { name: "🔮 Cherrymancer", xp: 750 },
+    { name: "👑 Grand Blueberologist", xp: 1000 },
+    { name: "🫐 Blueberry Master", xp: 1500 },
+    { name: "🌌 Supreme Blueberologist", xp: 2500 },
+    { name: "💎 Mythic Cherrymancer", xp: 4000 },
+    { name: "🌠 Cosmic Blaze Sage", xp: 6000 },
+    { name: "🐉 Demigod of Blueberology", xp: 10000 }
 
 ];
 
 
 // ==========================================================
-// XP / PLAYER DATA
+// PLAYER DATA
 // ==========================================================
 
 let blueberologyXP =
@@ -411,13 +302,122 @@ let correctAnswers =
 let perfectQuizzes =
     Number(localStorage.getItem("blueberologyPerfect")) || 0;
 
+let currentCategory = "All";
+
 let currentQuestion = 0;
-
 let quizQuestions = [];
-
 let roundScore = 0;
-
 let answering = false;
+
+
+// ==========================================================
+// DOM
+// ==========================================================
+
+const dictionaryGrid = document.getElementById("dictionaryGrid");
+const searchInput = document.getElementById("searchInput");
+const categoryContainer = document.querySelector(".category-buttons");
+
+const wordContainer = document.getElementById("wordOfDay");
+const countdown = document.getElementById("countdown");
+
+const modal = document.getElementById("termModal");
+const termDetails = document.getElementById("termDetails");
+const closeTerm = document.getElementById("closeTerm");
+
+const startQuiz = document.getElementById("startQuiz");
+const quizBox = document.getElementById("quizBox");
+
+
+// ==========================================================
+// NAVIGATION
+// ==========================================================
+
+function showPage(pageName) {
+
+    const pages = document.querySelectorAll(".app-page");
+    const navLinks = document.querySelectorAll(".nav-link");
+
+    const selectedPage =
+        document.getElementById("page-" + pageName);
+
+    if (!selectedPage) {
+        console.error("Page not found:", pageName);
+        return;
+    }
+
+    pages.forEach(page => {
+        page.classList.remove("active-page");
+    });
+
+    navLinks.forEach(link => {
+        link.classList.remove("active");
+    });
+
+    selectedPage.classList.add("active-page");
+
+    navLinks.forEach(link => {
+
+        if (link.dataset.page === pageName) {
+            link.classList.add("active");
+        }
+
+    });
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+// Make showPage available to inline HTML onclick buttons.
+window.showPage = showPage;
+
+
+// Connect top navigation.
+document.querySelectorAll(".nav-link").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        showPage(this.dataset.page);
+
+    });
+
+});
+
+
+// ==========================================================
+// HOME BUTTONS
+// ==========================================================
+
+document.querySelectorAll("[data-go-page]").forEach(button => {
+
+    button.addEventListener("click", function () {
+
+        showPage(this.dataset.goPage);
+
+    });
+
+});
+
+
+// ==========================================================
+// RARITY
+// ==========================================================
+
+function getRarityClass(rarity) {
+
+    if (!rarity) {
+        return "common";
+    }
+
+    return rarity
+        .toLowerCase()
+        .replace(/\s+/g, "-");
+
+}
 
 
 // ==========================================================
@@ -448,7 +448,6 @@ function shuffle(array) {
 function getRankData(xp) {
 
     let current = ranks[0];
-
     let next = null;
 
     for (let i = 0; i < ranks.length; i++) {
@@ -456,9 +455,7 @@ function getRankData(xp) {
         if (xp >= ranks[i].xp) {
 
             current = ranks[i];
-
-            next =
-                ranks[i + 1] || null;
+            next = ranks[i + 1] || null;
 
         }
 
@@ -469,16 +466,11 @@ function getRankData(xp) {
     if (next) {
 
         progress =
-            (
-                (xp - current.xp) /
-                (next.xp - current.xp)
-            ) * 100;
+            ((xp - current.xp) /
+            (next.xp - current.xp)) * 100;
 
         progress =
-            Math.max(
-                0,
-                Math.min(100, progress)
-            );
+            Math.max(0, Math.min(100, progress));
 
     }
 
@@ -495,15 +487,13 @@ function getCurrentRankIndex(xp) {
 
     let index = 0;
 
-    for (let i = 0; i < ranks.length; i++) {
+    ranks.forEach((rank, i) => {
 
-        if (xp >= ranks[i].xp) {
-
+        if (xp >= rank.xp) {
             index = i;
-
         }
 
-    }
+    });
 
     return index;
 
@@ -511,50 +501,29 @@ function getCurrentRankIndex(xp) {
 
 
 // ==========================================================
-// UPDATE RANK UI
+// UPDATE RANK
 // ==========================================================
 
 function updateRank() {
 
-    const data =
-        getRankData(blueberologyXP);
+    const data = getRankData(blueberologyXP);
 
-    const title =
-        document.getElementById("rankTitle");
-
-    const count =
-        document.getElementById("correctCount");
-
-    const bar =
-        document.getElementById("rankProgress");
-
-    const next =
-        document.getElementById("nextRank");
-
+    const title = document.getElementById("rankTitle");
+    const count = document.getElementById("correctCount");
+    const bar = document.getElementById("rankProgress");
+    const next = document.getElementById("nextRank");
 
     if (title) {
-
-        title.textContent =
-            data.current.name;
-
+        title.textContent = data.current.name;
     }
-
 
     if (count) {
-
-        count.textContent =
-            blueberologyXP + " XP";
-
+        count.textContent = blueberologyXP + " XP";
     }
-
 
     if (bar) {
-
-        bar.style.width =
-            data.progress + "%";
-
+        bar.style.width = data.progress + "%";
     }
-
 
     if (next) {
 
@@ -569,7 +538,7 @@ function updateRank() {
 
 
 // ==========================================================
-// RANK-UP POPUP
+// RANK UP POPUP
 // ==========================================================
 
 const rankUpPopup =
@@ -587,7 +556,9 @@ const rankUpMessage =
 
 function showRankUp(rank) {
 
-    if (!rankUpPopup) return;
+    if (!rankUpPopup) {
+        return;
+    }
 
     if (rankUpRank) {
         rankUpRank.textContent = rank.name;
@@ -603,54 +574,29 @@ function showRankUp(rank) {
 }
 
 
-// CLOSE BUTTON
-
 if (closeRankUp) {
 
-    closeRankUp.onclick = function(event) {
-
-        event.preventDefault();
-        event.stopPropagation();
+    closeRankUp.addEventListener("click", function () {
 
         rankUpPopup.classList.remove("show");
 
-    };
+    });
 
 }
 
-
-// CLICK OUTSIDE POPUP
 
 if (rankUpPopup) {
 
-    rankUpPopup.onclick = function(event) {
+    rankUpPopup.addEventListener("click", function (event) {
 
         if (event.target === rankUpPopup) {
-
             rankUpPopup.classList.remove("show");
-
         }
 
-    };
+    });
 
 }
 
-
-// ESC KEY
-
-document.addEventListener("keydown", function(event) {
-
-    if (event.key === "Escape") {
-
-        if (rankUpPopup) {
-
-            rankUpPopup.classList.remove("show");
-
-        }
-
-    }
-
-});
 
 // ==========================================================
 // CATEGORY BUTTONS
@@ -662,59 +608,43 @@ function createCategoryButtons() {
         return;
     }
 
-
     const categories = [
         "All",
-        ...new Set(
-            dictionary.map(
-                item => item.category
-            )
-        )
+        ...new Set(dictionary.map(item => item.category))
     ];
 
+    categoryContainer.innerHTML = categories.map(category => `
 
-    categoryContainer.innerHTML =
-        categories.map(category => `
+        <button
+            class="category-btn ${category === "All" ? "active" : ""}"
+            data-category="${category}"
+            type="button"
+        >
+            ${category}
+        </button>
 
-            <button
-                class="category-btn ${category === "All" ? "active" : ""}"
-                data-category="${category}"
-                type="button"
-            >
-                ${category}
-            </button>
-
-        `).join("");
-
+    `).join("");
 
     categoryContainer
         .querySelectorAll(".category-btn")
         .forEach(button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+            button.addEventListener("click", function () {
 
-                    categoryContainer
-                        .querySelectorAll(".category-btn")
-                        .forEach(btn => {
+                categoryContainer
+                    .querySelectorAll(".category-btn")
+                    .forEach(btn => {
+                        btn.classList.remove("active");
+                    });
 
-                            btn.classList.remove("active");
+                this.classList.add("active");
 
-                        });
+                currentCategory =
+                    this.dataset.category;
 
+                renderDictionary();
 
-                    button.classList.add("active");
-
-
-                    currentCategory =
-                        button.dataset.category;
-
-
-                    renderDictionary();
-
-                }
-            );
+            });
 
         });
 
@@ -728,36 +658,20 @@ function createCategoryButtons() {
 function getDailyWord() {
 
     const now = new Date();
-
     const reset = new Date();
 
-    reset.setHours(
-        8,
-        0,
-        0,
-        0
-    );
-
+    reset.setHours(8, 0, 0, 0);
 
     if (now < reset) {
-
-        reset.setDate(
-            reset.getDate() - 1
-        );
-
+        reset.setDate(reset.getDate() - 1);
     }
 
-
     const day =
-        Math.floor(
-            reset.getTime() / 86400000
-        );
-
+        Math.floor(reset.getTime() / 86400000);
 
     return dictionary[
-        ((day % dictionary.length) +
-            dictionary.length) %
-        dictionary.length
+        ((day % dictionary.length) + dictionary.length)
+        % dictionary.length
     ];
 
 }
@@ -769,10 +683,7 @@ function displayWordOfDay() {
         return;
     }
 
-
-    const word =
-        getDailyWord();
-
+    const word = getDailyWord();
 
     wordContainer.innerHTML = `
 
@@ -796,14 +707,14 @@ function displayWordOfDay() {
 
             ${
                 word.image
-                    ? `
-                        <img
-                            class="daily-image"
-                            src="${word.image}"
-                            alt="${word.word}"
-                        >
-                    `
-                    : ""
+                ? `
+                    <img
+                        class="daily-image"
+                        src="${word.image}"
+                        alt="${word.word}"
+                    >
+                `
+                : ""
             }
 
             <p>
@@ -827,50 +738,26 @@ function updateCountdown() {
         return;
     }
 
-
     const now = new Date();
-
     const next = new Date();
 
-
-    next.setHours(
-        8,
-        0,
-        0,
-        0
-    );
-
+    next.setHours(8, 0, 0, 0);
 
     if (now >= next) {
-
-        next.setDate(
-            next.getDate() + 1
-        );
-
+        next.setDate(next.getDate() + 1);
     }
-
 
     const time =
         next.getTime() - now.getTime();
 
-
     const hours =
-        Math.floor(
-            time / 3600000
-        );
-
+        Math.floor(time / 3600000);
 
     const minutes =
-        Math.floor(
-            (time % 3600000) / 60000
-        );
-
+        Math.floor((time % 3600000) / 60000);
 
     const seconds =
-        Math.floor(
-            (time % 60000) / 1000
-        );
-
+        Math.floor((time % 60000) / 1000);
 
     countdown.textContent =
         `Next discovery in: ${hours}h ${minutes}m ${seconds}s`;
@@ -884,15 +771,13 @@ function updateCountdown() {
 
 function createCard(entry) {
 
-    const index =
-        dictionary.indexOf(entry);
-
+    const index = dictionary.indexOf(entry);
 
     return `
 
         <div
             class="card"
-            onclick="openTerm(${index})"
+            data-term-index="${index}"
         >
 
             <div class="category">
@@ -913,7 +798,8 @@ function createCard(entry) {
 
             <button
                 type="button"
-                onclick="event.stopPropagation(); openTerm(${index})"
+                class="view-term-button"
+                data-term-index="${index}"
             >
                 View Details
             </button>
@@ -931,45 +817,25 @@ function renderDictionary() {
         return;
     }
 
-
     const search =
         searchInput
-            ? searchInput.value.toLowerCase().trim()
-            : "";
-
+        ? searchInput.value.toLowerCase().trim()
+        : "";
 
     const filtered =
         dictionary.filter(entry => {
 
             const searchMatch =
-
-                entry.word
-                    .toLowerCase()
-                    .includes(search)
-
-                ||
-
-                entry.meaning
-                    .toLowerCase()
-                    .includes(search);
-
+                entry.word.toLowerCase().includes(search) ||
+                entry.meaning.toLowerCase().includes(search);
 
             const categoryMatch =
-
-                currentCategory === "All"
-
-                ||
-
+                currentCategory === "All" ||
                 entry.category === currentCategory;
 
-
-            return (
-                searchMatch &&
-                categoryMatch
-            );
+            return searchMatch && categoryMatch;
 
         });
-
 
     if (filtered.length === 0) {
 
@@ -977,9 +843,7 @@ function renderDictionary() {
 
             <div class="empty-state">
 
-                <h3>
-                    No terms found
-                </h3>
+                <h3>No terms found</h3>
 
                 <p>
                     Try another search or category.
@@ -993,19 +857,47 @@ function renderDictionary() {
 
     }
 
-
     dictionaryGrid.innerHTML =
-        filtered
-            .map(createCard)
-            .join("");
+        filtered.map(createCard).join("");
 
 }
 
 
-// ==========================================================
-// SEARCH
-// ==========================================================
+// Dictionary card clicks.
+if (dictionaryGrid) {
 
+    dictionaryGrid.addEventListener("click", function (event) {
+
+        const button =
+            event.target.closest(".view-term-button");
+
+        const card =
+            event.target.closest(".card");
+
+        if (button) {
+
+            openTerm(
+                Number(button.dataset.termIndex)
+            );
+
+            return;
+
+        }
+
+        if (card) {
+
+            openTerm(
+                Number(card.dataset.termIndex)
+            );
+
+        }
+
+    });
+
+}
+
+
+// Search.
 if (searchInput) {
 
     searchInput.addEventListener(
@@ -1022,21 +914,13 @@ if (searchInput) {
 
 function openTerm(index) {
 
-    const entry =
-        dictionary[index];
+    const entry = dictionary[index];
 
-
-    if (
-        !entry ||
-        !termDetails ||
-        !modal
-    ) {
+    if (!entry || !termDetails || !modal) {
         return;
     }
 
-
     discoverTerm(entry.word);
-
 
     termDetails.innerHTML = `
 
@@ -1056,17 +940,17 @@ function openTerm(index) {
 
             ${
                 entry.image
-                    ? `
-                        <img
-                            src="${entry.image}"
-                            alt="${entry.word}"
-                        >
-                    `
-                    : `
-                        <span>
-                            Blueberology Archive
-                        </span>
-                    `
+                ? `
+                    <img
+                        src="${entry.image}"
+                        alt="${entry.word}"
+                    >
+                `
+                : `
+                    <span>
+                        Blueberology Archive
+                    </span>
+                `
             }
 
         </div>
@@ -1085,7 +969,6 @@ function openTerm(index) {
 
     `;
 
-
     modal.style.display = "flex";
 
 }
@@ -1093,66 +976,47 @@ function openTerm(index) {
 
 if (closeTerm && modal) {
 
-    closeTerm.addEventListener(
-        "click",
-        () => {
+    closeTerm.addEventListener("click", function () {
 
-            modal.style.display = "none";
+        modal.style.display = "none";
 
-        }
-    );
+    });
 
 }
 
 
 if (modal) {
 
-    modal.addEventListener(
-        "click",
-        event => {
+    modal.addEventListener("click", function (event) {
 
-            if (
-                event.target === modal
-            ) {
-
-                modal.style.display = "none";
-
-            }
-
+        if (event.target === modal) {
+            modal.style.display = "none";
         }
-    );
+
+    });
 
 }
 
 
 // ==========================================================
-// ESCAPE KEY FOR MODALS
+// ESCAPE KEY
 // ==========================================================
 
-document.addEventListener(
-    "keydown",
-    event => {
+document.addEventListener("keydown", function (event) {
 
-        if (event.key !== "Escape") {
-            return;
-        }
-
-
-        if (modal) {
-
-            modal.style.display = "none";
-
-        }
-
-
-        if (rankUpPopup) {
-
-            rankUpPopup.classList.remove("show");
-
-        }
-
+    if (event.key !== "Escape") {
+        return;
     }
-);
+
+    if (modal) {
+        modal.style.display = "none";
+    }
+
+    if (rankUpPopup) {
+        rankUpPopup.classList.remove("show");
+    }
+
+});
 
 
 // ==========================================================
@@ -1167,20 +1031,12 @@ function updateStreakDisplay() {
     const best =
         document.getElementById("bestStreak");
 
-
     if (streak) {
-
-        streak.textContent =
-            quizStreak;
-
+        streak.textContent = quizStreak;
     }
 
-
     if (best) {
-
-        best.textContent =
-            bestStreak;
-
+        best.textContent = bestStreak;
     }
 
 }
@@ -1284,9 +1140,7 @@ function getUnlockedAchievements() {
             )
         ) || [];
 
-    }
-
-    catch {
+    } catch {
 
         return [];
 
@@ -1310,41 +1164,25 @@ function checkAchievements() {
     const unlocked =
         getUnlockedAchievements();
 
-
     let changed = false;
 
+    achievements.forEach(achievement => {
 
-    achievements.forEach(
-        achievement => {
+        if (
+            achievement.condition() &&
+            !unlocked.includes(achievement.id)
+        ) {
 
-            if (
-                achievement.condition()
-                &&
-                !unlocked.includes(
-                    achievement.id
-                )
-            ) {
-
-                unlocked.push(
-                    achievement.id
-                );
-
-                changed = true;
-
-            }
+            unlocked.push(achievement.id);
+            changed = true;
 
         }
-    );
 
+    });
 
     if (changed) {
-
-        saveUnlockedAchievements(
-            unlocked
-        );
-
+        saveUnlockedAchievements(unlocked);
     }
-
 
     renderAchievements();
 
@@ -1354,71 +1192,55 @@ function checkAchievements() {
 function renderAchievements() {
 
     const grid =
-        document.getElementById(
-            "achievementGrid"
-        );
-
+        document.getElementById("achievementGrid");
 
     if (!grid) {
         return;
     }
 
-
     const unlocked =
         getUnlockedAchievements();
 
-
     grid.innerHTML =
-        achievements.map(
-            achievement => {
+        achievements.map(achievement => {
 
-                const isUnlocked =
-                    unlocked.includes(
-                        achievement.id
-                    );
+            const isUnlocked =
+                unlocked.includes(achievement.id);
 
+            return `
 
-                return `
+                <div class="
+                    achievement-card
+                    ${isUnlocked ? "unlocked" : ""}
+                ">
 
-                    <div class="
-                        achievement-card
-                        ${isUnlocked ? "unlocked" : ""}
-                    ">
-
-                        <div class="achievement-icon">
-                            ${achievement.icon}
-                        </div>
-
-                        <h3>
-                            ${achievement.name}
-                        </h3>
-
-                        <p>
-                            ${achievement.description}
-                        </p>
-
-                        <span class="achievement-status">
-
-                            ${
-                                isUnlocked
-                                    ? "Unlocked"
-                                    : "Locked"
-                            }
-
-                        </span>
-
+                    <div class="achievement-icon">
+                        ${achievement.icon}
                     </div>
 
-                `;
+                    <h3>
+                        ${achievement.name}
+                    </h3>
 
-            }
-        ).join("");
+                    <p>
+                        ${achievement.description}
+                    </p>
+
+                    <span class="achievement-status">
+                        ${isUnlocked ? "Unlocked" : "Locked"}
+                    </span>
+
+                </div>
+
+            `;
+
+        }).join("");
 
 }
 
 
 // ==========================================================
-// DICTIONARY DISCOVERY
+// COLLECTION
 // ==========================================================
 
 function getDiscoveredTerms() {
@@ -1431,9 +1253,7 @@ function getDiscoveredTerms() {
             )
         ) || [];
 
-    }
-
-    catch {
+    } catch {
 
         return [];
 
@@ -1447,11 +1267,9 @@ function discoverTerm(word) {
     const discovered =
         getDiscoveredTerms();
 
-
     if (!discovered.includes(word)) {
 
         discovered.push(word);
-
 
         localStorage.setItem(
             "blueberologyDiscovered",
@@ -1460,9 +1278,7 @@ function discoverTerm(word) {
 
     }
 
-
     updateCollection();
-
     checkAchievements();
 
 }
@@ -1473,53 +1289,42 @@ function updateCollection() {
     const discovered =
         getDiscoveredTerms();
 
-
     const total =
         dictionary.length;
-
 
     const amount =
         discovered.length;
 
-
     const percentage =
         total > 0
-            ? (amount / total) * 100
-            : 0;
-
+        ? (amount / total) * 100
+        : 0;
 
     const text =
         document.getElementById(
             "collectionProgress"
         );
 
-
     const bar =
         document.getElementById(
             "collectionProgressBar"
         );
 
-
     if (text) {
-
         text.textContent =
             `${amount} / ${total} Terms Discovered`;
-
     }
 
-
     if (bar) {
-
         bar.style.width =
             percentage + "%";
-
     }
 
 }
 
 
 // ==========================================================
-// XP REWARDS
+// XP
 // ==========================================================
 
 function getXPReward(rarity) {
@@ -1553,18 +1358,12 @@ function createQuiz() {
         return;
     }
 
-
     quizQuestions =
-        shuffle([...dictionary])
-            .slice(0, 5);
-
+        shuffle([...dictionary]).slice(0, 5);
 
     currentQuestion = 0;
-
     roundScore = 0;
-
     answering = false;
-
 
     showQuestion();
 
@@ -1573,41 +1372,30 @@ function createQuiz() {
 
 function showQuestion() {
 
-    if (
-        !quizQuestions[currentQuestion]
-    ) {
+    if (!quizQuestions[currentQuestion]) {
 
         finishQuiz();
-
         return;
 
     }
 
-
     answering = false;
-
 
     const question =
         quizQuestions[currentQuestion];
 
-
     const wrongAnswers =
         shuffle(
-
             dictionary.filter(
-                item =>
-                    item.word !== question.word
+                item => item.word !== question.word
             )
-
         ).slice(0, 2);
-
 
     const answers =
         shuffle([
             question,
             ...wrongAnswers
         ]);
-
 
     quizBox.innerHTML = `
 
@@ -1625,8 +1413,8 @@ function showQuestion() {
 
                 <button
                     class="quiz-answer"
-                    data-word="${answer.word}"
                     type="button"
+                    data-word="${answer.word}"
                 >
                     ${answer.meaning}
                 </button>
@@ -1637,162 +1425,113 @@ function showQuestion() {
 
     `;
 
-
     quizBox
         .querySelectorAll(".quiz-answer")
         .forEach(button => {
 
-            button.addEventListener(
-                "click",
-                () => {
+            button.addEventListener("click", function () {
 
-                    if (answering) {
-                        return;
-                    }
+                if (answering) {
+                    return;
+                }
 
+                answering = true;
 
-                    answering = true;
+                const chosen =
+                    dictionary.find(
+                        item =>
+                            item.word ===
+                            this.dataset.word
+                    );
 
+                if (
+                    chosen &&
+                    chosen.word === question.word
+                ) {
 
-                    const chosen =
-                        dictionary.find(
-                            item =>
-                                item.word ===
-                                button.dataset.word
-                        );
+                    handleCorrectAnswer(
+                        this,
+                        question
+                    );
 
+                } else {
 
-                    if (
-                        chosen &&
-                        chosen.word ===
-                        question.word
-                    ) {
-
-                        handleCorrectAnswer(
-                            button,
-                            question
-                        );
-
-                    }
-
-                    else {
-
-                        handleWrongAnswer(
-                            button,
-                            question
-                        );
-
-                    }
-
-
-                    quizBox
-                        .querySelectorAll(
-                            ".quiz-answer"
-                        )
-                        .forEach(btn => {
-
-                            btn.disabled = true;
-
-                        });
-
-
-                    setTimeout(
-                        () => {
-
-                            currentQuestion++;
-
-
-                            if (
-                                currentQuestion <
-                                quizQuestions.length
-                            ) {
-
-                                showQuestion();
-
-                            }
-
-                            else {
-
-                                finishQuiz();
-
-                            }
-
-                        },
-                        800
+                    handleWrongAnswer(
+                        this,
+                        question
                     );
 
                 }
-            );
+
+                quizBox
+                    .querySelectorAll(".quiz-answer")
+                    .forEach(btn => {
+                        btn.disabled = true;
+                    });
+
+                setTimeout(() => {
+
+                    currentQuestion++;
+
+                    if (
+                        currentQuestion <
+                        quizQuestions.length
+                    ) {
+
+                        showQuestion();
+
+                    } else {
+
+                        finishQuiz();
+
+                    }
+
+                }, 800);
+
+            });
 
         });
 
 }
 
 
-function handleCorrectAnswer(
-    button,
-    question
-) {
+function handleCorrectAnswer(button, question) {
 
     const xp =
-        getXPReward(
-            question.rarity
-        );
-
+        getXPReward(question.rarity);
 
     const oldRankIndex =
-        getCurrentRankIndex(
-            blueberologyXP
-        );
-
+        getCurrentRankIndex(blueberologyXP);
 
     blueberologyXP += xp;
 
     roundScore++;
-
     quizStreak++;
-
     correctAnswers++;
 
-
     if (quizStreak > bestStreak) {
-
-        bestStreak =
-            quizStreak;
-
+        bestStreak = quizStreak;
     }
-
 
     localStorage.setItem(
         "blueberologyXP",
         blueberologyXP
     );
 
-
     localStorage.setItem(
         "blueberologyCorrect",
         correctAnswers
     );
 
-
     saveStreak();
 
-
     updateRank();
-
     updateStreakDisplay();
 
-
     const newRankIndex =
-        getCurrentRankIndex(
-            blueberologyXP
-        );
+        getCurrentRankIndex(blueberologyXP);
 
-
-    if (
-        newRankIndex >
-        oldRankIndex
-    ) {
+    if (newRankIndex > oldRankIndex) {
 
         showRankUp(
             ranks[newRankIndex]
@@ -1800,39 +1539,26 @@ function handleCorrectAnswer(
 
     }
 
-
-    button.classList.add(
-        "correct"
-    );
-
+    button.classList.add("correct");
 
     button.innerHTML += `
         <br>
         +${xp} XP
     `;
 
-
     checkAchievements();
 
 }
 
 
-function handleWrongAnswer(
-    button,
-    question
-) {
+function handleWrongAnswer(button, question) {
 
     quizStreak = 0;
 
     saveStreak();
-
     updateStreakDisplay();
 
-
-    button.classList.add(
-        "wrong"
-    );
-
+    button.classList.add("wrong");
 
     quizBox
         .querySelectorAll(".quiz-answer")
@@ -1843,9 +1569,7 @@ function handleWrongAnswer(
                 question.word
             ) {
 
-                btn.classList.add(
-                    "correct"
-                );
+                btn.classList.add("correct");
 
             }
 
@@ -1864,11 +1588,9 @@ function finishQuiz() {
         return;
     }
 
-
     if (roundScore === 5) {
 
         perfectQuizzes++;
-
 
         localStorage.setItem(
             "blueberologyPerfect",
@@ -1877,9 +1599,7 @@ function finishQuiz() {
 
     }
 
-
     checkAchievements();
-
 
     quizBox.innerHTML = `
 
@@ -1888,33 +1608,29 @@ function finishQuiz() {
         </h2>
 
         <h3>
-            Round Score:
-            ${roundScore}/5
+            Round Score: ${roundScore}/5
         </h3>
 
         <p>
-            Total XP:
-            ${blueberologyXP}
+            Total XP: ${blueberologyXP}
         </p>
 
         <p>
-            🔥 Current Streak:
-            ${quizStreak}
+            🔥 Current Streak: ${quizStreak}
         </p>
 
         <p>
-            🏆 Best Streak:
-            ${bestStreak}
+            🏆 Best Streak: ${bestStreak}
         </p>
 
         ${
             roundScore === 5
-                ? `
-                    <p>
-                        💨 Perfect Quiz!
-                    </p>
-                `
-                : ""
+            ? `
+                <p>
+                    💨 Perfect Quiz!
+                </p>
+            `
+            : ""
         }
 
         <button
@@ -1927,17 +1643,11 @@ function finishQuiz() {
 
     `;
 
-
     updateRank();
-
     updateStreakDisplay();
 
-
     const restart =
-        document.getElementById(
-            "restartQuiz"
-        );
-
+        document.getElementById("restartQuiz");
 
     if (restart) {
 
@@ -1952,7 +1662,7 @@ function finishQuiz() {
 
 
 // ==========================================================
-// START QUIZ BUTTON
+// START QUIZ
 // ==========================================================
 
 if (startQuiz) {
@@ -1966,7 +1676,7 @@ if (startQuiz) {
 
 
 // ==========================================================
-// INITIALIZE EVERYTHING
+// INITIALIZE
 // ==========================================================
 
 createCategoryButtons();
@@ -1991,110 +1701,6 @@ updateCollection();
 renderAchievements();
 
 checkAchievements();
-
-// ==========================================================
-// BLUEBEROLOGY PAGE NAVIGATION
-// ==========================================================
-
-function showPage(pageName) {
-
-    const pages =
-        document.querySelectorAll(".app-page");
-
-    const navLinks =
-        document.querySelectorAll(".nav-link");
-
-
-    // Hide all pages
-
-    pages.forEach(function(page) {
-
-        page.classList.remove("active-page");
-
-    });
-
-
-    // Remove active button
-
-    navLinks.forEach(function(link) {
-
-        link.classList.remove("active");
-
-    });
-
-
-    // Find requested page
-
-    const selectedPage =
-        document.getElementById(
-            "page-" + pageName
-        );
-
-
-    if (!selectedPage) {
-
-        console.error(
-            "Page not found:",
-            "page-" + pageName
-        );
-
-        return;
-
-    }
-
-
-    // Show requested page
-
-    selectedPage.classList.add(
-        "active-page"
-    );
-
-
-    // Highlight correct button
-
-    navLinks.forEach(function(link) {
-
-        if (
-            link.dataset.page === pageName
-        ) {
-
-            link.classList.add("active");
-
-        }
-
-    });
-
-
-    // Go to top
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
-
-}
-
-
-// ==========================================================
-// CONNECT NAVIGATION BUTTONS
-// ==========================================================
-
-document
-    .querySelectorAll(".nav-link")
-    .forEach(function(button) {
-
-        button.addEventListener(
-            "click",
-            function() {
-
-                showPage(
-                    button.dataset.page
-                );
-
-            }
-        );
-
-    });
 
 
 // ==========================================================
