@@ -1,538 +1,412 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Blueberology | Digital Archive</title>
-
-    <meta
-        name="description"
-        content="Explore the world, language, and lore of Blueberology."
-    >
-
-    <link rel="stylesheet" href="style.css">
-
+<meta charset="UTF-8">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+<title>Blueberology | Digital Archive</title>
+<meta
+    name="description"
+    content="Explore the world, language, and lore of Blueberology."
+>
+<link rel="stylesheet" href="style.css">
 </head>
-
-
 <body>
-
-
 <!-- ==========================================================
      NAVIGATION
      ========================================================== -->
-
 <header class="navbar">
-
-    <nav class="main-nav">
-
-    <button
-        class="nav-link active"
-        data-page="home"
-        type="button"
-    >
-        Home
-    </button>
-
-    <button
-        class="nav-link"
-        data-page="daily"
-        type="button"
-    >
-        Daily Word
-    </button>
-
-    <button
-        class="nav-link"
-        data-page="dictionary"
-        type="button"
-    >
-        Dictionary
-    </button>
-
-    <button
-        class="nav-link"
-        data-page="training"
-        type="button"
-    >
-        Training
-    </button>
-
-    <button
-        class="nav-link"
-        data-page="ranks"
-        type="button"
-    >
-        Ranks
-    </button>
-
-</nav>
-
-        </nav>
-
+<div class="nav-container">
+    <div class="logo">
+        🫐 Blueberology
     </div>
-
+    <nav class="main-nav">
+        <button
+            class="nav-link active"
+            data-page="home"
+            type="button"
+        >
+            Home
+        </button>
+        <button
+            class="nav-link"
+            data-page="daily"
+            type="button"
+        >
+            Daily Word
+        </button>
+        <button
+            class="nav-link"
+            data-page="dictionary"
+            type="button"
+        >
+            Dictionary
+        </button>
+        <button
+            class="nav-link"
+            data-page="training"
+            type="button"
+        >
+            Training
+        </button>
+        <button
+            class="nav-link"
+            data-page="ranks"
+            type="button"
+        >
+            Ranks
+        </button>
+    </nav>
+</div>
 </header>
-
-
-
+<!-- ==========================================================
+     MAIN APP
+     ========================================================== -->
 <main>
-
 <!-- ==========================================================
      HOME PAGE
      ========================================================== -->
-
-<section id="page-home" class="app-page active-page">
-
-    <section class="section">
-
-        <div class="section-header">
-
-            <h2>🫐 Blueberology</h2>
-
-            <div class="line"></div>
-
-            <p>
-                Welcome to the Blueberology Digital Archive.
-            </p>
-
+<section
+    id="page-home"
+    class="app-page active-page"
+>
+<section class="section">
+    <div class="section-header">
+        <h2>
+            🫐 Blueberology
+        </h2>
+        <div class="line"></div>
+        <p>
+            Welcome to the Blueberology Digital Archive.
+        </p>
+    </div>
+    <div class="feature-card home-card">
+        <h2>
+            Enter the Archive
+        </h2>
+        <p>
+            Discover terms, test your knowledge,
+            build your collection, and rise through
+            the ranks of Blueberology.
+        </p>
+        <div class="home-buttons">
+            <button
+                type="button"
+                class="cta-button"
+                onclick="showPage('daily')"
+            >
+                Daily Discovery
+            </button>
+            <button
+                type="button"
+                class="cta-button"
+                onclick="showPage('dictionary')"
+            >
+                Explore Dictionary
+            </button>
+            <button
+                type="button"
+                class="cta-button"
+                onclick="showPage('training')"
+            >
+                Start Training
+            </button>
         </div>
-
-
-        <div class="feature-card home-card">
-
-            <h2>
-                Enter the Archive
-            </h2>
-
-            <p>
-                Discover terms, test your knowledge,
-                build your collection, and rise through
-                the ranks of Blueberology.
-            </p>
-
-
-            <div class="home-buttons">
-
-                <button
-                    type="button"
-                    class="cta-button"
-                    onclick="showPage('daily')"
-                >
-                    Daily Discovery
-                </button>
-
-
-                <button
-                    type="button"
-                    class="cta-button"
-                    onclick="showPage('dictionary')"
-                >
-                    Explore Dictionary
-                </button>
-
-
-                <button
-                    type="button"
-                    class="cta-button"
-                    onclick="showPage('training')"
-                >
-                    Start Training
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
+    </div>
 </section>
-
-
-
+</section>
 <!-- ==========================================================
      DAILY DISCOVERY PAGE
      ========================================================== -->
-
 <section
     id="page-daily"
     class="app-page"
 >
-
-    <section
-        id="word-day"
-        class="section"
+<section
+    id="word-day"
+    class="section"
+>
+    <div class="section-header">
+        <h2>
+            Daily Discovery
+        </h2>
+        <div class="line"></div>
+        <p class="daily-label">
+            TODAY'S BLUEBEROLOGY DISCOVERY
+        </p>
+    </div>
+    <div
+        id="wordOfDay"
+        class="feature-card"
     >
-
-        <div class="section-header">
-
-            <h2>
-                Daily Discovery
-            </h2>
-
-            <div class="line"></div>
-
-            <p class="daily-label">
-                TODAY'S BLUEBEROLOGY DISCOVERY
-            </p>
-
-        </div>
-
-
-        <div
-            id="wordOfDay"
-            class="feature-card"
-        >
-            Loading...
-        </div>
-
-
-        <div id="countdown">
-            Next discovery loading...
-        </div>
-
-    </section>
-
+        Loading...
+    </div>
+    <div id="countdown">
+        Next discovery loading...
+    </div>
 </section>
-
-
-
+</section>
 <!-- ==========================================================
      TRAINING PAGE
      ========================================================== -->
-
 <section
     id="page-training"
     class="app-page"
 >
-
-    <section
-        class="section"
-        id="training"
+<section
+    class="section"
+    id="training"
+>
+    <div class="section-header">
+        <h2>
+            Blueberology Training
+        </h2>
+        <div class="line"></div>
+    </div>
+    <!-- RANK / XP -->
+    <div class="feature-card profile-card">
+        <h3 id="rankTitle">
+            🌱 Blueberry Seed
+        </h3>
+        <p>
+            Blueberology XP:
+            <span id="correctCount">0</span>
+        </p>
+        <div class="progress-container">
+            <div id="rankProgress"></div>
+        </div>
+        <p id="nextRank">
+            Next Rank: 🍃 Berry Beginner
+        </p>
+        <p>
+            🔥 Streak:
+            <span id="quizStreak">0</span>
+        </p>
+        <p>
+            🏆 Best Streak:
+            <span id="bestStreak">0</span>
+        </p>
+    </div>
+    <!-- QUIZ -->
+    <div
+        id="quiz"
+        class="feature-card quiz-card"
     >
-
-        <div class="section-header">
-
-            <h2>
-                Blueberology Training
-            </h2>
-
-            <div class="line"></div>
-
-        </div>
-
-
-        <!-- RANK -->
-
-        <div class="feature-card profile-card">
-
-            <h3 id="rankTitle">
-                🌱 Blueberry Seed
+        <div id="quizBox">
+            <h3>
+                Ready to test your knowledge?
             </h3>
-
-
-            <p>
-                Blueberology XP:
-                <span id="correctCount">0</span>
-            </p>
-
-
-            <div class="progress-container">
-
-                <div id="rankProgress"></div>
-
-            </div>
-
-
-            <p id="nextRank">
-                Next Rank: 🍃 Berry Beginner
-            </p>
-
-
-            <p>
-                🔥 Streak:
-                <span id="quizStreak">0</span>
-            </p>
-
-
-            <p>
-                🏆 Best Streak:
-                <span id="bestStreak">0</span>
-            </p>
-
+            <button
+                id="startQuiz"
+                class="cta-button"
+                type="button"
+            >
+                Begin Archive Quiz
+            </button>
         </div>
-
-
-        <!-- QUIZ -->
-
-        <div
-            id="quiz"
-            class="feature-card quiz-card"
-        >
-
-            <div id="quizBox">
-
-                <h3>
-                    Ready to test your knowledge?
-                </h3>
-
-
-                <button
-                    id="startQuiz"
-                    class="cta-button"
-                    type="button"
-                >
-                    Begin Archive Quiz
-                </button>
-
-            </div>
-
-        </div>
-
-    </section>
-
+    </div>
 </section>
-
-
-
+</section>
 <!-- ==========================================================
      RANKS / ACHIEVEMENTS PAGE
      ========================================================== -->
-
 <section
     id="page-ranks"
     class="app-page"
 >
-
-    <section
-        class="section"
-        id="achievements"
-    >
-
-        <div class="section-header">
-
-            <h2>
-                Blueberology Achievements
-            </h2>
-
-            <div class="line"></div>
-
-            <p>
-                Prove your knowledge. Unlock the archive.
-            </p>
-
-        </div>
-
-
-        <div
-            id="achievementGrid"
-            class="achievement-grid"
-        ></div>
-
-    </section>
-
-
-
-    <!-- COLLECTION -->
-
-    <section
-        class="section"
-        id="collection"
-    >
-
-        <div class="section-header">
-
-            <h2>
-                Archive Collection
-            </h2>
-
-            <div class="line"></div>
-
-            <p id="collectionProgress">
-                0 / 0 Terms Discovered
-            </p>
-
-        </div>
-
-
-        <div class="collection-progress-container">
-
-            <div id="collectionProgressBar"></div>
-
-        </div>
-
-    </section>
-
+<!-- ACHIEVEMENTS -->
+<section
+    class="section"
+    id="achievements"
+>
+    <div class="section-header">
+        <h2>
+            Blueberology Achievements
+        </h2>
+        <div class="line"></div>
+        <p>
+            Prove your knowledge. Unlock the archive.
+        </p>
+    </div>
+    <div
+        id="achievementGrid"
+        class="achievement-grid"
+    ></div>
 </section>
-
-
-
+<!-- COLLECTION -->
+<section
+    class="section"
+    id="collection"
+>
+    <div class="section-header">
+        <h2>
+            Archive Collection
+        </h2>
+        <div class="line"></div>
+        <p id="collectionProgress">
+            0 / 0 Terms Discovered
+        </p>
+    </div>
+    <div class="collection-progress-container">
+        <div id="collectionProgressBar"></div>
+    </div>
+</section>
+</section>
 <!-- ==========================================================
      DICTIONARY PAGE
      ========================================================== -->
-
 <section
     id="page-dictionary"
     class="app-page"
 >
-
-    <section
-        id="dictionary"
-        class="section"
-    >
-
-        <div class="section-header">
-
-            <h2>
-                Blueberology Dictionary
-            </h2>
-
-            <div class="line"></div>
-
-        </div>
-
-
-        <div class="dictionary-controls">
-
-
-            <input
-                id="searchInput"
-                type="search"
-                placeholder="Search Blueberology terms..."
-                autocomplete="off"
+<section
+    id="dictionary"
+    class="section"
+>
+    <div class="section-header">
+        <h2>
+            Blueberology Dictionary
+        </h2>
+        <div class="line"></div>
+    </div>
+    <div class="dictionary-controls">
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="Search Blueberology terms..."
+            autocomplete="off"
+        >
+        <div class="category-buttons">
+            <button
+                class="category-btn active"
+                data-category="All"
+                type="button"
             >
-
-
-            <div class="category-buttons">
-
-                <button
-                    class="category-btn active"
-                    data-category="All"
-                    type="button"
-                >
-                    All
-                </button>
-
-
-                <button
-                    class="category-btn"
-                    data-category="The Basics / Assembly"
-                    type="button"
-                >
-                    Basics
-                </button>
-
-
-                <button
-                    class="category-btn"
-                    data-category="The Basics / Materials"
-                    type="button"
-                >
-                    Materials
-                </button>
-
-
-                <button
-                    class="category-btn"
-                    data-category="Rolling / Assembly"
-                    type="button"
-                >
-                    Rolling
-                </button>
-
-
-                <button
-                    class="category-btn"
-                    data-category="Blueberry Family"
-                    type="button"
-                >
-                    Blueberry Family
-                </button>
-
-
-                <button
-                    class="category-btn"
-                    data-category="Light-Up & Ignition"
-                    type="button"
-                >
-                    Light-Up
-                </button>
-
-
-                <button
-                    class="category-btn"
-                    data-category="Smoke Flow"
-                    type="button"
-                >
-                    Smoke Flow
-                </button>
-
-
-                <button
-                    class="category-btn"
-                    data-category="Burn Events"
-                    type="button"
-                >
-                    Burn Events
-                </button>
-
-
-                <button
-                    class="category-btn"
-                    data-category="Cherrymatics"
-                    type="button"
-                >
-                    Cherrymatics
-                </button>
-
-            </div>
-
+                All
+            </button>
+            <button
+                class="category-btn"
+                data-category="The Basics / Assembly"
+                type="button"
+            >
+                Basics
+            </button>
+            <button
+                class="category-btn"
+                data-category="The Basics / Materials"
+                type="button"
+            >
+                Materials
+            </button>
+            <button
+                class="category-btn"
+                data-category="Rolling / Assembly"
+                type="button"
+            >
+                Rolling
+            </button>
+            <button
+                class="category-btn"
+                data-category="Blueberry Family"
+                type="button"
+            >
+                Blueberry Family
+            </button>
+            <button
+                class="category-btn"
+                data-category="Light-Up & Ignition"
+                type="button"
+            >
+                Light-Up
+            </button>
+            <button
+                class="category-btn"
+                data-category="Smoke Flow"
+                type="button"
+            >
+                Smoke Flow
+            </button>
+            <button
+                class="category-btn"
+                data-category="Burn Events"
+                type="button"
+            >
+                Burn Events
+            </button>
+            <button
+                class="category-btn"
+                data-category="Cherrymatics"
+                type="button"
+            >
+                Cherrymatics
+            </button>
         </div>
-
-
-        <div
-            id="dictionaryGrid"
-            class="dictionary-grid"
-        ></div>
-
-    </section>
-
+    </div>
+    <div
+        id="dictionaryGrid"
+        class="dictionary-grid"
+    ></div>
 </section>
-
-
-
+</section>
 <!-- ==========================================================
      TERM MODAL
      ========================================================== -->
-
 <div
     id="termModal"
     class="term-modal"
 >
-
-    <div class="term-content">
-
-        <button
-            id="closeTerm"
-            type="button"
-            aria-label="Close term"
-        >
-            ✕
-        </button>
-
-
-        <div id="termDetails"></div>
-
-    </div>
-
+<div class="term-content">
+    <button
+        id="closeTerm"
+        type="button"
+        aria-label="Close term"
+    >
+        ✕
+    </button>
+    <div id="termDetails"></div>
 </div>
-
-
+</div>
 </main>
+<!-- ==========================================================
+     FOOTER
+     ========================================================== -->
+<footer class="footer">
+<p>
+    Blueberology Digital Archive
+</p>
+</footer>
+<!-- ==========================================================
+     RANK-UP POPUP
+     ========================================================== -->
+<div
+    id="rankUpPopup"
+    class="rank-up-popup"
+>
+<div class="rank-up-content">
+    <button
+        id="closeRankUp"
+        class="rank-up-close"
+        type="button"
+        aria-label="Close rank up"
+    >
+        ×
+    </button>
+    <div class="rank-up-label">
+        RANK UP!
+    </div>
+    <div id="rankUpRank">
+        🌱 Blueberry Seed
+    </div>
+    <p id="rankUpMessage">
+        You've reached a new level of Blueberology!
+    </p>
+</div>
+</div>
+<!-- ==========================================================
+     JAVASCRIPT
+     ========================================================== -->
+<script src="script.js"></script>
+</body>
+</html>
