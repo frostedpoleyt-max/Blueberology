@@ -1305,6 +1305,96 @@ function renderAchievements(){
 }
 
 // ==========================
+// DICTIONARY DISCOVERY
+// ==========================
+
+function getDiscoveredTerms(){
+
+    return JSON.parse(
+        localStorage.getItem("blueberologyDiscovered")
+    ) || [];
+
+}
+
+
+function discoverTerm(word){
+
+    const discovered =
+    getDiscoveredTerms();
+
+
+    if(!discovered.includes(word)){
+
+        discovered.push(word);
+
+
+        localStorage.setItem(
+            "blueberologyDiscovered",
+            JSON.stringify(discovered)
+        );
+
+    }
+
+
+    updateCollection();
+
+    checkAchievements();
+
+}
+
+
+function updateCollection(){
+
+    const discovered =
+    getDiscoveredTerms();
+
+
+    const total =
+    dictionary.length;
+
+
+    const amount =
+    discovered.length;
+
+
+    const percentage =
+    total
+    ?
+    (amount / total) * 100
+    :
+    0;
+
+
+    const text =
+    document.getElementById(
+        "collectionProgress"
+    );
+
+
+    const bar =
+    document.getElementById(
+        "collectionProgressBar"
+    );
+
+
+    if(text){
+
+        text.textContent =
+        `${amount} / ${total} Terms Discovered`;
+
+    }
+
+
+    if(bar){
+
+        bar.style.width =
+        percentage + "%";
+
+    }
+
+}
+
+// ==========================
 // RANK UP CLOSE BUTTON
 // ==========================
 
