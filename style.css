@@ -1729,3 +1729,52 @@ QUIZ STREAK
     }
 
 }
+
+/* ==========================
+RANK UP CLOSE BUTTON FIX
+========================== */
+
+.rank-up-content {
+    position: relative;
+}
+
+.rank-up-close {
+    position: absolute;
+    top: 12px;
+    right: 14px;
+
+    width: 42px;
+    height: 42px;
+
+    padding: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(57,255,136,.4);
+    border-radius: 50%;
+
+    background: rgba(8,11,10,.9);
+    color: #39ff88;
+
+    font-size: 26px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 10001;
+
+    transform: none;
+}
+
+.rank-up-close:hover {
+    background: #39ff88;
+    color: #080b0a;
+
+    transform: scale(1.08);
+}
+
+.rank-up-close:active {
+    transform: scale(.95);
+}
