@@ -1691,7 +1691,12 @@ blueberologyXP += xp;
 
 roundScore++;
 
+quizStreak++;
 
+if(quizStreak > bestStreak){
+    bestStreak = quizStreak;
+}
+ 
 const newRankIndex =
 getCurrentRankIndex(blueberologyXP);
 
@@ -1737,6 +1742,7 @@ button.innerHTML +=
 
 else{
 
+ quizStreak = 0;
 
 button.classList.add(
 "wrong"
