@@ -1277,3 +1277,153 @@ BLUEBEROLOGY TRAINING BOX
     }
 
 }
+
+
+/* ==========================
+RANK UP POPUP
+========================== */
+
+.rank-up-popup{
+
+    position:fixed;
+
+    inset:0;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:rgba(0,0,0,.75);
+
+    backdrop-filter:blur(8px);
+
+    z-index:99999;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    pointer-events:none;
+
+    transition:
+    opacity .3s ease,
+    visibility .3s ease;
+
+}
+
+
+.rank-up-popup.show{
+
+    opacity:1;
+
+    visibility:visible;
+
+}
+
+
+.rank-up-content{
+
+    width:min(500px,90%);
+
+    padding:45px 30px;
+
+    text-align:center;
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #172019,
+    #080b0a
+    );
+
+    border:
+
+    2px solid var(--green);
+
+    border-radius:30px;
+
+    box-shadow:
+
+    0 0 30px rgba(57,255,136,.35),
+
+    0 0 80px rgba(57,255,136,.15);
+
+    transform:scale(.75);
+
+    transition:
+    transform .4s cubic-bezier(.17,.67,.3,1.3);
+
+}
+
+
+.rank-up-popup.show .rank-up-content{
+
+    transform:scale(1);
+
+}
+
+
+.rank-up-label{
+
+    color:var(--gold);
+
+    font-size:1rem;
+
+    font-weight:900;
+
+    letter-spacing:4px;
+
+    margin-bottom:15px;
+
+    text-shadow:
+
+    0 0 15px var(--gold);
+
+}
+
+
+#rankUpRank{
+
+    color:var(--green);
+
+    font-size:2.3rem;
+
+    font-weight:900;
+
+    text-shadow:
+
+    0 0 25px var(--green);
+
+    margin-bottom:15px;
+
+}
+
+
+#rankUpMessage{
+
+    color:var(--muted);
+
+    font-size:1rem;
+
+}
+
+
+@media(max-width:700px){
+
+    .rank-up-content{
+
+        padding:35px 20px;
+
+    }
+
+
+    #rankUpRank{
+
+        font-size:1.7rem;
+
+    }
+
+}
