@@ -607,6 +607,19 @@ function showRankUp(rank) {
 
 }
 
+// ==========================
+// RANK UP CLOSE BUTTON
+// ==========================
+
+if (closeRankUp && rankUpPopup) {
+
+    closeRankUp.onclick = function () {
+
+        rankUpPopup.classList.remove("show");
+
+    };
+
+}
 
 if (closeRankUp && rankUpPopup) {
 
