@@ -2005,25 +2005,25 @@ function showPage(pageName) {
         document.querySelectorAll(".nav-link");
 
 
-    // Hide every page
+    // Hide all pages
 
-    pages.forEach(page => {
+    pages.forEach(function(page) {
 
         page.classList.remove("active-page");
 
     });
 
 
-    // Remove active state from navigation
+    // Remove active button
 
-    navLinks.forEach(link => {
+    navLinks.forEach(function(link) {
 
         link.classList.remove("active");
 
     });
 
 
-    // Show requested page
+    // Find requested page
 
     const selectedPage =
         document.getElementById(
@@ -2031,18 +2031,28 @@ function showPage(pageName) {
         );
 
 
-    if (selectedPage) {
+    if (!selectedPage) {
 
-        selectedPage.classList.add(
-            "active-page"
+        console.error(
+            "Page not found:",
+            "page-" + pageName
         );
+
+        return;
 
     }
 
 
-    // Highlight navigation button
+    // Show requested page
 
-    navLinks.forEach(link => {
+    selectedPage.classList.add(
+        "active-page"
+    );
+
+
+    // Highlight correct button
+
+    navLinks.forEach(function(link) {
 
         if (
             link.dataset.page === pageName
@@ -2055,7 +2065,7 @@ function showPage(pageName) {
     });
 
 
-    // Scroll to top
+    // Go to top
 
     window.scrollTo({
         top: 0,
@@ -2066,19 +2076,19 @@ function showPage(pageName) {
 
 
 // ==========================================================
-// NAVIGATION BUTTONS
+// CONNECT NAVIGATION BUTTONS
 // ==========================================================
 
 document
     .querySelectorAll(".nav-link")
-    .forEach(button => {
+    .forEach(function(button) {
 
         button.addEventListener(
             "click",
             function() {
 
                 showPage(
-                    this.dataset.page
+                    button.dataset.page
                 );
 
             }
@@ -2088,7 +2098,7 @@ document
 
 
 // ==========================================================
-// START ON HOME PAGE
+// START ON HOME
 // ==========================================================
 
 showPage("home");
