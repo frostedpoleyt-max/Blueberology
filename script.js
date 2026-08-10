@@ -580,67 +580,115 @@ function updateRank() {
 }
 
 
-// ==========================================================
+/// ==========================================================
 // RANK-UP POPUP
 // ==========================================================
 
-function showRankUp(rank) {
+const rankUpPopup =
+    document.getElementById("rankUpPopup");
 
-    const popup = document.getElementById("rankUpPopup");
-    const rankName = document.getElementById("rankUpRank");
-    const message = document.getElementById("rankUpMessage");
-
-    if (!popup) return;
-
-    if (rankName) {
-        rankName.textContent = rank.name;
-    }
-
-    if (message) {
-        message.textContent =
-            `You've reached ${rank.xp} XP!`;
-    }
-
-    popup.classList.add("show");
-}
-
-//// ==========================
-// RANK UP CLOSE BUTTON
-// ==========================
-
-const popupCloseButton =
+const closeRankUp =
     document.getElementById("closeRankUp");
 
-if (popupCloseButton) {
+const rankUpRank =
+    document.getElementById("rankUpRank");
 
-    popupCloseButton.onclick = function(event) {
+const rankUpMessage =
+    document.getElementById("rankUpMessage");
 
-        event.preventDefault();
-        event.stopPropagation();
 
-        const popup =
-            document.getElementById("rankUpPopup");
+// ----------------------------------------------------------
+// SHOW RANK-UP POPUP
+// ----------------------------------------------------------
 
-        if (popup) {
-            popup.classList.remove("show");
-        }
+function showRankUp(rank) {
 
-    };
+    if (!rankUpPopup) {
+        return;
+    }
+
+
+    if (rankUpRank) {
+
+        rankUpRank.textContent =
+            rank.name;
+
+    }
+
+
+    if (rankUpMessage) {
+
+        rankUpMessage.textContent =
+            `You've reached ${rank.xp} XP!`;
+
+    }
+
+
+    // Remove any old inline hiding
+    rankUpPopup.style.display = "";
+
+    // Show popup
+    rankUpPopup.classList.add("show");
 
 }
 
 
-// Allow clicking the dark background to close it
+// ----------------------------------------------------------
+// CLOSE RANK-UP POPUP
+// ----------------------------------------------------------
+
+function closeRankUpPopup() {
+
+    if (!rankUpPopup) {
+        return;
+    }
+
+
+    // Remove the show class
+    rankUpPopup.classList.remove("show");
+
+    // Force it completely invisible
+    rankUpPopup.style.display = "none";
+
+}
+
+
+// ----------------------------------------------------------
+// CLOSE BUTTON
+// ----------------------------------------------------------
+
+if (closeRankUp) {
+
+    closeRankUp.addEventListener(
+        "click",
+        function(event) {
+
+            event.preventDefault();
+            event.stopPropagation();
+
+            closeRankUpPopup();
+
+        }
+    );
+
+}
+
+
+// ----------------------------------------------------------
+// CLICK DARK BACKGROUND TO CLOSE
+// ----------------------------------------------------------
 
 if (rankUpPopup) {
 
     rankUpPopup.addEventListener(
         "click",
-        (event) => {
+        function(event) {
 
-            if (event.target === rankUpPopup) {
+            if (
+                event.target === rankUpPopup
+            ) {
 
-                rankUpPopup.classList.remove("show");
+                closeRankUpPopup();
 
             }
 
@@ -649,6 +697,23 @@ if (rankUpPopup) {
 
 }
 
+
+// ----------------------------------------------------------
+// ESCAPE KEY TO CLOSE
+// ----------------------------------------------------------
+
+document.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (event.key === "Escape") {
+
+            closeRankUpPopup();
+
+        }
+
+    }
+);
 
 // ==========================================================
 // CATEGORY BUTTONS
