@@ -1886,7 +1886,23 @@ restart.onclick = createQuiz;
 }
 
 
+function updateStreakDisplay(){
 
+    const streak =
+    document.getElementById("quizStreak");
+
+    const best =
+    document.getElementById("bestStreak");
+
+    if(streak){
+        streak.textContent = quizStreak;
+    }
+
+    if(best){
+        best.textContent = bestStreak;
+    }
+
+}
 
 
 
@@ -1900,3 +1916,4 @@ startQuiz.onclick = createQuiz;
 
 
 updateRank();
+updateStreakDisplay();
