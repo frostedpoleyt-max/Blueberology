@@ -1696,6 +1696,8 @@ quizStreak++;
 if(quizStreak > bestStreak){
     bestStreak = quizStreak;
 }
+
+updateStreakDisplay();
  
 const newRankIndex =
 getCurrentRankIndex(blueberologyXP);
