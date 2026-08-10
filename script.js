@@ -870,6 +870,25 @@ const quizBox = document.getElementById("quizBox");
 let blueberologyXP =
 Number(localStorage.getItem("blueberologyXP")) || 0;
 
+let previousRankIndex = -1;
+
+function getCurrentRankIndex(xp){
+
+    let index = 0;
+
+    for(let i = 0; i < ranks.length; i++){
+
+        if(xp >= ranks[i].xp){
+
+            index = i;
+
+        }
+
+    }
+
+    return index;
+
+}
 
 let currentQuestion = 0;
 let quizQuestions = [];
@@ -1042,7 +1061,40 @@ progress
 
 
 
+function showRankUp(rank){
 
+    const popup =
+    document.getElementById("rankUpPopup");
+
+    const rankName =
+    document.getElementById("rankUpRank");
+
+    const message =
+    document.getElementById("rankUpMessage");
+
+
+    if(!popup || !rankName || !message)
+        return;
+
+
+    rankName.textContent =
+    rank.name;
+
+
+    message.textContent =
+    `You've reached ${rank.xp} XP!`;
+
+
+    popup.classList.add("show");
+
+
+    setTimeout(()=>{
+
+        popup.classList.remove("show");
+
+    },3500);
+
+}
 
 
 function updateRank(){
