@@ -1430,6 +1430,56 @@ RANK UP POPUP
 
 }
 
+.rank-up-close{
+
+    position:absolute;
+
+    top:15px;
+    right:18px;
+
+    width:40px;
+    height:40px;
+
+    padding:0;
+
+    border:1px solid rgba(57,255,136,.35);
+
+    border-radius:50%;
+
+    background:rgba(0,0,0,.35);
+
+    color:white;
+
+    font-size:28px;
+
+    line-height:1;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    cursor:pointer;
+
+    z-index:10;
+
+    transition:.2s;
+
+}
+
+
+.rank-up-close:hover{
+
+    background:var(--green);
+
+    color:#000;
+
+    transform:rotate(90deg) scale(1.08);
+
+    box-shadow:
+    0 0 20px var(--green);
+
+}
+
 /* ==========================
 RANK UP CLOSE BUTTON
 ========================== */
