@@ -586,51 +586,46 @@ function updateRank() {
 
 function showRankUp(rank) {
 
-    if (
-        !rankUpPopup ||
-        !rankUpRank ||
-        !rankUpMessage
-    ) {
-        return;
+    const popup = document.getElementById("rankUpPopup");
+    const rankName = document.getElementById("rankUpRank");
+    const message = document.getElementById("rankUpMessage");
+
+    if (!popup) return;
+
+    if (rankName) {
+        rankName.textContent = rank.name;
     }
 
+    if (message) {
+        message.textContent =
+            `You've reached ${rank.xp} XP!`;
+    }
 
-    rankUpRank.textContent =
-        rank.name;
-
-
-    rankUpMessage.textContent =
-        `You've reached ${rank.xp} XP!`;
-
-
-    rankUpPopup.classList.add("show");
-
+    popup.classList.add("show");
 }
 
-// ==========================
+//// ==========================
 // RANK UP CLOSE BUTTON
 // ==========================
 
-if (closeRankUp && rankUpPopup) {
+const popupCloseButton =
+    document.getElementById("closeRankUp");
 
-    closeRankUp.onclick = function () {
+if (popupCloseButton) {
 
-        rankUpPopup.classList.remove("show");
+    popupCloseButton.onclick = function(event) {
+
+        event.preventDefault();
+        event.stopPropagation();
+
+        const popup =
+            document.getElementById("rankUpPopup");
+
+        if (popup) {
+            popup.classList.remove("show");
+        }
 
     };
-
-}
-
-if (closeRankUp && rankUpPopup) {
-
-    closeRankUp.addEventListener(
-        "click",
-        () => {
-
-            rankUpPopup.classList.remove("show");
-
-        }
-    );
 
 }
 
