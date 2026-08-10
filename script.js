@@ -870,6 +870,9 @@ const quizBox = document.getElementById("quizBox");
 let blueberologyXP =
 Number(localStorage.getItem("blueberologyXP")) || 0;
 
+let quizStreak = 0;
+let bestStreak = 0;
+
 let previousRankIndex = -1;
 
 function getCurrentRankIndex(xp){
