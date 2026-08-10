@@ -1,887 +1,515 @@
- const dictionary = [
+// ==========================================================
+// BLUEBEROLOGY DICTIONARY
+// ==========================================================
 
-{
-    word: "Gangrene",
-    category: "The Basics / Assembly",
-    meaning: "Bad weed",
-    image: "gangrene.jpg.png",
-    rarity: "Rare"
-},
+const dictionary = [
 
-{
-    word: "Laundry",
-    category: "The Basics / Materials",
-    meaning: "Weed",
-    rarity: "Common"
-},
+    {
+        word: "Gangrene",
+        category: "The Basics / Assembly",
+        meaning: "Bad weed",
+        image: "gangrene.jpg.png",
+        rarity: "Rare"
+    },
 
-{
-    word: "Drying",
-    category: "The Basics / Materials",
-    meaning: "Grinding",
-    rarity: "Common"
-},
+    {
+        word: "Laundry",
+        category: "The Basics / Materials",
+        meaning: "Weed",
+        rarity: "Common"
+    },
 
-{
-    word: "Dryer",
-    category: "The Basics / Materials",
-    meaning: "Grinder",
-    rarity: "Common"
-},
+    {
+        word: "Drying",
+        category: "The Basics / Materials",
+        meaning: "Grinding",
+        rarity: "Common"
+    },
 
-{
-    word: "Laundry powder",
-    category: "The Basics / Materials",
-    meaning: "Finely ground powder at the bottom of the grinder",
-    rarity: "Uncommon"
-},
+    {
+        word: "Dryer",
+        category: "The Basics / Materials",
+        meaning: "Grinder",
+        rarity: "Common"
+    },
 
-{
-    word: "Canopy",
-    category: "The Basics / Materials",
-    meaning: "Papers",
-    rarity: "Common"
-},
+    {
+        word: "Laundry powder",
+        category: "The Basics / Materials",
+        meaning: "Finely ground powder at the bottom of the grinder",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "Carti",
-    category: "The Basics / Materials",
-    meaning: "Cardboard filter",
-    rarity: "Common"
-},
+    {
+        word: "Canopy",
+        category: "The Basics / Materials",
+        meaning: "Papers",
+        rarity: "Common"
+    },
 
-{
-    word: "Breezy Backdoor",
-    category: "The Basics / Materials",
-    meaning: "Loose carti",
-    rarity: "Rare"
-},
+    {
+        word: "Carti",
+        category: "The Basics / Materials",
+        meaning: "Cardboard filter",
+        rarity: "Common"
+    },
 
-{
-    word: "Juno",
-    category: "Rolling / Assembly",
-    meaning: "Rolling the j",
-    rarity: "Uncommon"
-},
+    {
+        word: "Breezy Backdoor",
+        category: "The Basics / Materials",
+        meaning: "Loose carti",
+        rarity: "Rare"
+    },
 
-{
-    word: "Keyhole",
-    category: "Rolling / Assembly",
-    meaning: "Twisty tip at the end",
-    rarity: "Uncommon"
-},
+    {
+        word: "Juno",
+        category: "Rolling / Assembly",
+        meaning: "Rolling the j",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "Set the Canopy",
-    category: "Rolling / Assembly",
-    meaning: "Licking/sealing the j",
-    rarity: "Common"
-},
+    {
+        word: "Keyhole",
+        category: "Rolling / Assembly",
+        meaning: "Twisty tip at the end",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "Flooded Engine",
-    category: "Rolling / Assembly",
-    meaning: "Too wet from setting the canopy",
-    rarity: "Rare"
-},
+    {
+        word: "Set the Canopy",
+        category: "Rolling / Assembly",
+        meaning: "Licking/sealing the j",
+        rarity: "Common"
+    },
 
-{
-    word: "Blueberry",
-    category: "Blueberry Family",
-    meaning: "The j (addressed as a person)",
-    rarity: "Common"
-},
+    {
+        word: "Flooded Engine",
+        category: "Rolling / Assembly",
+        meaning: "Too wet from setting the canopy",
+        rarity: "Rare"
+    },
 
-{
-    word: "Raspberry",
-    category: "Blueberry Family",
-    meaning: "A blunt",
-    rarity: "Common"
-},
+    {
+        word: "Blueberry",
+        category: "Blueberry Family",
+        meaning: "The j (addressed as a person)",
+        rarity: "Common"
+    },
 
-{
-    word: "Snaps",
-    category: "Blueberry Family",
-    meaning: "The lighter",
-    rarity: "Common"
-},
+    {
+        word: "Raspberry",
+        category: "Blueberry Family",
+        meaning: "A blunt",
+        rarity: "Common"
+    },
 
-{
-    word: "Cherry",
-    category: "Light-Up & Ignition",
-    meaning: "The red burning tip",
-    rarity: "Common"
-},
+    {
+        word: "Snaps",
+        category: "Blueberry Family",
+        meaning: "The lighter",
+        rarity: "Common"
+    },
 
-{
-    word: "Low Battery",
-    category: "Light-Up & Ignition",
-    meaning: "Can't see the cherry but it's still burning",
-    rarity: "Rare"
-},
+    {
+        word: "Cherry",
+        category: "Light-Up & Ignition",
+        meaning: "The red burning tip",
+        rarity: "Common"
+    },
 
-{
-    word: "Bluetooth",
-    category: "Light-Up & Ignition",
-    meaning: "Being skilled enough to snap the blueberry without touching the snaps to it",
-    rarity: "Rare"
-},
+    {
+        word: "Low Battery",
+        category: "Light-Up & Ignition",
+        meaning: "Can't see the cherry but it's still burning",
+        rarity: "Rare"
+    },
 
-{
-    word: "Afterburner",
-    category: "Light-Up & Ignition",
-    meaning: "The entire tip is red and nothing but cherry",
-    rarity: "Uncommon"
-},
+    {
+        word: "Bluetooth",
+        category: "Light-Up & Ignition",
+        meaning: "Being skilled enough to snap the blueberry without touching the snaps to it",
+        rarity: "Rare"
+    },
 
-{
-    word: "Tightrope",
-    category: "Smoke Flow",
-    meaning: "Burning perfectly even",
-    rarity: "Uncommon"
-},
+    {
+        word: "Afterburner",
+        category: "Light-Up & Ignition",
+        meaning: "The entire tip is red and nothing but cherry",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "Puffington Express",
-    category: "Smoke Flow",
-    meaning: "Lots of smoke produced per puff",
-    rarity: "Uncommon"
-},
+    {
+        word: "Tightrope",
+        category: "Smoke Flow",
+        meaning: "Burning perfectly even",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "Fog Machine",
-    category: "Smoke Flow",
-    meaning: "Ridiculous exhale cloud",
-    rarity: "Rare"
-},
+    {
+        word: "Puffington Express",
+        category: "Smoke Flow",
+        meaning: "Lots of smoke produced per puff",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "LP",
-    category: "Smoke Flow",
-    meaning: "Last puff",
-    rarity: "Common"
-},
+    {
+        word: "Fog Machine",
+        category: "Smoke Flow",
+        meaning: "Ridiculous exhale cloud",
+        rarity: "Rare"
+    },
 
-{
-    word: "Volcano Mode",
-    category: "Burn Events",
-    meaning: "Burning super fast",
-    rarity: "Rare"
-},
+    {
+        word: "LP",
+        category: "Smoke Flow",
+        meaning: "Last puff",
+        rarity: "Common"
+    },
 
-{
-    word: "Tundra / Tunny / Albino",
-    category: "Burn Events",
-    meaning: "The j has gone out",
-    rarity: "Common"
-},
+    {
+        word: "Volcano Mode",
+        category: "Burn Events",
+        meaning: "Burning super fast",
+        rarity: "Rare"
+    },
 
-{
-    word: "Taniwha",
-    category: "Burn Events",
-    meaning: "Stomping the j out",
-    rarity: "Rare"
-},
+    {
+        word: "Tundra / Tunny / Albino",
+        category: "Burn Events",
+        meaning: "The j has gone out",
+        rarity: "Common"
+    },
 
-{
-    word: "Campfire Story",
-    category: "Burn Events",
-    meaning: "Someone holding the blueberry and talking instead of smoking",
-    rarity: "Common"
-},
+    {
+        word: "Taniwha",
+        category: "Burn Events",
+        meaning: "Stomping the j out",
+        rarity: "Rare"
+    },
 
-{
-    word: "Cherrymatics",
-    category: "Cherrymatics",
-    meaning: "Any event involving the cherry",
-    rarity: "Uncommon"
-},
+    {
+        word: "Campfire Story",
+        category: "Burn Events",
+        meaning: "Someone holding the blueberry and talking instead of smoking",
+        rarity: "Common"
+    },
 
-{
-    word: "Cherrymancer",
-    category: "Cherrymatics",
-    meaning: "Someone skilled at reviving the cherry",
-    rarity: "Rare"
-},
+    {
+        word: "Cherrymatics",
+        category: "Cherrymatics",
+        meaning: "Any event involving the cherry",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "Frostbite",
-    category: "Cherrymatics",
-    meaning: "Ash on the end",
-    rarity: "Common"
-},
+    {
+        word: "Cherrymancer",
+        category: "Cherrymatics",
+        meaning: "Someone skilled at reviving the cherry",
+        rarity: "Rare"
+    },
 
-{
-    word: "Avalanche",
-    category: "Cherrymatics",
-    meaning: "Ash falls everywhere",
-    rarity: "Uncommon"
-},
+    {
+        word: "Frostbite",
+        category: "Cherrymatics",
+        meaning: "Ash on the end",
+        rarity: "Common"
+    },
 
-{
-    word: "Smurfing It",
-    category: "Cherrymatics",
-    meaning: "Ashing the frostbite/cherry",
-    rarity: "Uncommon"
-},
+    {
+        word: "Avalanche",
+        category: "Cherrymatics",
+        meaning: "Ash falls everywhere",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "Crimson Curse",
-    category: "Cherrymatics",
-    meaning: "Cherry touched you",
-    rarity: "Legendary"
-},
+    {
+        word: "Smurfing It",
+        category: "Cherrymatics",
+        meaning: "Ashing the frostbite/cherry",
+        rarity: "Uncommon"
+    },
 
-{
-    word: "Crimson Curse Mark",
-    category: "Cherrymatics",
-    meaning: "Burn mark on skin",
-    rarity: "Legendary"
-},
+    {
+        word: "Crimson Curse",
+        category: "Cherrymatics",
+        meaning: "Cherry touched you",
+        rarity: "Legendary"
+    },
 
-{
-    word: "The crimson deceiver",
-    category: "Cherrymatics",
-    meaning: "Thinking you lost the cherry but it was actually a low battery",
-    rarity: "Legendary"
-}
+    {
+        word: "Crimson Curse Mark",
+        category: "Cherrymatics",
+        meaning: "Burn mark on skin",
+        rarity: "Legendary"
+    },
+
+    {
+        word: "The crimson deceiver",
+        category: "Cherrymatics",
+        meaning: "Thinking you lost the cherry but it was actually a low battery",
+        rarity: "Legendary"
+    }
 
 ];
 
 
-// ==========================
-// RARITY SYSTEM
-// ==========================
+// ==========================================================
+// RARITY
+// ==========================================================
 
-function getRarityClass(rarity){
+function getRarityClass(rarity) {
 
-    if(!rarity) return "common";
+    if (!rarity) {
+        return "common";
+    }
 
     return rarity
         .toLowerCase()
-        .replace(/\s+/g,"-");
+        .replace(/\s+/g, "-");
 
 }
 
 
-
-// ==========================
+// ==========================================================
 // DOM REFERENCES
-// ==========================
+// ==========================================================
 
-const dictionaryGrid = document.getElementById("dictionaryGrid");
-const searchInput = document.getElementById("searchInput");
-const categoryContainer = document.querySelector(".category-buttons");
+const dictionaryGrid =
+    document.getElementById("dictionaryGrid");
 
-const wordContainer = document.getElementById("wordOfDay");
-const countdown = document.getElementById("countdown");
+const searchInput =
+    document.getElementById("searchInput");
 
-const modal = document.getElementById("termModal");
-const termDetails = document.getElementById("termDetails");
-const closeTerm = document.getElementById("closeTerm");
+const categoryContainer =
+    document.querySelector(".category-buttons");
+
+const wordContainer =
+    document.getElementById("wordOfDay");
+
+const countdown =
+    document.getElementById("countdown");
+
+const modal =
+    document.getElementById("termModal");
+
+const termDetails =
+    document.getElementById("termDetails");
+
+const closeTerm =
+    document.getElementById("closeTerm");
+
+const startQuiz =
+    document.getElementById("startQuiz");
+
+const quizBox =
+    document.getElementById("quizBox");
+
+const rankUpPopup =
+    document.getElementById("rankUpPopup");
+
+const closeRankUp =
+    document.getElementById("closeRankUp");
+
+const rankUpRank =
+    document.getElementById("rankUpRank");
+
+const rankUpMessage =
+    document.getElementById("rankUpMessage");
 
 
 let currentCategory = "All";
 
 
+// ==========================================================
+// RANKS
+// ==========================================================
+
+const ranks = [
+
+    {
+        name: "🌱 Blueberry Seed",
+        xp: 0
+    },
+
+    {
+        name: "🍃 Berry Beginner",
+        xp: 10
+    },
+
+    {
+        name: "🌿 Blueberry Apprentice",
+        xp: 25
+    },
+
+    {
+        name: "🫐 Berry Scholar",
+        xp: 50
+    },
+
+    {
+        name: "🔥 Crimson Guardian",
+        xp: 100
+    },
+
+    {
+        name: "💨 Cloud Scholar",
+        xp: 175
+    },
+
+    {
+        name: "🔥 Cherry Keeper",
+        xp: 300
+    },
+
+    {
+        name: "🧪 Blaze Alchemist",
+        xp: 500
+    },
+
+    {
+        name: "🔮 Cherrymancer",
+        xp: 750
+    },
+
+    {
+        name: "👑 Grand Blueberologist",
+        xp: 1000
+    },
+
+    {
+        name: "🫐 Blueberry Master",
+        xp: 1500
+    },
+
+    {
+        name: "🌌 Supreme Blueberologist",
+        xp: 2500
+    },
+
+    {
+        name: "💎 Mythic Cherrymancer",
+        xp: 4000
+    },
+
+    {
+        name: "🌠 Cosmic Blaze Sage",
+        xp: 6000
+    },
+
+    {
+        name: "🐉 Demigod of Blueberology",
+        xp: 10000
+    }
+
+];
 
 
+// ==========================================================
+// XP / PLAYER DATA
+// ==========================================================
 
-// ==========================
-// AUTO CATEGORY BUTTONS
-// ==========================
+let blueberologyXP =
+    Number(localStorage.getItem("blueberologyXP")) || 0;
 
-function createCategoryButtons(){
+let quizStreak =
+    Number(localStorage.getItem("blueberologyStreak")) || 0;
 
-    if(!categoryContainer) return;
+let bestStreak =
+    Number(localStorage.getItem("blueberologyBestStreak")) || 0;
 
+let correctAnswers =
+    Number(localStorage.getItem("blueberologyCorrect")) || 0;
 
-    const categories = [
-        "All",
-        ...new Set(
-            dictionary.map(item=>item.category)
-        )
-    ];
+let perfectQuizzes =
+    Number(localStorage.getItem("blueberologyPerfect")) || 0;
 
+let currentQuestion = 0;
 
-    categoryContainer.innerHTML =
-    categories.map(category=>`
+let quizQuestions = [];
 
-        <button 
-        class="category-btn ${category === "All" ? "active":""}"
-        data-category="${category}">
+let roundScore = 0;
 
-        ${category}
-
-        </button>
-
-    `).join("");
+let answering = false;
 
 
+// ==========================================================
+// SHUFFLE
+// ==========================================================
 
-    document
-    .querySelectorAll(".category-btn")
-    .forEach(button=>{
+function shuffle(array) {
 
-        button.addEventListener(
-        "click",
-        ()=>{
+    for (let i = array.length - 1; i > 0; i--) {
 
+        const j =
+            Math.floor(Math.random() * (i + 1));
 
-            document
-            .querySelectorAll(".category-btn")
-            .forEach(btn=>
-                btn.classList.remove("active")
-            );
-
-
-            button.classList.add("active");
-
-
-            currentCategory =
-            button.dataset.category;
-
-
-            renderDictionary();
-
-
-        });
-
-
-    });
-
-
-}
-
-
-
-
-
-
-
-// ==========================
-// WORD OF THE DAY
-// ==========================
-
-function getDailyWord(){
-
-    const now = new Date();
-
-    const reset = new Date();
-
-    reset.setHours(8,0,0,0);
-
-
-    if(now < reset){
-
-        reset.setDate(
-            reset.getDate()-1
-        );
+        [array[i], array[j]] =
+            [array[j], array[i]];
 
     }
 
-
-    const day =
-    Math.floor(
-        reset.getTime()/86400000
-    );
-
-
-    return dictionary[
-        day % dictionary.length
-    ];
+    return array;
 
 }
 
 
+// ==========================================================
+// RANK FUNCTIONS
+// ==========================================================
 
+function getRankData(xp) {
 
+    let current = ranks[0];
 
-function displayWordOfDay(){
+    let next = null;
 
-    if(!wordContainer) return;
+    for (let i = 0; i < ranks.length; i++) {
 
+        if (xp >= ranks[i].xp) {
 
-    const word = getDailyWord();
+            current = ranks[i];
 
-
-    wordContainer.innerHTML = `
-
-
-    <div class="daily-card">
-
-
-        <div class="daily-header">
-
-            <span>📖 Daily Discovery</span>
-
-        </div>
-
-
-
-        <div class="category">
-
-            ${word.category}
-
-        </div>
-
-
-
-        <div class="rarity ${getRarityClass(word.rarity)}">
-
-            ${word.rarity}
-
-        </div>
-
-
-
-        <h2>
-
-            ${word.word}
-
-        </h2>
-
-
-
-        ${
-            word.image
-
-            ?
-
-            `<img class="daily-image" src="${word.image}" alt="${word.word}">`
-
-            :
-
-            ""
+            next =
+                ranks[i + 1] || null;
 
         }
 
+    }
 
+    let progress = 100;
 
-        <p>
+    if (next) {
 
-            ${word.meaning}
+        progress =
+            (
+                (xp - current.xp) /
+                (next.xp - current.xp)
+            ) * 100;
 
-        </p>
-
-
-    </div>
-
-
-    `;
-
-}
-
-
-
-
-// ==========================
-// COUNTDOWN
-// ==========================
-
-function updateCountdown(){
-
-    if(!countdown) return;
-
-
-    const now = new Date();
-
-
-    let next =
-    new Date();
-
-
-    next.setHours(
-        8,
-        0,
-        0,
-        0
-    );
-
-
-    if(now >= next){
-
-        next.setDate(
-            next.getDate()+1
-        );
+        progress =
+            Math.max(
+                0,
+                Math.min(100, progress)
+            );
 
     }
 
-
-
-    const time =
-    next-now;
-
-
-
-    const hours =
-    Math.floor(
-        time/3600000
-    );
-
-
-    const minutes =
-    Math.floor(
-        (time%3600000)/60000
-    );
-
-
-    const seconds =
-    Math.floor(
-        (time%60000)/1000
-    );
-
-
-
-    countdown.innerHTML = `
-
-    Next discovery in:
-    ${hours}h ${minutes}m ${seconds}s
-
-    `;
-
+    return {
+        current,
+        next,
+        progress
+    };
 
 }
 
 
-
-
-
-
-
-// ==========================
-// DICTIONARY CARDS
-// ==========================
-
-
-function createCard(entry){
-
-    const index =
-    dictionary.indexOf(entry);
-
-
-
-    return `
-
-
-    <div class="card"
-    onclick="openTerm(${index})">
-
-
-        <div class="category">
-
-        ${entry.category}
-
-        </div>
-
-
-
-        <div class="rarity ${getRarityClass(entry.rarity)}">
-
-        ${entry.rarity}
-
-        </div>
-
-
-
-        <h3>
-
-        ${entry.word}
-
-        </h3>
-
-
-
-        <p>
-
-        ${entry.meaning}
-
-        </p>
-
-
-
-        <button>
-
-        View Details
-
-        </button>
-
-
-    </div>
-
-
-    `;
-
-
-}
-
-
-
-
-
-
-function renderDictionary(){
-
-    if(!dictionaryGrid) return;
-
-
-
-    const search =
-searchInput
-?
-searchInput.value.toLowerCase().trim()
-:
-"";
-
-
-
-
-    const filtered =
-    dictionary.filter(entry=>{
-
-
-        const searchMatch =
-
-        entry.word
-        .toLowerCase()
-        .includes(search)
-
-        ||
-
-        entry.meaning
-        .toLowerCase()
-        .includes(search);
-
-
-
-        const categoryMatch =
-
-        currentCategory === "All"
-
-        ||
-
-        entry.category === currentCategory;
-
-
-
-        return searchMatch && categoryMatch;
-
-
-    });
-
-
-
-
-    dictionaryGrid.innerHTML =
-
-    filtered
-    .map(createCard)
-    .join("");
-
-
-}
-
-
-
-
-
-
-// ==========================
-// SEARCH
-// ==========================
-
-if(searchInput){
-
-    searchInput.addEventListener(
-        "input",
-        renderDictionary
-    );
-
-}
-
-
-
-
-
-
-
-// ==========================
-// TERM MODAL
-// ==========================
-
-
-function openTerm(index){
-
-
-    const entry =
-    dictionary[index];
-
-
-    if(!entry || !termDetails || !modal) return;
-
-discoverTerm(entry.word);
-
-    termDetails.innerHTML = `
-
-
-    <div class="category">
-
-    ${entry.category}
-
-    </div>
-
-
-
-    <div class="rarity ${getRarityClass(entry.rarity)}">
-
-    ${entry.rarity}
-
-    </div>
-
-
-
-    <h2>
-
-    ${entry.word}
-
-    </h2>
-
-
-
-    <div class="term-image">
-
-
-    ${
-        entry.image
-
-        ?
-
-        `<img src="${entry.image}" alt="${entry.word}">`
-
-        :
-
-        "Blueberology Archive"
-
-    }
-
-
-    </div>
-
-
-
-    <p>
-
-    ${entry.meaning}
-
-    </p>
-
-
-
-    <h3>
-
-    Blueberology Notes
-
-    </h3>
-
-
-
-    <p>
-
-    More lore will be discovered...
-
-    </p>
-
-
-
-    `;
-
-
-
-    modal.style.display="flex";
-
-
-}
-
-
-
-
-
-if(closeTerm){
-
-closeTerm.addEventListener(
-"click",
-()=>{
-
-modal.style.display="none";
-
-});
-
-}
-
-
-
-
-
-if(modal){
-
-modal.addEventListener(
-"click",
-(e)=>{
-
-if(e.target === modal){
-
-modal.style.display="none";
-
-}
-
-});
-
-}
-
-
-
-
-
-
-// ==========================
-// START ARCHIVE
-// ==========================
-
-createCategoryButtons();
-
-displayWordOfDay();
-
-updateCountdown();
-
-setInterval(updateCountdown,1000);
-
-renderDictionary();
-
-
-// ==========================
-// BLUEBEROLOGY XP SYSTEM
-// ==========================
-
-
-const startQuiz = document.getElementById("startQuiz");
-const quizBox = document.getElementById("quizBox");
-
-
-let blueberologyXP =
-Number(localStorage.getItem("blueberologyXP")) || 0;
-
-let quizStreak = 0;
-let bestStreak = 0;
-
-let previousRankIndex = -1;
-
-function getCurrentRankIndex(xp){
+function getCurrentRankIndex(xp) {
 
     let index = 0;
 
-    for(let i = 0; i < ranks.length; i++){
+    for (let i = 0; i < ranks.length; i++) {
 
-        if(xp >= ranks[i].xp){
+        if (xp >= ranks[i].xp) {
 
             index = i;
 
@@ -893,316 +521,771 @@ function getCurrentRankIndex(xp){
 
 }
 
-let currentQuestion = 0;
-let quizQuestions = [];
-let roundScore = 0;
-let answering = false;
+
+// ==========================================================
+// UPDATE RANK UI
+// ==========================================================
+
+function updateRank() {
+
+    const data =
+        getRankData(blueberologyXP);
+
+    const title =
+        document.getElementById("rankTitle");
+
+    const count =
+        document.getElementById("correctCount");
+
+    const bar =
+        document.getElementById("rankProgress");
+
+    const next =
+        document.getElementById("nextRank");
 
 
+    if (title) {
 
-// ==========================
-// SHUFFLE
-// ==========================
+        title.textContent =
+            data.current.name;
 
-function shuffle(array){
-
-for(let i=array.length-1;i>0;i--){
-
-const j=Math.floor(Math.random()*(i+1));
-
-[array[i],array[j]] =
-[array[j],array[i]];
-
-}
-
-return array;
-
-}
-
-
-
-// ==========================
-// RANKS
-// ==========================
-
-const ranks = [
-
-    {
-        name:"🌱 Blueberry Seed",
-        xp:0
-    },
-
-    {
-        name:"🍃 Berry Beginner",
-        xp:10
-    },
-
-    {
-        name:"🌿 Blueberry Apprentice",
-        xp:25
-    },
-
-    {
-        name:"🫐 Berry Scholar",
-        xp:50
-    },
-
-    {
-        name:"🔥 Cherry Keeper",
-        xp:100
-    },
-
-    {
-        name:"💨 Cloud Scholar",
-        xp:175
-    },
-
-    {
-        name:"🔥 Crimson Guardian",
-        xp:300
-    },
-
-    {
-        name:"🧪 Blaze Alchemist",
-        xp:500
-    },
-
-    {
-        name:"🔮 Cherrymancer",
-        xp:750
-    },
-
-    {
-        name:"👑 Grand Blueberologist",
-        xp:1000
-    },
-
-    {
-        name:"🫐 Blueberry Master",
-        xp:1500
-    },
-
-    {
-        name:"🌌 Supreme Blueberologist",
-        xp:2500
-    },
-
-    {
-        name:"💎 Mythic Cherrymancer",
-        xp:4000
-    },
-
-    {
-        name:"🌠 Cosmic Blaze Sage",
-        xp:6000
-    },
-
-    {
-        name:"🐉 Demigod of Blueberology",
-        xp:10000
     }
 
-];
+
+    if (count) {
+
+        count.textContent =
+            blueberologyXP + " XP";
+
+    }
 
 
+    if (bar) {
+
+        bar.style.width =
+            data.progress + "%";
+
+    }
 
 
+    if (next) {
 
-function getRankData(xp){
+        next.textContent =
+            data.next
+                ? `Next Rank: ${data.next.name} (${data.next.xp} XP)`
+                : "Maximum Rank Achieved";
 
-
-let current = ranks[0];
-let next = null;
-
-
-
-for(let i=0;i<ranks.length;i++){
-
-
-if(xp >= ranks[i].xp){
-
-current = ranks[i];
-next = ranks[i+1] || null;
-
-}
-
-}
-
-
-
-let progress = 100;
-
-
-
-if(next){
-
-progress = Math.min(
-100,
-(
-(xp-current.xp)
-/
-(next.xp-current.xp)
-)
-*100
-);
+    }
 
 }
 
 
+// ==========================================================
+// RANK-UP POPUP
+// ==========================================================
 
-return {
+function showRankUp(rank) {
 
-current,
-next,
-progress
-
-};
-
-
-}
-
-
-
-
-function showRankUp(rank){
-
-    const popup =
-    document.getElementById("rankUpPopup");
-
-    const rankName =
-    document.getElementById("rankUpRank");
-
-    const message =
-    document.getElementById("rankUpMessage");
-
-
-    if(!popup || !rankName || !message)
+    if (
+        !rankUpPopup ||
+        !rankUpRank ||
+        !rankUpMessage
+    ) {
         return;
+    }
 
 
-    rankName.textContent =
-    rank.name;
+    rankUpRank.textContent =
+        rank.name;
 
 
-    message.textContent =
-    `You've reached ${rank.xp} XP!`;
+    rankUpMessage.textContent =
+        `You've reached ${rank.xp} XP!`;
 
 
-    popup.classList.add("show");
-
-
-    setTimeout(()=>{
-
-        popup.classList.remove("show");
-
-    },3500);
+    rankUpPopup.classList.add("show");
 
 }
 
-const rankUpPopup = document.getElementById("rankUpPopup");
-const closeRankUp = document.getElementById("closeRankUp");
 
 if (closeRankUp && rankUpPopup) {
 
-    closeRankUp.addEventListener("click", () => {
+    closeRankUp.addEventListener(
+        "click",
+        () => {
 
-        rankUpPopup.classList.remove("show");
+            rankUpPopup.classList.remove("show");
 
-    });
+        }
+    );
 
 }
 
-// ==========================
-// ACHIEVEMENT SYSTEM
-// ==========================
+
+// Allow clicking the dark background to close it
+
+if (rankUpPopup) {
+
+    rankUpPopup.addEventListener(
+        "click",
+        (event) => {
+
+            if (event.target === rankUpPopup) {
+
+                rankUpPopup.classList.remove("show");
+
+            }
+
+        }
+    );
+
+}
+
+
+// ==========================================================
+// CATEGORY BUTTONS
+// ==========================================================
+
+function createCategoryButtons() {
+
+    if (!categoryContainer) {
+        return;
+    }
+
+
+    const categories = [
+        "All",
+        ...new Set(
+            dictionary.map(
+                item => item.category
+            )
+        )
+    ];
+
+
+    categoryContainer.innerHTML =
+        categories.map(category => `
+
+            <button
+                class="category-btn ${category === "All" ? "active" : ""}"
+                data-category="${category}"
+                type="button"
+            >
+                ${category}
+            </button>
+
+        `).join("");
+
+
+    categoryContainer
+        .querySelectorAll(".category-btn")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    categoryContainer
+                        .querySelectorAll(".category-btn")
+                        .forEach(btn => {
+
+                            btn.classList.remove("active");
+
+                        });
+
+
+                    button.classList.add("active");
+
+
+                    currentCategory =
+                        button.dataset.category;
+
+
+                    renderDictionary();
+
+                }
+            );
+
+        });
+
+}
+
+
+// ==========================================================
+// DAILY WORD
+// ==========================================================
+
+function getDailyWord() {
+
+    const now = new Date();
+
+    const reset = new Date();
+
+    reset.setHours(
+        8,
+        0,
+        0,
+        0
+    );
+
+
+    if (now < reset) {
+
+        reset.setDate(
+            reset.getDate() - 1
+        );
+
+    }
+
+
+    const day =
+        Math.floor(
+            reset.getTime() / 86400000
+        );
+
+
+    return dictionary[
+        ((day % dictionary.length) +
+            dictionary.length) %
+        dictionary.length
+    ];
+
+}
+
+
+function displayWordOfDay() {
+
+    if (!wordContainer) {
+        return;
+    }
+
+
+    const word =
+        getDailyWord();
+
+
+    wordContainer.innerHTML = `
+
+        <div class="daily-card">
+
+            <div class="daily-header">
+                <span>📖 Daily Discovery</span>
+            </div>
+
+            <div class="category">
+                ${word.category}
+            </div>
+
+            <div class="rarity ${getRarityClass(word.rarity)}">
+                ${word.rarity}
+            </div>
+
+            <h2>
+                ${word.word}
+            </h2>
+
+            ${
+                word.image
+                    ? `
+                        <img
+                            class="daily-image"
+                            src="${word.image}"
+                            alt="${word.word}"
+                        >
+                    `
+                    : ""
+            }
+
+            <p>
+                ${word.meaning}
+            </p>
+
+        </div>
+
+    `;
+
+}
+
+
+// ==========================================================
+// COUNTDOWN
+// ==========================================================
+
+function updateCountdown() {
+
+    if (!countdown) {
+        return;
+    }
+
+
+    const now = new Date();
+
+    const next = new Date();
+
+
+    next.setHours(
+        8,
+        0,
+        0,
+        0
+    );
+
+
+    if (now >= next) {
+
+        next.setDate(
+            next.getDate() + 1
+        );
+
+    }
+
+
+    const time =
+        next.getTime() - now.getTime();
+
+
+    const hours =
+        Math.floor(
+            time / 3600000
+        );
+
+
+    const minutes =
+        Math.floor(
+            (time % 3600000) / 60000
+        );
+
+
+    const seconds =
+        Math.floor(
+            (time % 60000) / 1000
+        );
+
+
+    countdown.textContent =
+        `Next discovery in: ${hours}h ${minutes}m ${seconds}s`;
+
+}
+
+
+// ==========================================================
+// DICTIONARY
+// ==========================================================
+
+function createCard(entry) {
+
+    const index =
+        dictionary.indexOf(entry);
+
+
+    return `
+
+        <div
+            class="card"
+            onclick="openTerm(${index})"
+        >
+
+            <div class="category">
+                ${entry.category}
+            </div>
+
+            <div class="rarity ${getRarityClass(entry.rarity)}">
+                ${entry.rarity}
+            </div>
+
+            <h3>
+                ${entry.word}
+            </h3>
+
+            <p>
+                ${entry.meaning}
+            </p>
+
+            <button
+                type="button"
+                onclick="event.stopPropagation(); openTerm(${index})"
+            >
+                View Details
+            </button>
+
+        </div>
+
+    `;
+
+}
+
+
+function renderDictionary() {
+
+    if (!dictionaryGrid) {
+        return;
+    }
+
+
+    const search =
+        searchInput
+            ? searchInput.value.toLowerCase().trim()
+            : "";
+
+
+    const filtered =
+        dictionary.filter(entry => {
+
+            const searchMatch =
+
+                entry.word
+                    .toLowerCase()
+                    .includes(search)
+
+                ||
+
+                entry.meaning
+                    .toLowerCase()
+                    .includes(search);
+
+
+            const categoryMatch =
+
+                currentCategory === "All"
+
+                ||
+
+                entry.category === currentCategory;
+
+
+            return (
+                searchMatch &&
+                categoryMatch
+            );
+
+        });
+
+
+    if (filtered.length === 0) {
+
+        dictionaryGrid.innerHTML = `
+
+            <div class="empty-state">
+
+                <h3>
+                    No terms found
+                </h3>
+
+                <p>
+                    Try another search or category.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    dictionaryGrid.innerHTML =
+        filtered
+            .map(createCard)
+            .join("");
+
+}
+
+
+// ==========================================================
+// SEARCH
+// ==========================================================
+
+if (searchInput) {
+
+    searchInput.addEventListener(
+        "input",
+        renderDictionary
+    );
+
+}
+
+
+// ==========================================================
+// TERM MODAL
+// ==========================================================
+
+function openTerm(index) {
+
+    const entry =
+        dictionary[index];
+
+
+    if (
+        !entry ||
+        !termDetails ||
+        !modal
+    ) {
+        return;
+    }
+
+
+    discoverTerm(entry.word);
+
+
+    termDetails.innerHTML = `
+
+        <div class="category">
+            ${entry.category}
+        </div>
+
+        <div class="rarity ${getRarityClass(entry.rarity)}">
+            ${entry.rarity}
+        </div>
+
+        <h2>
+            ${entry.word}
+        </h2>
+
+        <div class="term-image">
+
+            ${
+                entry.image
+                    ? `
+                        <img
+                            src="${entry.image}"
+                            alt="${entry.word}"
+                        >
+                    `
+                    : `
+                        <span>
+                            Blueberology Archive
+                        </span>
+                    `
+            }
+
+        </div>
+
+        <p>
+            ${entry.meaning}
+        </p>
+
+        <h3>
+            Blueberology Notes
+        </h3>
+
+        <p>
+            More lore will be discovered...
+        </p>
+
+    `;
+
+
+    modal.style.display = "flex";
+
+}
+
+
+if (closeTerm && modal) {
+
+    closeTerm.addEventListener(
+        "click",
+        () => {
+
+            modal.style.display = "none";
+
+        }
+    );
+
+}
+
+
+if (modal) {
+
+    modal.addEventListener(
+        "click",
+        event => {
+
+            if (
+                event.target === modal
+            ) {
+
+                modal.style.display = "none";
+
+            }
+
+        }
+    );
+
+}
+
+
+// ==========================================================
+// ESCAPE KEY FOR MODALS
+// ==========================================================
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if (event.key !== "Escape") {
+            return;
+        }
+
+
+        if (modal) {
+
+            modal.style.display = "none";
+
+        }
+
+
+        if (rankUpPopup) {
+
+            rankUpPopup.classList.remove("show");
+
+        }
+
+    }
+);
+
+
+// ==========================================================
+// STREAK
+// ==========================================================
+
+function updateStreakDisplay() {
+
+    const streak =
+        document.getElementById("quizStreak");
+
+    const best =
+        document.getElementById("bestStreak");
+
+
+    if (streak) {
+
+        streak.textContent =
+            quizStreak;
+
+    }
+
+
+    if (best) {
+
+        best.textContent =
+            bestStreak;
+
+    }
+
+}
+
+
+function saveStreak() {
+
+    localStorage.setItem(
+        "blueberologyStreak",
+        quizStreak
+    );
+
+    localStorage.setItem(
+        "blueberologyBestStreak",
+        bestStreak
+    );
+
+}
+
+
+// ==========================================================
+// ACHIEVEMENTS
+// ==========================================================
 
 const achievements = [
 
     {
-        id:"first_quiz",
-        icon:"🫐",
-        name:"First Berry",
-        description:"Answer your first quiz question correctly.",
-        condition:()=>correctAnswers >= 1
+        id: "first_quiz",
+        icon: "🫐",
+        name: "First Berry",
+        description: "Answer your first quiz question correctly.",
+        condition: () => correctAnswers >= 1
     },
 
     {
-        id:"five_correct",
-        icon:"🔥",
-        name:"Hot Start",
-        description:"Answer 5 questions correctly.",
-        condition:()=>correctAnswers >= 5
+        id: "five_correct",
+        icon: "🔥",
+        name: "Hot Start",
+        description: "Answer 5 questions correctly.",
+        condition: () => correctAnswers >= 5
     },
 
     {
-        id:"perfect_quiz",
-        icon:"💨",
-        name:"Puffington",
-        description:"Get a perfect 5/5 quiz.",
-        condition:()=>perfectQuizzes >= 1
+        id: "perfect_quiz",
+        icon: "💨",
+        name: "Puffington",
+        description: "Get a perfect 5/5 quiz.",
+        condition: () => perfectQuizzes >= 1
     },
 
     {
-        id:"ten_terms",
-        icon:"📚",
-        name:"Berry Collector",
-        description:"Discover 10 dictionary terms.",
-        condition:()=>getDiscoveredTerms().length >= 10
+        id: "ten_terms",
+        icon: "📚",
+        name: "Berry Collector",
+        description: "Discover 10 dictionary terms.",
+        condition: () => getDiscoveredTerms().length >= 10
     },
 
     {
-        id:"twenty_terms",
-        icon:"📖",
-        name:"Archive Hunter",
-        description:"Discover 20 dictionary terms.",
-        condition:()=>getDiscoveredTerms().length >= 20
+        id: "twenty_terms",
+        icon: "📖",
+        name: "Dictionary Hunter",
+        description: "Discover 20 dictionary terms.",
+        condition: () => getDiscoveredTerms().length >= 20
     },
 
     {
-        id:"cherrymancer",
-        icon:"🔮",
-        name:"Cherrymancer",
-        description:"Reach 750 XP.",
-        condition:()=>blueberologyXP >= 750
+        id: "cherrymancer",
+        icon: "🔮",
+        name: "Cherrymancer",
+        description: "Reach 750 XP.",
+        condition: () => blueberologyXP >= 750
     },
 
     {
-        id:"mythic",
-        icon:"💎",
-        name:"Mythic",
-        description:"Reach 4,000 XP.",
-        condition:()=>blueberologyXP >= 4000
+        id: "mythic",
+        icon: "💎",
+        name: "Mythic",
+        description: "Reach 4,000 XP.",
+        condition: () => blueberologyXP >= 4000
     },
 
     {
-        id:"demigod",
-        icon:"🐉",
-        name:"Demigod",
-        description:"Reach 10,000 XP.",
-        condition:()=>blueberologyXP >= 10000
+        id: "demigod",
+        icon: "🐉",
+        name: "Demigod",
+        description: "Reach 10,000 XP.",
+        condition: () => blueberologyXP >= 10000
     }
 
 ];
 
 
-let correctAnswers =
-Number(localStorage.getItem("blueberologyCorrect")) || 0;
+function getUnlockedAchievements() {
 
+    try {
 
-let perfectQuizzes =
-Number(localStorage.getItem("blueberologyPerfect")) || 0;
+        return JSON.parse(
+            localStorage.getItem(
+                "blueberologyAchievements"
+            )
+        ) || [];
 
+    }
 
-function getUnlockedAchievements(){
+    catch {
 
-    return JSON.parse(
-        localStorage.getItem("blueberologyAchievements")
-    ) || [];
+        return [];
+
+    }
 
 }
 
 
-function saveUnlockedAchievements(list){
+function saveUnlockedAchievements(list) {
 
     localStorage.setItem(
         "blueberologyAchievements",
@@ -1212,34 +1295,43 @@ function saveUnlockedAchievements(list){
 }
 
 
-function checkAchievements(){
+function checkAchievements() {
 
     const unlocked =
-    getUnlockedAchievements();
+        getUnlockedAchievements();
+
 
     let changed = false;
 
 
-    achievements.forEach(achievement=>{
+    achievements.forEach(
+        achievement => {
 
-        if(
-            achievement.condition()
-            &&
-            !unlocked.includes(achievement.id)
-        ){
+            if (
+                achievement.condition()
+                &&
+                !unlocked.includes(
+                    achievement.id
+                )
+            ) {
 
-            unlocked.push(achievement.id);
+                unlocked.push(
+                    achievement.id
+                );
 
-            changed = true;
+                changed = true;
+
+            }
 
         }
+    );
 
-    });
 
+    if (changed) {
 
-    if(changed){
-
-        saveUnlockedAchievements(unlocked);
+        saveUnlockedAchievements(
+            unlocked
+        );
 
     }
 
@@ -1249,84 +1341,104 @@ function checkAchievements(){
 }
 
 
-function renderAchievements(){
+function renderAchievements() {
 
     const grid =
-    document.getElementById("achievementGrid");
+        document.getElementById(
+            "achievementGrid"
+        );
 
-    if(!grid) return;
+
+    if (!grid) {
+        return;
+    }
 
 
     const unlocked =
-    getUnlockedAchievements();
+        getUnlockedAchievements();
 
 
     grid.innerHTML =
-    achievements.map(achievement=>{
+        achievements.map(
+            achievement => {
 
-        const isUnlocked =
-        unlocked.includes(achievement.id);
+                const isUnlocked =
+                    unlocked.includes(
+                        achievement.id
+                    );
 
 
-        return `
+                return `
 
-        <div class="achievement-card
-        ${isUnlocked ? "unlocked" : ""}">
+                    <div class="
+                        achievement-card
+                        ${isUnlocked ? "unlocked" : ""}
+                    ">
 
-            <div class="achievement-icon">
+                        <div class="achievement-icon">
+                            ${achievement.icon}
+                        </div>
 
-                ${achievement.icon}
+                        <h3>
+                            ${achievement.name}
+                        </h3>
 
-            </div>
+                        <p>
+                            ${achievement.description}
+                        </p>
 
-            <h3>
+                        <span class="achievement-status">
 
-                ${achievement.name}
+                            ${
+                                isUnlocked
+                                    ? "Unlocked"
+                                    : "Locked"
+                            }
 
-            </h3>
+                        </span>
 
-            <p>
+                    </div>
 
-                ${achievement.description}
+                `;
 
-            </p>
-
-            <span class="achievement-status">
-
-                ${isUnlocked
-                    ? "Unlocked"
-                    : "Locked"}
-
-            </span>
-
-        </div>
-
-        `;
-
-    }).join("");
+            }
+        ).join("");
 
 }
 
-// ==========================
+
+// ==========================================================
 // DICTIONARY DISCOVERY
-// ==========================
+// ==========================================================
 
-function getDiscoveredTerms(){
+function getDiscoveredTerms() {
 
-    return JSON.parse(
-        localStorage.getItem("blueberologyDiscovered")
-    ) || [];
+    try {
+
+        return JSON.parse(
+            localStorage.getItem(
+                "blueberologyDiscovered"
+            )
+        ) || [];
+
+    }
+
+    catch {
+
+        return [];
+
+    }
 
 }
 
 
-function discoverTerm(word){
+function discoverTerm(word) {
 
     const discovered =
-    getDiscoveredTerms();
+        getDiscoveredTerms();
 
 
-    if(!discovered.includes(word)){
+    if (!discovered.includes(word)) {
 
         discovered.push(word);
 
@@ -1346,576 +1458,526 @@ function discoverTerm(word){
 }
 
 
-function updateCollection(){
+function updateCollection() {
 
     const discovered =
-    getDiscoveredTerms();
+        getDiscoveredTerms();
 
 
     const total =
-    dictionary.length;
+        dictionary.length;
 
 
     const amount =
-    discovered.length;
+        discovered.length;
 
 
     const percentage =
-    total
-    ?
-    (amount / total) * 100
-    :
-    0;
+        total > 0
+            ? (amount / total) * 100
+            : 0;
 
 
     const text =
-    document.getElementById(
-        "collectionProgress"
-    );
+        document.getElementById(
+            "collectionProgress"
+        );
 
 
     const bar =
-    document.getElementById(
-        "collectionProgressBar"
-    );
+        document.getElementById(
+            "collectionProgressBar"
+        );
 
 
-    if(text){
+    if (text) {
 
         text.textContent =
-        `${amount} / ${total} Terms Discovered`;
+            `${amount} / ${total} Terms Discovered`;
 
     }
 
 
-    if(bar){
+    if (bar) {
 
         bar.style.width =
-        percentage + "%";
+            percentage + "%";
 
     }
 
 }
 
-// ==========================
-// RANK UP CLOSE BUTTON
-// ==========================
 
-const rankUpPopup =
-    document.getElementById("rankUpPopup");
-
-const closeRankUp =
-    document.getElementById("closeRankUp");
-
-
-if(closeRankUp){
-
-    closeRankUp.addEventListener("click", () => {
-
-        rankUpPopup.classList.remove("show");
-
-    });
-
-}
-
-function updateRank(){
-
-
-const data =
-getRankData(blueberologyXP);
-
-
-
-const title =
-document.getElementById("rankTitle");
-
-
-const count =
-document.getElementById("correctCount");
-
-
-const bar =
-document.getElementById("rankProgress");
-
-
-const next =
-document.getElementById("nextRank");
-
-
-
-if(title)
-title.innerHTML = data.current.name;
-
-
-
-if(count)
-count.innerHTML = blueberologyXP + " XP";
-
-
-
-if(bar)
-bar.style.width = data.progress + "%";
-
-
-
-if(next){
-
-next.innerHTML =
-
-data.next
-
-?
-
-`Next Rank: ${data.next.name} (${data.next.xp} XP)`
-
-:
-
-"Maximum Rank Achieved";
-
-}
-
-
-}
-
-
-
-
-
-
-
-// ==========================
+// ==========================================================
 // XP REWARDS
-// ==========================
+// ==========================================================
 
+function getXPReward(rarity) {
 
-function getXPReward(rarity){
+    switch (rarity) {
 
+        case "Legendary":
+            return 25;
 
-switch(rarity){
+        case "Rare":
+            return 10;
 
+        case "Uncommon":
+            return 5;
 
-case "Legendary":
-return 25;
+        default:
+            return 2;
 
-
-case "Rare":
-return 10;
-
-
-case "Uncommon":
-return 5;
-
-
-default:
-return 2;
-
+    }
 
 }
 
 
-}
+// ==========================================================
+// QUIZ
+// ==========================================================
+
+function createQuiz() {
+
+    if (!quizBox) {
+        return;
+    }
 
 
+    quizQuestions =
+        shuffle([...dictionary])
+            .slice(0, 5);
 
 
+    currentQuestion = 0;
+
+    roundScore = 0;
+
+    answering = false;
 
 
-
-// ==========================
-// START QUIZ
-// ==========================
-
-
-function createQuiz(){
-
-
-if(!quizBox)
-return;
-
-
-
-quizQuestions = shuffle(
-[...dictionary]
-).slice(0,5);
-
-
-
-currentQuestion = 0;
-roundScore = 0;
-
-
-showQuestion();
-
+    showQuestion();
 
 }
 
 
+function showQuestion() {
+
+    if (
+        !quizQuestions[currentQuestion]
+    ) {
+
+        finishQuiz();
+
+        return;
+
+    }
 
 
+    answering = false;
 
 
+    const question =
+        quizQuestions[currentQuestion];
 
 
-// ==========================
-// SHOW QUESTION
-// ==========================
+    const wrongAnswers =
+        shuffle(
+
+            dictionary.filter(
+                item =>
+                    item.word !== question.word
+            )
+
+        ).slice(0, 2);
 
 
-function showQuestion(){
+    const answers =
+        shuffle([
+            question,
+            ...wrongAnswers
+        ]);
 
 
-if(!quizQuestions[currentQuestion]){
+    quizBox.innerHTML = `
 
-finishQuiz();
-return;
+        <h3>
+            Question ${currentQuestion + 1}/5
+        </h3>
+
+        <h2>
+            What does "${question.word}" mean?
+        </h2>
+
+        <div class="answers">
+
+            ${answers.map(answer => `
+
+                <button
+                    class="quiz-answer"
+                    data-word="${answer.word}"
+                    type="button"
+                >
+                    ${answer.meaning}
+                </button>
+
+            `).join("")}
+
+        </div>
+
+    `;
+
+
+    quizBox
+        .querySelectorAll(".quiz-answer")
+        .forEach(button => {
+
+            button.addEventListener(
+                "click",
+                () => {
+
+                    if (answering) {
+                        return;
+                    }
+
+
+                    answering = true;
+
+
+                    const chosen =
+                        dictionary.find(
+                            item =>
+                                item.word ===
+                                button.dataset.word
+                        );
+
+
+                    if (
+                        chosen &&
+                        chosen.word ===
+                        question.word
+                    ) {
+
+                        handleCorrectAnswer(
+                            button,
+                            question
+                        );
+
+                    }
+
+                    else {
+
+                        handleWrongAnswer(
+                            button,
+                            question
+                        );
+
+                    }
+
+
+                    quizBox
+                        .querySelectorAll(
+                            ".quiz-answer"
+                        )
+                        .forEach(btn => {
+
+                            btn.disabled = true;
+
+                        });
+
+
+                    setTimeout(
+                        () => {
+
+                            currentQuestion++;
+
+
+                            if (
+                                currentQuestion <
+                                quizQuestions.length
+                            ) {
+
+                                showQuestion();
+
+                            }
+
+                            else {
+
+                                finishQuiz();
+
+                            }
+
+                        },
+                        800
+                    );
+
+                }
+            );
+
+        });
 
 }
 
 
+function handleCorrectAnswer(
+    button,
+    question
+) {
 
-answering = false;
+    const xp =
+        getXPReward(
+            question.rarity
+        );
 
 
+    const oldRankIndex =
+        getCurrentRankIndex(
+            blueberologyXP
+        );
 
-const question =
-quizQuestions[currentQuestion];
 
+    blueberologyXP += xp;
 
+    roundScore++;
 
-const wrongAnswers = shuffle(
+    quizStreak++;
 
-[...dictionary]
+    correctAnswers++;
 
-.filter(
-item =>
-item.word !== question.word
-)
 
-).slice(0,2);
+    if (quizStreak > bestStreak) {
 
+        bestStreak =
+            quizStreak;
 
+    }
 
 
-const answers = shuffle([
+    localStorage.setItem(
+        "blueberologyXP",
+        blueberologyXP
+    );
 
-question,
 
-...wrongAnswers
+    localStorage.setItem(
+        "blueberologyCorrect",
+        correctAnswers
+    );
 
-]);
 
+    saveStreak();
 
 
+    updateRank();
 
+    updateStreakDisplay();
 
-quizBox.innerHTML = `
 
+    const newRankIndex =
+        getCurrentRankIndex(
+            blueberologyXP
+        );
 
-<h3>
-Question ${currentQuestion+1}/5
-</h3>
 
+    if (
+        newRankIndex >
+        oldRankIndex
+    ) {
 
-<h2>
-What does "${question.word}" mean?
-</h2>
+        showRankUp(
+            ranks[newRankIndex]
+        );
 
+    }
 
-<div class="answers">
 
+    button.classList.add(
+        "correct"
+    );
 
-${answers.map(answer=>`
 
+    button.innerHTML += `
+        <br>
+        +${xp} XP
+    `;
 
-<button
-class="quiz-answer"
-data-word="${answer.word}">
 
-${answer.meaning}
+    checkAchievements();
 
-</button>
-
-
-`).join("")}
-
-
-</div>
-
-
-`;
-
-
-
-
-
-
-
-document
-.querySelectorAll(".quiz-answer")
-.forEach(button=>{
-
-
-button.onclick = function(){
-
-
-
-if(answering)
-return;
-
-
-answering = true;
-
-
-
-const chosen =
-dictionary.find(
-item =>
-item.word === button.dataset.word
-);
-
-
-
-if(chosen.word === question.word){
-
-
-const xp =
-getXPReward(question.rarity);
-
-
-
-const oldRankIndex =
-getCurrentRankIndex(blueberologyXP);
-
-
-blueberologyXP += xp;
-
-roundScore++;
-
-quizStreak++;
-
-if(quizStreak > bestStreak){
-    bestStreak = quizStreak;
 }
 
-updateStreakDisplay();
- 
-const newRankIndex =
-getCurrentRankIndex(blueberologyXP);
+
+function handleWrongAnswer(
+    button,
+    question
+) {
+
+    quizStreak = 0;
+
+    saveStreak();
+
+    updateStreakDisplay();
 
 
-localStorage.setItem(
-    "blueberologyXP",
-    blueberologyXP
-);
+    button.classList.add(
+        "wrong"
+    );
 
 
-if(newRankIndex > oldRankIndex){
+    quizBox
+        .querySelectorAll(".quiz-answer")
+        .forEach(btn => {
 
-    showRankUp(
-        ranks[newRankIndex]
+            if (
+                btn.dataset.word ===
+                question.word
+            ) {
+
+                btn.classList.add(
+                    "correct"
+                );
+
+            }
+
+        });
+
+}
+
+
+// ==========================================================
+// FINISH QUIZ
+// ==========================================================
+
+function finishQuiz() {
+
+    if (!quizBox) {
+        return;
+    }
+
+
+    if (roundScore === 5) {
+
+        perfectQuizzes++;
+
+
+        localStorage.setItem(
+            "blueberologyPerfect",
+            perfectQuizzes
+        );
+
+    }
+
+
+    checkAchievements();
+
+
+    quizBox.innerHTML = `
+
+        <h2>
+            Archive Complete
+        </h2>
+
+        <h3>
+            Round Score:
+            ${roundScore}/5
+        </h3>
+
+        <p>
+            Total XP:
+            ${blueberologyXP}
+        </p>
+
+        <p>
+            🔥 Current Streak:
+            ${quizStreak}
+        </p>
+
+        <p>
+            🏆 Best Streak:
+            ${bestStreak}
+        </p>
+
+        ${
+            roundScore === 5
+                ? `
+                    <p>
+                        💨 Perfect Quiz!
+                    </p>
+                `
+                : ""
+        }
+
+        <button
+            id="restartQuiz"
+            class="cta-button"
+            type="button"
+        >
+            Run Again
+        </button>
+
+    `;
+
+
+    updateRank();
+
+    updateStreakDisplay();
+
+
+    const restart =
+        document.getElementById(
+            "restartQuiz"
+        );
+
+
+    if (restart) {
+
+        restart.addEventListener(
+            "click",
+            createQuiz
+        );
+
+    }
+
+}
+
+
+// ==========================================================
+// START QUIZ BUTTON
+// ==========================================================
+
+if (startQuiz) {
+
+    startQuiz.addEventListener(
+        "click",
+        createQuiz
     );
 
 }
 
 
+// ==========================================================
+// INITIALIZE EVERYTHING
+// ==========================================================
 
-localStorage.setItem(
-"blueberologyXP",
-blueberologyXP
+createCategoryButtons();
+
+displayWordOfDay();
+
+updateCountdown();
+
+setInterval(
+    updateCountdown,
+    1000
 );
 
-
-
-button.classList.add(
-"correct"
-);
-
-
-
-button.innerHTML +=
-`
-<br>
-+${xp} XP
-`;
-
-
-
-}
-
-else{
-
- quizStreak = 0;
-
-button.classList.add(
-"wrong"
-);
-
-
-
-document
-.querySelectorAll(".quiz-answer")
-.forEach(btn=>{
-
-
-if(btn.dataset.word === question.word){
-
-btn.classList.add(
-"correct"
-);
-
-}
-
-
-});
-
-
-}
-
-
-
-document
-.querySelectorAll(".quiz-answer")
-.forEach(btn=>{
-
-btn.disabled=true;
-
-});
-
-
-
-
-setTimeout(()=>{
-
-
-currentQuestion++;
-
-
-
-if(currentQuestion < quizQuestions.length){
-
-showQuestion();
-
-}
-
-else{
-
-finishQuiz();
-
-}
-
-
-
-},800);
-
-
-
-};
-
-
-});
-
-
-}
-
-
-
-
-
-
-
-// ==========================
-// FINISH QUIZ
-// ==========================
-
-
-function finishQuiz(){
-
-
-if(!quizBox)
-return;
-
-
-
-quizBox.innerHTML = `
-
-
-<h2>
-Archive Complete
-</h2>
-
-
-<h3>
-Round Score:
-${roundScore}/5
-</h3>
-
-
-<p>
-Total XP:
-${blueberologyXP}
-</p>
-
-
-<button
-id="restartQuiz"
-class="cta-button">
-
-Run Again
-
-</button>
-
-
-`;
-
-
+renderDictionary();
 
 updateRank();
 
-
-
-const restart =
-document.getElementById("restartQuiz");
-
-
-
-if(restart){
-
-restart.onclick = createQuiz;
-
-}
-
-
-}
-
-
-function updateStreakDisplay(){
-
-    const streak =
-    document.getElementById("quizStreak");
-
-    const best =
-    document.getElementById("bestStreak");
-
-    if(streak){
-        streak.textContent = quizStreak;
-    }
-
-    if(best){
-        best.textContent = bestStreak;
-    }
-
-}
-
-
-
-
-if(startQuiz){
-
-startQuiz.onclick = createQuiz;
-
-}
-
-
-
-updateRank();
 updateStreakDisplay();
+
+updateCollection();
+
+renderAchievements();
+
+checkAchievements();
