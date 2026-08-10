@@ -1362,9 +1362,32 @@ getXPReward(question.rarity);
 
 
 
+const oldRankIndex =
+getCurrentRankIndex(blueberologyXP);
+
+
 blueberologyXP += xp;
 
 roundScore++;
+
+
+const newRankIndex =
+getCurrentRankIndex(blueberologyXP);
+
+
+localStorage.setItem(
+    "blueberologyXP",
+    blueberologyXP
+);
+
+
+if(newRankIndex > oldRankIndex){
+
+    showRankUp(
+        ranks[newRankIndex]
+    );
+
+}
 
 
 
